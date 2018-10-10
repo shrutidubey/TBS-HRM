@@ -1,0 +1,79 @@
+
+.cont{
+    position: relative;
+    width: 50%;
+    height: auto;
+    padding: 10px 25px;
+    margin: 10vh auto;
+    background-color: #f5f5f5;
+    border-color: #3598dc;
+    border-radius: 8px;
+    border-style: inset;
+  }
+  
+  .form {
+      width: 100%;
+      height: 100%; 
+  }
+  
+  h1, h2, .user, .pass{ 
+    text-align: center;
+    display: block;
+  }
+  
+  h1{ 
+    color: #606060;
+    font-weight: bold;
+    font-size: 40px;
+    margin: 30px auto;
+  }
+  
+  .user, .pass, .login{
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 30px;
+  }
+  
+  .user, .pass{ background: #fff; }
+  
+  .login{
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    background: #3598dc;
+    transition: background 0.4s ease;
+  }
+
+  .register{
+    color:blue;
+  }
+  
+  .log_img  {
+      margin-top: 8%;
+      width: 100px;
+      height: 100px;
+      margin-left: 38%;
+  }
+
+  .login:hover{ background: #3570dc; }
+  
+  @media only screen and (min-width : 280px) {
+    .cont{ width: 90% }
+  }
+  
+  @media only screen and (min-width : 480px) {
+    .cont{ width: 60% }
+  }
+  
+  @media only screen and (min-width : 768px) {
+    .cont{ width: 40% }
+  }
+  
+  @media only screen and (min-width : 992px) {
+    .cont{ width: 45% }
+  }
+  

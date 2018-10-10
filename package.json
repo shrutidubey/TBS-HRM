@@ -1,0 +1,24 @@
+{
+  "name": "tbshrm",
+  "version": "1.0.0",
+  "description": "MEAN STACK TBSHRM",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "@angular/cli": "^6.2.3",
+    "angular2-jwt": "^0.2.3",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-jwt": "*"
+  },
+  "author": "Shruti Dubey",
+  "license": "ISC"
+}
