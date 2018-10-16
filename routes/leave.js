@@ -6,6 +6,8 @@ const config = require('../config/leavedatabase');
 const Leave = require('../models/leave');
 var count1 = require('./adminleave');
 var ObjectId = require('mongoose').Types.ObjectId;
+const mongoose = require('mongoose')
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 /*
 router.post('/register',(req,res,next)=>{
 //res.send('Register');
@@ -38,7 +40,8 @@ if(err){
             fromdate:req.body.fromdate,
             todate:req.body.todate,
             leavereason:req.body.leavereason,
-            leavecount:count,
+             leavecount:count,
+           //leavecont:count1.adminleave.leavecount,
             status:"pending"
         });
         

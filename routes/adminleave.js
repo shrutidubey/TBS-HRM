@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/leavedatabase');
 const Adminleave = require('../models/leave');
 var ObjectId = require('mongoose').Types.ObjectId;
+const mongoose = require('mongoose')
+const AutoIncrement = require('mongoose-sequence')(mongoose);
     
      router.post('/',(req,res)=>{
        var adminleave = new Adminleave({
@@ -57,14 +59,14 @@ var ObjectId = require('mongoose').Types.ObjectId;
             }
        });
        });
-        count = 18;
+       count = 18;
 
        router.put('/:id',(req,res)=>{
         if(!ObjectId.isValid(req.params.id))
         return res.status(400).send('No record with given id:',$(req.params.id));
        
         var adminleave = {
-        
+            
             empname: req.body.empname,
             leavetype:req.body.leavetype,
             fromdate:req.body.fromdate,
@@ -79,6 +81,7 @@ var ObjectId = require('mongoose').Types.ObjectId;
                 //console.log("leave count:"+leavecount);
               //  count = count - 1;
                 res.send(doc);
+              // count = count - 1;
             }
             else{
                 console.log('Error in status Update:'+JSON.stringify(err,undefined,2));
@@ -109,4 +112,5 @@ var ObjectId = require('mongoose').Types.ObjectId;
 /*module.exports.count = function(){
 return count;
 }*/
+
 module.exports = router;

@@ -37,6 +37,7 @@ const LeaveSchema = mongoose.Schema({
 });
 
 const Leave = module.exports = mongoose.model('Leave',LeaveSchema);
+//UserSchema.plugin(AutoIncrement, {inc_field: 'leavecount'});
 
 module.exports.getById = function(id,callback){
     Leave.findById(id,callback);
