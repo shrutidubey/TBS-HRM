@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {EventService} from '../../services/event.service';
+import {LeaveService} from '../../services/leave.service';
 import {Event} from '../../shared/event.model';
 //declare var M: any;
 
@@ -8,7 +9,7 @@ import {Event} from '../../shared/event.model';
   selector: 'app-events',
   templateUrl: './events.component.html',
   styleUrls: ['./events.component.css'],
-  providers:[EventService]
+  providers:[EventService,LeaveService]
 })
 export class EventsComponent implements OnInit {
 

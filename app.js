@@ -42,6 +42,7 @@ const users = require('./routes/users');
 const events = require('./routes/events');
 const leaves = require('./routes/leave');
 const adminleave = require('./routes/adminleave');
+const adminrejectleave = require('./routes/adminrejectleave');
 const port = 9008;
 
 app.use(cors({origin:'http://localhost:4200'}));
@@ -60,6 +61,7 @@ app.use('/users',users);
 app.use('/events',events);
 app.use('/leaves',leaves);
 app.use('/adminleave',adminleave);
+app.use('/adminrejectleave',adminrejectleave);
 
 app.get('/',(req,res)=>{
     res.send("Invalid endpoint");

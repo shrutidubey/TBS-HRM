@@ -28,11 +28,12 @@ const LeaveSchema = mongoose.Schema({
         type:String,
         required:true
     },
+    leavecount:{
+        type:String
+    },
     status:{
         type:String
     }
-
-
 });
 
 const Leave = module.exports = mongoose.model('Leave',LeaveSchema);

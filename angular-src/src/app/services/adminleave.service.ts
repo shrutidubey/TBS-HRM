@@ -11,6 +11,7 @@ export class AdminleaveService {
   selectedAdminleave: Adminleave;
   adminleaves:Adminleave[];
   readonly baseURL = 'http://localhost:9008/adminleave';
+  readonly baseURI = 'http://localhost:9008/adminrejectleave';
   constructor(private http:HttpClient) { }
 
   postAdminleave(adminleave:Adminleave){
@@ -18,13 +19,33 @@ export class AdminleaveService {
   
 }
 
+  
  getAdminleaveList(){
    return this.http.get(this.baseURL);
  }
+ 
+
 
  deleteAdminleaveList(_id:string){
   return this.http.delete(this.baseURL+`/${_id}`);
  }
+
+putAdminleave(adminleave:Adminleave){
+  return this.http.put(this.baseURL+`/${adminleave._id}`,adminleave);
+}
+/*
+putAdminleave1(){
+  return this.http.put(this.baseURL);
+}
+*/
+
+putAdminRejectleave(adminleave:Adminleave){
+return this.http.put(this.baseURI+`/${adminleave._id}`,adminleave)
+}
+deleteAdminleave(_id:string){
+  return this.http.delete(this.baseURL+`/${_id}`)
+}
+
 
 
 }

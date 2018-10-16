@@ -24,12 +24,6 @@ import { ManageemployeesComponent } from './components/manageemployees/manageemp
 import { EventsComponent } from './components/events/events.component';
 import { LeaveComponent } from './components/leave/leave.component';
 import { AdminleaveComponent } from './components/adminleave/adminleave.component';
-import { EmailService } from './services/email.service';
-import { EmailformComponent } from './components/emailform/emailform.component';
-
-
-
-
 
 const appRoutes:Routes = [
 
@@ -89,8 +83,7 @@ const appRoutes:Routes = [
     ManageemployeesComponent,
     EventsComponent,
     LeaveComponent,
-    AdminleaveComponent,
-    EmailformComponent
+    AdminleaveComponent
   ],
   imports: [
     BrowserModule,

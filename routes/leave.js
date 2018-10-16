@@ -4,6 +4,7 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/leavedatabase');
 const Leave = require('../models/leave');
+var count1 = require('./adminleave');
 var ObjectId = require('mongoose').Types.ObjectId;
 /*
 router.post('/register',(req,res,next)=>{
@@ -27,18 +28,20 @@ if(err){
 });
 });
 */
-
-
+   //var count = 18;
+     // var count = count1.count;
     router.post('/',(req,res)=>{
+      // count = count--;
        var leave = new Leave({
             empname:req.body.empname,
-          //  email:req.body.email,
             leavetype:req.body.leavetype,
             fromdate:req.body.fromdate,
             todate:req.body.todate,
             leavereason:req.body.leavereason,
-            status:req.body.status
+            leavecount:count,
+            status:"pending"
         });
+        
 
        leave.save((err,doc)=>{
             if(!err)
@@ -51,6 +54,14 @@ if(err){
         });
       
     });
+
+    
+
+
+
+
+
+
 /*
 router.post('/authenticate',(req,res,next)=>{
    // res.send('AUthenticate');
@@ -191,7 +202,6 @@ router.post('/authenticate',(req,res,next)=>{
        });
 
 
-      
-
+  
 
 module.exports = router;

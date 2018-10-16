@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/database1');
 const Event = require('../models/event');
 var ObjectId = require('mongoose').Types.ObjectId;
+var leave = require('../models/leave');
 
 router.post('/register',(req,res,next)=>{
 //res.send('Register');

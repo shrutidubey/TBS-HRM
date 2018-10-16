@@ -20,6 +20,12 @@ declare var M:any
 export class LeaveComponent implements OnInit {
    empname:String;
    leave:Leave;
+   leavetype:String;
+   fromdate:String;
+   todate:String;
+   leavereason:String;
+   status:String;
+
   constructor(private leaveService:LeaveService
     ,private authService:AuthService) { }
 
@@ -40,29 +46,21 @@ export class LeaveComponent implements OnInit {
       fromdate:null,
       todate:null,
       leavereason:"",
+      leavecount:"",
       status:""
     }
   }
 
   onSubmit(form:NgForm){
+   
     this.leaveService.postLeave(form.value).subscribe((res)=>{
+      
       this.resetForm(form);
          this.refreshLeaveList();
          console.log(this.empname);
     });
   }
-/*
-  refreshLeaveList(){
-    var username =this.authService.getUsername();
-    this.leaveService.getLeaveList().subscribe((res)=>{
-      
-      this.leaveService.leaves = res as Leave[];
-      console.log("leave.component.ts username"+username);
 
-      
-    });
-  }
-  */
 
   refreshLeaveList(){
     var username = this.authService.getUsername();
@@ -84,4 +82,5 @@ export class LeaveComponent implements OnInit {
     });
     }
     }
+    
 }

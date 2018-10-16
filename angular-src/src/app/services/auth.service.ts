@@ -13,6 +13,7 @@ export class AuthService {
 
   authToken:any;
   user:any;
+  leavedetails:any;
  
 
   constructor(private http:Http) { }
@@ -82,8 +83,10 @@ getUsername(){
     this.user = null;
     localStorage.clear();
 
-    
   }
+
+  
+
 /*
   router.get('/logout', function (req, res, next) {
     if (req.session) {

@@ -6,6 +6,7 @@ export class Leave {
     fromdate:string;
     todate:string;
     leavereason:string;
+    leavecount:string;
     status:string;
 
 
