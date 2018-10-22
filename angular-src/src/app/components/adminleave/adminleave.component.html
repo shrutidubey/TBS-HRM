@@ -4,21 +4,22 @@
       <div class="card-content white-text">
         <div class="row">
           <div class="col s5">
-            <form #adminleaveForm="ngForm" (ngSubmit)="onSubmit(adminleaveForm)" >
-              
-             <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave._id">
-            <div class="row">
+            <form #adminleaveForm="ngForm" (ngSubmit)="onSubmit(adminleaveForm)">
+
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave._id">
+              <div class="row">
                 <div class="input-field col s12">
-                  <input type="text" name="empname" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.empname" placeholder="Enter full name" required>
-                  <label>Employee Name :
+                  <input type="text" name="empname" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.empname" placeholder="Enter full name"
+                    required>
+                  <label>Employee Username :
                     <label class="red-text">*</label>
                   </label>
                 </div>
               </div>
-             <div class="row">
+              <div class="row">
                 <div class="input-field col s12">
                   <input type="text" name="leavetype" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.leavetype" placeholder="leave Type">
-                  <label>Leave Type</label>
+                  <label>Employee Email</label>
                 </div>
               </div>
               <div class="row">
@@ -40,19 +41,19 @@
                   <label>Leave Reason:</label>
                 </div>
               </div>
-           <div class="row">
-                  <div class="input-field col s12">
-                    <input type="text" name="leavecount" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.leavecount" placeholder="Leave count">
-                    <label>Leave Count:</label>
-                  </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="leavecount" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.leavecount" placeholder="Leave count">
+                  <label>Leave Count:</label>
                 </div>
+              </div>
 
               <div class="row">
-                  <div class="input-field col s12">
-                    <input type="text" name="status" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.status" placeholder="Status">
-                    <label>Status:</label>
-                  </div>
+                <div class="input-field col s12">
+                  <input type="text" name="status" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.status" placeholder="Status">
+                  <label>Status:</label>
                 </div>
+              </div>
               <div class="row">
                 <div class="input-field col s12">
                   <button class="btn btn-custom right" type="button" (click)="resetForm(adminleaveForm)">Reset</button>
@@ -62,52 +63,42 @@
             </form>
           </div>
           <div class="col s7">
-              <table class="responsive-table highlight">
-                  <thead class="thead">
-                    <tr>
-                      <th>Employee Name</th>
-                      <th>Leave Type</th>
-                      <th>From Date</th>
-                      <th>To Date</th>
-                      <th>Leave Reason</th>
-                    <th>Leave Count</th>
-                      <th>Status</th>
-                      <th>
-                    <!--  <div class="row">
-                        <div class="input-field col s12">
-                         <input type="text" name="accetreject" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.acceptreject" placeholder="Accept/Reject">
-                          <label>Leave Reason:</label>
-                        </div>
-                      </div>-->
-                      </th>
-                    </tr>
-                  </thead>
-                  <tr *ngFor="let adminleave of adminleaveService.adminleaves">
-                    <td>{{adminleave.empname}}</td>
-                    <td>{{adminleave.leavetype}}</td>
-                    <td>{{adminleave.fromdate}}</td>
-                    <td>{{adminleave.todate}}</td>
-                    <td>{{adminleave.leavereason}}</td>
-                    <td>{{adminleave.leavecount}}</td>
-                    <td>{{adminleave.status}}</td>
-                  <!--  <td>{{accepted}}</td>-->
-                   <td>
-                     <!--<div class="row">
-                      <div class="input-field col s12">
-                        <input type="text" name="accetreject" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.acceptreject" placeholder="Accept/Reject">
-                        <label>Leave Reason:</label>
-                      </div>
-                    </div>--></td>
-                    <td>
-                        <a class="action-btn" (click)="onAccept(adminleave)">
-                          <i class="material-icons">Action</i>
-                        </a>
-                       <a class="action-btn" (click)="onReject(adminleave._id,adminleaveForm)">
-                          <i class="material-icons">Remove</i>
-                        </a>
-                      </td>
-                  </tr>
-                </table>
+            <table class="responsive-table highlight">
+              <thead class="thead">
+                <tr>
+                  <th>Employee Name</th>
+                  <th>Employee Email</th>
+                  <th>From Date</th>
+                  <th>To Date</th>
+                  <th>Leave Reason</th>
+                  <th>Leave Count</th>
+                  <th>Status</th>
+                  <th>
+
+                  </th>
+                </tr>
+              </thead>
+              <tr *ngFor="let adminleave of adminleaveService.adminleaves">
+                <td>{{adminleave.empname}}</td>
+                <td>{{adminleave.leavetype}}</td>
+                <td>{{adminleave.fromdate}}</td>
+                <td>{{adminleave.todate}}</td>
+                <td>{{adminleave.leavereason}}</td>
+                <td>{{adminleave.leavecount}}</td>
+                <td>{{adminleave.status}}</td>
+
+                <td>
+                </td>
+                <td>
+                  <a class="action-btn" (click)="onAccept(adminleave)">
+                    <i class="material-icons">Action</i>
+                  </a>
+                  <a class="action-btn" (click)="onReject(adminleave._id,adminleaveForm)">
+                    <i class="material-icons">Remove</i>
+                  </a>
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>

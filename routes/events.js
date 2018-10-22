@@ -8,7 +8,7 @@ var ObjectId = require('mongoose').Types.ObjectId;
 var leave = require('../models/leave');
 
 router.post('/register',(req,res,next)=>{
-//res.send('Register');
+
 
 let newUser = new User({
     name:req.body.name,
@@ -52,7 +52,7 @@ if(err){
     });
 
 router.post('/authenticate',(req,res,next)=>{
-   // res.send('AUthenticate');
+  
 
 
    const username = req.body.username;
@@ -96,7 +96,7 @@ router.post('/authenticate',(req,res,next)=>{
 
 
     router.get('/profile',passport.authenticate('jwt',{session:false}),(req,res,next)=>{
-        //res.send('PROFILE');
+       
 
         res.json({user:req.user});
         });

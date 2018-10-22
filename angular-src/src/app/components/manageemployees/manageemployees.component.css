@@ -48,4 +48,57 @@ a.action-btn:hover{
     bottom: 10%;
     left:7%;
   }
-  
+  .input-field.col.s12 label {
+    width: 25%;
+    text-align: center;
+    font-weight: bold;
+}
+.input-field.col.s12 input {
+    height: 36px;
+    width: 50%;
+    padding-left: 15px;
+}
+.input-field.col.s12 {
+    text-align: center;
+}
+button.btn.btn-custom.right {
+    margin: 5px;
+    width: 120px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-image: linear-gradient(to right, #eb8024, #eb8024, #eb8024, #eb8024);
+}
+.row    {
+    margin-right: 0px;
+    margin-top: 20px;
+}
+table.responsive-table.highlight th {
+    width: 1%;
+}
+
+.material-icons {
+    /* width: 120px; */
+    padding: 7px 13px 7px 13px;
+    border-radius: 3px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-image: linear-gradient(to right, #eb8024, #eb8024, #eb8024, #eb8024);
+}
+form.ng-untouched.ng-pristine.ng-invalid {
+    border-right: 2px solid;
+    margin-bottom: 30px;
+}
+tr {
+    border-bottom: 2px solid #fff;
+    background-color: #f5f5f5;
+}
+td {
+    width: 15%;
+    height: 45px;
+    text-align: center;
+}
+th {
+    text-align: center;
+}

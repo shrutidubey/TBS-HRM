@@ -1,50 +1,46 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import 'rxjs'
-import {Adminleave} from '../shared/adminleave.model';
+import { Adminleave } from '../shared/adminleave.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminleaveService {
   selectedAdminleave: Adminleave;
-  adminleaves:Adminleave[];
+  adminleaves: Adminleave[];
   readonly baseURL = 'http://localhost:9008/adminleave';
   readonly baseURI = 'http://localhost:9008/adminrejectleave';
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  postAdminleave(adminleave:Adminleave){
-    return this.http.post(this.baseURL,adminleave);
-  
-}
+  postAdminleave(adminleave: Adminleave) {
+    return this.http.post(this.baseURL, adminleave);
 
-  
- getAdminleaveList(){
-   return this.http.get(this.baseURL);
- }
- 
+  }
 
 
- deleteAdminleaveList(_id:string){
-  return this.http.delete(this.baseURL+`/${_id}`);
- }
+  getAdminleaveList() {
+    return this.http.get(this.baseURL);
+  }
 
-putAdminleave(adminleave:Adminleave){
-  return this.http.put(this.baseURL+`/${adminleave._id}`,adminleave);
-}
-/*
-putAdminleave1(){
-  return this.http.put(this.baseURL);
-}
-*/
 
-putAdminRejectleave(adminleave:Adminleave){
-return this.http.put(this.baseURI+`/${adminleave._id}`,adminleave)
-}
-deleteAdminleave(_id:string){
-  return this.http.delete(this.baseURL+`/${_id}`)
-}
+
+  deleteAdminleaveList(_id: string) {
+    return this.http.delete(this.baseURL + `/${_id}`);
+  }
+
+  putAdminleave(adminleave: Adminleave) {
+    return this.http.put(this.baseURL + `/${adminleave._id}`, adminleave);
+  }
+
+
+  putAdminRejectleave(adminleave: Adminleave) {
+    return this.http.put(this.baseURI + `/${adminleave._id}`, adminleave)
+  }
+  deleteAdminleave(_id: string) {
+    return this.http.delete(this.baseURL + `/${_id}`)
+  }
 
 
 

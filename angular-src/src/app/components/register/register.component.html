@@ -1,7 +1,7 @@
 
 
-<h2 class="page-header">Register</h2>
-<form (submit)="onRegisterSubmit()">
+<!--<h2 class="page-header">Register</h2>
+
 <div class="form-group">
   <label>Name</label>
   <input type="text" [(ngModel)]="name" name="name" class="form-control">
@@ -21,12 +21,57 @@
               <input type="text"  [(ngModel)]="password" name="password" class="form-control">
               </div>
 
-<input type="submit" class="btn btn-primary" value="Submit">
+<input type="submit" class="btn btn-primary" value="Submit">-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <!-- <img src="/assets/images/logo-dark (1).png" alt=""/> -->
+            <h3>Welcome</h3>
+            <p>You are 30 seconds away from earning your own money!</p>
+        </div>
+        <div class="col-md-9 register-right">            
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Register</h3>
+                    <div class="row register-form">
+                        <div class="col-md-12">
+                            <form (submit)="onRegisterSubmit()">
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="name" name="name" class="form-control" placeholder="First Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text"  [(ngModel)]="username" name="username" class="form-control" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <input type="text"  [(ngModel)]="email" name="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="text"  [(ngModel)]="password" name="password" class="form-control" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <div class="maxl">
+                                    <label class="radio inline"> 
+                                        <input type="radio" name="gender" value="male" checked>
+                                        <span> Male </span> 
+                                    </label>
+                                    <label class="radio inline"> 
+                                        <input type="radio" name="gender" value="female">
+                                        <span>Female </span> 
+                                    </label>
+                                </div>
+                            </div>
+                            <input type="submit" class="btn btn-primary" value="Submit">
+                          </form>
+                        </div>                        
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
             
-
-
-
-
-
-
-

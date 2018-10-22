@@ -1,7 +1,19 @@
 <!doctype html>
 <html lang="en">
+		
+		
+		
 
 <head>
+<!--	<script type="text/javascript">
+			 $(document).ready(function() {
+        function disableBack() { window.history.forward() }
+
+        window.onload = disableBack();
+        window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+    });
+		</script>-->
+		
 	<title>Employe Dashboard</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -111,8 +123,9 @@
 }
 
 	</style>
-<body>
-    
+<!--<body onload="noBack();" 
+onpageshow="if (event.persisted) noBack();" onunload="">-->
+    <body>
 	<!-- WRAPPER -->
 	<div id="wrapper">
 		<!-- NAVBAR -->
@@ -266,6 +279,7 @@
 	<script src="/assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="/assets/scripts/klorofil-common.js"></script>
 	<script>
+		
 	$(function() {
 		var data, options;
 
@@ -382,6 +396,8 @@
 		}
 
 	});
+		
+		
 	</script>
 </body>
 
