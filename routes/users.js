@@ -7,14 +7,15 @@ const User = require('../models/user');
 var ObjectId = require('mongoose').Types.ObjectId;
 
 router.post('/register', (req, res, next) => {
-
+    console.log("hey register"+req.body.name)
 
     let newUser = new User({
         name: req.body.name,
         email: req.body.email,
         username: req.body.username,
         password: req.body.password,
-        gender:req.body.gender
+        gender:req.body.gender,
+        role:req.body.role
 
     });
 
@@ -31,11 +32,13 @@ router.post('/register', (req, res, next) => {
 
 
 router.post('/', (req, res) => {
+    console.log("hey")
     var emp = new User({
         name: req.body.name,
         email: req.body.email,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        role:req.body.role
     });
 
     emp.save((err, doc) => {
@@ -136,7 +139,8 @@ router.put(':/id', (req, res) => {
         name: req.body.name,
         email: req.body.email,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        role:req.body.role
     };
 
     User.findByIdAndUpdate(req.params.id, { $set: emp }, { new: true }, (err, doc) => {

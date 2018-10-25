@@ -20,6 +20,7 @@ export class ManageemployeesComponent implements OnInit {
   username: String;
   email: String;
   password: String;
+  role:String
 
   constructor(private employeeService: EmployeeService,
     private validateService: ValidateService,
@@ -31,6 +32,7 @@ export class ManageemployeesComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
     this.refreshEmployeeList();
+    this.authService.checkManageEmployees();
   }
 
   resetForm(form?: NgForm) {
@@ -42,7 +44,8 @@ export class ManageemployeesComponent implements OnInit {
       name: "",
       email: "",
       username: "",
-      password: ""
+      password: "",
+      role:""
     }
   }
 
@@ -56,6 +59,7 @@ export class ManageemployeesComponent implements OnInit {
         email: this.email,
         username: this.username,
         password: this.password,
+        role:this.role
       }
 
       if (!this.validateService.validateRegister(user)) {
@@ -106,7 +110,7 @@ export class ManageemployeesComponent implements OnInit {
     console.log("edit");
     this.flashMessage.show('you can now edit the employee details', { cssClass: 'alert-succes', timeout: 3000 });
     this.employeeService.selectedEmployee = emp;
-    console.log(this.employeeService.selectedEmployee);
+    console.log("the selected employee is"+this.employeeService.selectedEmployee);
 
   }
 

@@ -17,13 +17,8 @@ export class DashboardComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-    this.location.subscribe(currentLocation => {
-      if (currentLocation.url === '/dashboard') {
-          window.onpopstate = function (event) {
-              history.go(1);
-          }
-      }
-      });
+   this.authService.checkUserLogged();
+   
   }
 
   onLogoutClick(){

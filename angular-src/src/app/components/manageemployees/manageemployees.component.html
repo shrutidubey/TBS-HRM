@@ -109,6 +109,12 @@
                   <input type="password" name="password"   [(ngModel)]="password"  placeholder="password">
                   </div>
               </div>
+              <div class="row">
+                  <div class="input-field col s12">
+                      <label>Role Assigned:</label>
+                    <input type="text" name="role"   [(ngModel)]="role" placeholder="Eg:Admin">
+                   </div>
+                </div>
           <!--   <div class="form-group">
                 <div class="maxl">
                     <label class="radio inline"> 
@@ -137,6 +143,7 @@
                       <th>Name</th>
                       <th>Email</th>
                       <th>Username</th>
+                      <th>Role</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -144,8 +151,9 @@
                     <td>{{emp.name}}</td>
                     <td>{{emp.email}}</td>
                     <td>{{emp.username}}</td>
+                    <td>{{emp.role}}</td>
                     <td>
-                        <a class="action-btn" (click)="onEdit(emp)">
+                       <a class="action-btn" (click)="onEdit(emp)">
                           <b class="material-icons">Edit</b>
                         </a>
                         <a class="action-btn" (click)="onDelete(emp._id,employeeForm)">

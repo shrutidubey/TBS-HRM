@@ -32,6 +32,7 @@ export class LeaveComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
     this.refreshLeaveList();
+    this.authService.checkEmployeeLeave();
   }
 
   resetForm(form?: NgForm) {

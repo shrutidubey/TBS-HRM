@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
 
 
     this.authService.storeUsername(user){
+      
 
       console.log("login.component.ts" + user.username);
 

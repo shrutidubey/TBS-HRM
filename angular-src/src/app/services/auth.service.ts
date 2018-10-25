@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Session } from 'protractor';
-
-
+import {FlashMessagesService} from 'angular2-flash-messages';
+import { Router } from '@angular/router';
 var logusername;
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,9 @@ export class AuthService {
   leavedetails: any;
 
 
-  constructor(private http: Http) { }
+  constructor(private http: Http,
+    private router:Router,
+  private flashMessage:FlashMessagesService) { }
 
 
   registerUser(user) {
@@ -64,6 +66,9 @@ export class AuthService {
     this.user = user;
     console.log(this.user);
 
+   //var abc =  localStorage.getItem('user');
+   //console.log("new method"+abc);
+
   }
 
   loadToken() {
@@ -90,8 +95,110 @@ export class AuthService {
     localStorage.clear();
 
   }
+  checkUserLogged(){
+  
+   // var exists =  localStorage.getItem('user');
+    var exists =  JSON.parse(localStorage.getItem('user'));
+    var localStorageUsername = exists.username;
+    if(exists)
+    console.log("yes yes")
+    if(localStorageUsername!="admin"){
+    if(exists){
+      this.router.navigate(['dashboard']);
+      console.log("new method"+exists)
+
+    }
+  }
+    else{
+      this.router.navigate(['login']);
+      this.flashMessage.show('Please Login to continue',{
+        cssClass:'alert-success',
+        timeout:3000
+    
+      });
+    }
+    }
+  
+
+  checkAdminDashboard(){
+    var exists =  JSON.parse(localStorage.getItem('user'));
+    var localStorageUsername = exists.username;
+    if(localStorageUsername==="admin"){
+    if(this.authToken){
+      this.router.navigate(['admindashboard']);
+    }
+  }
+    else{
+      this.router.navigate(['login']);
+      this.flashMessage.show('Please Login to continue',{
+        cssClass:'alert-success',
+        timeout:3000
+    
+      });
+    }
+  }
 
 
+  checkManageEmployees(){
+    var exists =  JSON.parse(localStorage.getItem('user'));
+    var localStorageUsername = exists.username;
+    if(localStorageUsername==="admin"){
+    if(this.authToken){
+      this.router.navigate(['manageemployees']);
+    }
+  }
+    else{
+      this.router.navigate(['login']);
+      this.flashMessage.show('Please Login to continue',{
+        cssClass:'alert-success',
+        timeout:3000
+    
+      });
+    }
+  }
 
+  checkEmployeeLeave(){
+    var exists =  JSON.parse(localStorage.getItem('user'));
+    var localStorageUsername = exists.username;
+    console.log("whole value"+localStorageUsername )
+    
+    if(localStorageUsername!="admin"){
+    if(exists ){
+      this.router.navigate(['manageleaves']);
+    }
+  }
+    else{
+      this.router.navigate(['login']);
+      this.flashMessage.show('Please Login to continue',{
+        cssClass:'alert-success',
+        timeout:3000
+    
+      });
+    }
 
+  
+  }
+
+  
+  checkAdminLeave(){
+    var exists =  JSON.parse(localStorage.getItem('user'));
+    var localStorageUsername = exists.username;
+    if(localStorageUsername==="admin"){
+    if(this.user){
+
+      this.router.navigate(['adminleave']);
+    }
+  }
+    else{
+      this.router.navigate(['login']);
+      this.flashMessage.show('Please Login to continue',{
+        cssClass:'alert-success',
+        timeout:3000
+    
+      });
+    }
+  }
+  
 }
+
+

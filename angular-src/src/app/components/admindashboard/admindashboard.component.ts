@@ -14,6 +14,7 @@ export class AdmindashboardComponent implements OnInit {
   private flashMessage:FlashMessagesService) { }
 
   ngOnInit() {
+    this.authService.checkAdminDashboard();
   }
 
   onLogoutClick(){

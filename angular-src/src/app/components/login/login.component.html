@@ -1,5 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ 
+    <script type="text/javascript">
+      function noBack()
+       {
+           window.history.forward()
+       }
+      noBack();
+      window.onload = noBack;
+      window.onpageshow = function(evt) { if (evt.persisted) noBack() }
+      window.onunload = function() { void (0) }
+  </script>
 
-
+  </head>
+  <body >
 <div class="cont">  
   <div class="form">
     <form (submit)="onLoginSubmit()">
@@ -24,3 +38,6 @@
   </form>
   </div>  
 </div>
+</body>
+
+</html>

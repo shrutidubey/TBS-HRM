@@ -8,6 +8,7 @@ import { Adminleave } from '../../shared/adminleave.model';
 import { LeaveService } from '../../services/leave.service';
 import { Leave } from '../../shared/leave.model';
 
+
 declare var M: any;
 @Component({
   selector: 'app-adminleave',
@@ -17,11 +18,13 @@ declare var M: any;
 })
 export class AdminleaveComponent implements OnInit {
 
-  constructor(private adminleaveService: AdminleaveService) { }
+  constructor(private adminleaveService: AdminleaveService,
+    private authService:AuthService) { }
 
   ngOnInit() {
     this.resetForm();
     this.refreshAdminleaveList();
+    this.authService.checkAdminLeave();
   }
 
   onSubmit(form: NgForm) {

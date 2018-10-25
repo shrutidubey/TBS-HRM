@@ -24,8 +24,11 @@ const UserSchema = mongoose.Schema({
     gender:{
         type:String,
         //required:true
+    },
+    role:{
+        type:String,
+       // required:true
     }
-
 
 });
 
@@ -58,3 +61,4 @@ module.exports.comparePassword = function (candidatePassword, hash, callback) {
 
     });
 }
+ 
