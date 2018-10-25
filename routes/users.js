@@ -13,7 +13,9 @@ router.post('/register', (req, res, next) => {
         name: req.body.name,
         email: req.body.email,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        gender:req.body.gender
+
     });
 
     User.addUser(newUser, (err, user) => {
@@ -46,7 +48,20 @@ router.post('/', (req, res) => {
     });
 
 });
-
+/*
+router.get('/logout', function (req, res, next) {
+    if (req.session) {
+    req.session.destroy(function (err) {
+    if (err) {
+    return next(err)
+    }
+    else {
+    return res.redirect('/')
+    }
+    });
+    }
+    });
+    */
 router.post('/authenticate', (req, res, next) => {
 
 

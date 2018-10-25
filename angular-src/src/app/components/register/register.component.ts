@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
   username: String;
   email: String;
   password: String;
+  gender:String;
 
   constructor(private validateService: ValidateService,
     private flashMessage: FlashMessagesService,
@@ -34,7 +35,8 @@ export class RegisterComponent implements OnInit {
       name: this.name,
       email: this.email,
       username: this.username,
-      password: this.password
+      password: this.password,
+      gender:this.gender
     }
     console.log(this.name);
     if (!this.validateService.validateRegister(user)) {

@@ -28,8 +28,7 @@ const LeaveSchema = mongoose.Schema({
     },
     leavecount: {
         type: Number,
-
-
+       default: 18
     },
     status: {
         type: String

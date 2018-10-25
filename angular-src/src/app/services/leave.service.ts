@@ -12,11 +12,15 @@ export class LeaveService {
   readonly baseURL = 'http://localhost:9008/leaves';
 
   constructor(private http: HttpClient) { }
-
+/*
   postLeave(leave: Leave) {
     return this.http.post(this.baseURL, leave);
   }
+  */
 
+ postLeave(leave: Leave) {
+  return this.http.post(this.baseURL ,leave);
+}
   getLeaveList() {
 
     return this.http.get(this.baseURL);

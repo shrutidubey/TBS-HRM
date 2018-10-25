@@ -1,4 +1,5 @@
 const express = require('express');
+//var popup = require('popups')
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -10,6 +11,13 @@ const config2 = require('./config/leavedatabase');
 const routes = require('./models/user.js');
 const routes1 = require('./models/event.js');
 const routes2 = require('./models/leave.js');
+var flash = require('connect-flash');
+var JSAlert = require("js-alert");
+
+
+empname = "test";
+person = ["a"];
+a="abc"
 mongoose.connect(config.database);
 mongoose.connect(config1.database1);
 mongoose.connect(config2.leavedatabase);
@@ -43,6 +51,7 @@ const events = require('./routes/events');
 const leaves = require('./routes/leave');
 const adminleave = require('./routes/adminleave');
 const adminrejectleave = require('./routes/adminrejectleave');
+const getleavecount = require('./routes/getleavecount');
 const port = 9008;
 
 app.use(cors({ origin: 'http://localhost:4200' }));
@@ -62,6 +71,7 @@ app.use('/events', events);
 app.use('/leaves', leaves);
 app.use('/adminleave', adminleave);
 app.use('/adminrejectleave', adminrejectleave);
+//app.use('/getleavecount',getleavecount);
 
 app.get('/', (req, res) => {
     res.send("Invalid endpoint");
