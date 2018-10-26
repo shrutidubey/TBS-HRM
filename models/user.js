@@ -45,13 +45,23 @@ module.exports.getUserByUsername = function (username, callback) {
 module.exports.addUser = function (newUser, callback) {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
-
+            console.log("original password"+newUser.password);
             newUser.password = hash;
+            console.log("new password"+newUser.password);
             newUser.save(callback);
         });
     });
 }
 
+module.exports.editUser = function(newUser,callback){
+    bcrypt.genSalt(10,(err,salt)=>{
+        bcrypt.hash(newUser.password,salt,(err,hash)=>{
+            newUser.password = hash;
+           //console.log("hashed password"newUser.password));
+           // newUser.findByIdAndUpdate(callbakck);
+        });
+    });
+}
 
 module.exports.comparePassword = function (candidatePassword, hash, callback) {
     bcrypt.compare(candidatePassword, hash, function (err, isMatch) {

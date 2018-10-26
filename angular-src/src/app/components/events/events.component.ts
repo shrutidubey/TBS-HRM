@@ -60,7 +60,7 @@ export class EventsComponent implements OnInit {
   }
 
   onEdit(event: Event) {
-    this.eventService.selectedEvent = event;
+  this.eventService.selectedEvent = event;
   }
 
   onDelete(_id: string, form: NgForm) {

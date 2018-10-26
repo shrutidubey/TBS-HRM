@@ -95,20 +95,23 @@ export class AuthService {
     localStorage.clear();
 
   }
+  
   checkUserLogged(){
   
    // var exists =  localStorage.getItem('user');
-    var exists =  JSON.parse(localStorage.getItem('user'));
-    var localStorageUsername = exists.username;
-    if(exists)
-    console.log("yes yes")
-    if(localStorageUsername!="admin"){
-    if(exists){
+    var exists =  localStorage.getItem('user');
+   //var localStorageUsername =JSON.parse(localStorage.getItem('user'));
+ //   var localStorageUsername = exists.username;
+    //if(exists)
+  //console.log("yes yes"+localStorageUsername.username);
+   
+    if(exists&&JSON.parse(localStorage.getItem('user')).username!="admin"){
+      
       this.router.navigate(['dashboard']);
       console.log("new method"+exists)
 
     }
-  }
+    
     else{
       this.router.navigate(['login']);
       this.flashMessage.show('Please Login to continue',{
@@ -118,16 +121,33 @@ export class AuthService {
       });
     }
     }
+
   
 
   checkAdminDashboard(){
     var exists =  JSON.parse(localStorage.getItem('user'));
-    var localStorageUsername = exists.username;
+    /*var localStorageUsername = exists.username;
     if(localStorageUsername==="admin"){
     if(this.authToken){
       this.router.navigate(['admindashboard']);
     }
   }
+    else{
+      this.router.navigate(['login']);
+      this.flashMessage.show('Please Login to continue',{
+        cssClass:'alert-success',
+        timeout:3000
+    
+      });
+    }*/
+
+    if(exists&&JSON.parse(localStorage.getItem('user')).username==="admin"){
+      
+      this.router.navigate(['admindashboard']);
+      console.log("new method"+exists)
+
+    }
+    
     else{
       this.router.navigate(['login']);
       this.flashMessage.show('Please Login to continue',{
@@ -198,6 +218,8 @@ export class AuthService {
       });
     }
   }
+
+  
   
 }
 

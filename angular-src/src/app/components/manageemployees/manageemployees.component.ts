@@ -52,7 +52,7 @@ export class ManageemployeesComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
-      console.log(this.name);
+    console.log(this.name);
       console.log(this.email);
       const user = {
         name: this.name,
@@ -85,15 +85,17 @@ export class ManageemployeesComponent implements OnInit {
         }
       })
 
-    }
+ 
+  }
     else {
 
       this.employeeService.putEmployee(form.value).subscribe((res) => {
-        this.resetForm(form);
+       this.resetForm(form);
         this.refreshEmployeeList();
 
       });
 
+      
     }
 
   }
@@ -106,14 +108,44 @@ export class ManageemployeesComponent implements OnInit {
 
     });
   }
-  onEdit(emp: Employee) {
+onEdit(emp: Employee) {
     console.log("edit");
     this.flashMessage.show('you can now edit the employee details', { cssClass: 'alert-succes', timeout: 3000 });
     this.employeeService.selectedEmployee = emp;
-    console.log("the selected employee is"+this.employeeService.selectedEmployee);
+    //this.employeeService.selectedEmployee = emp
+    var  fname = this.employeeService.selectedEmployee['name'];
+    var  femail = this.employeeService.selectedEmployee['email'];
+    var fusername = this.employeeService.selectedEmployee['username'];
+    var frole = this.employeeService.selectedEmployee['role'];
+    var fpassword = this.employeeService.selectedEmployee['password']
+    console.log("the selected employee is"+this.employeeService.selectedEmployee['username']);
+    console.log("the name is"+  fname);
+    console.log("the email is"+femail);
+    console.log( "the username is"+fusername);
+    console.log("theh role is"+frole);
+    console.log("the password is"+fpassword);
+     //fname ="Shruti"
+    console.log("emp value"+emp['name'])
+  // this.inputText();
+  //fname = emp['name'];
 
+this.name = fname;
+this.email = femail;
+this.username = fusername;
+this.role = frole;
+this.password = fpassword;
+
+  //this.employeeService.sendUserInfo();
+
+  //this.employeeService.sendEmail();
   }
-
+  
+ /*
+  onEdit(emp: Employee) {
+    this.employeeService.selectedEmployee = emp;
+  }
+  */
+  
   onDelete(_id: string, form: NgForm) {
     if (confirm('Are you sure to delete this record?') == true) {
       this.employeeService.deleteEmployee(_id).subscribe((res) => {
