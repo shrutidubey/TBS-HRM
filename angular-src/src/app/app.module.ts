@@ -24,6 +24,11 @@ import { ManageemployeesComponent } from './components/manageemployees/manageemp
 import { EventsComponent } from './components/events/events.component';
 import { LeaveComponent } from './components/leave/leave.component';
 import { AdminleaveComponent } from './components/adminleave/adminleave.component';
+import { EditprofileComponent } from './components/editprofile/editprofile.component';
+import { AppDashboardComponent } from './components/app-dashboard/app-dashboard.component';
+import { ManagerleaveComponent } from './components/managerleave/managerleave.component';
+import { ManagerempComponent } from './components/manageremp/manageremp.component';
+
 
 const appRoutes:Routes = [
 
@@ -62,6 +67,21 @@ const appRoutes:Routes = [
   },
   {
     path:'adminleave',component:AdminleaveComponent
+  },
+  {
+    path:'editprofile',component:EditprofileComponent
+  },
+  {
+    path:'managerdashboard',component:ManagerdashboardComponent
+  },
+  {
+    path:'app-dashboard',component:AppDashboardComponent
+  },
+  {
+    path:'managerleave',component:ManagerleaveComponent
+  },
+  {
+    path:'manageremp',component:ManagerempComponent
   }
 ]
 
@@ -83,7 +103,11 @@ const appRoutes:Routes = [
     ManageemployeesComponent,
     EventsComponent,
     LeaveComponent,
-    AdminleaveComponent
+    AdminleaveComponent,
+    EditprofileComponent,
+    AppDashboardComponent,
+    ManagerleaveComponent,
+    ManagerempComponent
   ],
   imports: [
     BrowserModule,

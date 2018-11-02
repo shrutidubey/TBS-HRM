@@ -38,8 +38,11 @@ module.exports.getUserById = function (id, callback) {
 }
 
 module.exports.getUserByUsername = function (username, callback) {
-    const query = { username: username }
+    console.log("inside main get user by username function"+username);
+    const query = { username: username}
+    console.log({ username: username})
     User.findOne(query, callback);
+ //   console.log(User.findOne(query, callback));
 }
 
 module.exports.addUser = function (newUser, callback) {
@@ -68,7 +71,7 @@ module.exports.comparePassword = function (candidatePassword, hash, callback) {
         if (err)
             throw err;
         callback(null, isMatch);
-
+ 
     });
 }
  

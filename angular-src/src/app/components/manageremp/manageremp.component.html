@@ -135,9 +135,7 @@
 						<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
 					</div>
 				</form>
-				
-
- <a  [routerLink]="['/manageemployees']" class="btn btn-secondary" id="addemp"><span> Add Employee </span></a>
+ <a  [routerLink]="['/manageremp']" class="btn btn-secondary" id="addemp"><span> Add Employee </span></a>
 					   
 					   <input type="button" value="Logout" class="logout" (click)="onLogoutClick()"/>
 					   
@@ -207,17 +205,10 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a  [routerLink]="['/admindashboard']" href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Admin Dashboard</span></a></li>
-
-					<!--	<li><a href="#" class=""><i class="lnr lnr-code"></i> <span>Manage Employees</span></a></li>-->
-						<li><a  [routerLink]="['/']">  <i class="lnr lnr-code"></i><span> Attendance Report  </span></a></li>
-						<li><a  [routerLink]="['/adminleave']">  <i class="lnr lnr-code"></i><span> Manage Leaves </span></a></li>
-						<li><a  [routerLink]="['/']">  <i class="lnr lnr-code"></i><span> Salary Report </span></a></li>
+            <li><a  [routerLink]="['/managerdashboard']" href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Manager Dashboard</span></a></li>
+            <li><a  [routerLink]="['/managerleave']">  <i class="lnr lnr-code"></i><span>Manage Leaves </span></a></li>
+						<li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span>Attendance Report </span></a></li>
 						<li><a  [routerLink]="['/']">  <i class="lnr lnr-code"></i><span>Pending Leave Request </span></a></li>
-						<li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span> Add Events  </span></a></li>
-						<li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span> Add Holidays
-	 </span></a></li>
-	 <li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span> Add Announcements </span></a></li>
 
            <!-- <li><a href="#" class=""><i class="lnr lnr-code"></i> <span>Logout</span></a></li>-->
 
@@ -291,6 +282,7 @@
 		<!--	<marquee height="100px">
 					HAPPY BIRTHDAY!!	
 				 </marquee>-->
+
 
 
 		</div>
@@ -431,6 +423,8 @@
 </body>
 
 </html>
+
+
 
 <div class="change">
 <div class="row">

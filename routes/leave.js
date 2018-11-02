@@ -4,6 +4,7 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/leavedatabase');
 const Leave = require('../models/leave');
+const User = require('../models/user')
 var count1 = require('./adminleave');
 var ObjectId = require('mongoose').Types.ObjectId;
 const mongoose = require('mongoose')
@@ -118,12 +119,15 @@ leave.save((err, doc) => {
 }
 
 */
+var email
 
 
 
 var count = 18; person = []; var diffDays
 router.post('/', (req, res) => {
   //  JSAlert.alert("This is an alert.");
+  var totalleaves = 0;
+  var totalleaves1 = 18;
     empname = req.body.empname;
     fromdate = req.body.fromdate;
     todate = req.body.todate;
@@ -138,12 +142,19 @@ router.post('/', (req, res) => {
         console.log("you don't have any leaves ")
     }
     */
+   User.find({username:req.body.empname},{email:1,_id:0},(err,docs)=>{
+    console.log("email"+docs[0].email)
+    email = docs[0].email;
+   });
     Leave.find({empname:req.body.empname},{leavecount:1,_id:0},(err,docs)=>{
         /*  if(!err)
           res.send(docs);*/
-
+        //  var email = email
+console.log("email"+email)
+req.body.leavetype = email
          if(docs[0]===undefined){
          console.log(docs)
+         
          var leave = new Leave({
             empname: req.body.empname,
             leavetype: req.body.leavetype,
@@ -151,6 +162,7 @@ router.post('/', (req, res) => {
             todate: req.body.todate,
             leavereason: req.body.leavereason,
             leavecount: count,
+            acceptedleaves:totalleaves,
             status: "pending"
         });
         
@@ -182,7 +194,7 @@ router.post('/', (req, res) => {
           console.log(abc)
           else
           console.log(false)
-    if(newleavecount===0 || leavecount<0){
+    if(newleavecount===0 || newleavecount<0){
         console.log("you don't have any leaves left")
       /* popup.alert({
             content: 'Hello!'
@@ -208,9 +220,10 @@ var leave = new Leave({
     todate: req.body.todate,
     leavereason: req.body.leavereason,
     leavecount: newleavecount,
+    acceptedleaves:totalleaves1 - newleavecount,
     status: "pending"
 });
-
+//console.log("pending leaves"+(18-newleavecount))
 leave.save((err, doc) => {
     if (!err) {
         res.send(doc);
@@ -250,11 +263,16 @@ leave.save((err, doc) => {
 
  gdiffDays = diffDays
 router.get('/:username', (req, res) => {
-
-    Leave.getUserByUsername(req.params.username, (err, docs) => {
+ /*    User.getUserByUsername(req.params.username,(err,docs)=>{
+         if(!err){
+             console.log("doc[0]"+docs[0]);
+         }
+     })*/
+   Leave.getUserByUsername(req.params.username, (err, docs) => {
         if (!err) {
             res.send(docs);
 
+console.log("doc[0]"+docs[0]);
         }
         else {
             console.log('Error in retrieving Leave' + JSON.stringify(err, undefined, 2));
@@ -292,10 +310,6 @@ router.get('/', (req, res) => {
         }
     });
 });
-
-
-
-
 
 
 module.exports = router;

@@ -119,7 +119,8 @@ router.post('/authenticate', (req, res, next) => {
                         id: user._id,
                         name: user.name,
                         username: user.username,
-                        email: user.email
+                        email: user.email,
+                        role:user.role
                     }
                 });
             }
@@ -154,6 +155,7 @@ router.get('/:id', (req, res) => {
         }
     });
 });
+
 
 
 router.put('/:id', (req, res) => {
@@ -290,9 +292,21 @@ router.get('/', (req, res) => {
         }
     });
 });
+/*
+router.get('/:username', (req, res) => {
 
+    User.getUserByUsername(req.params.username, (err, docs) => {
+        if (!err) {
+            console.log("hey")
+            res.send(docs);
 
-
+        }
+        else {
+            console.log('Error in retrieving Leave' + JSON.stringify(err, undefined, 2));
+        }
+    });
+});
+*/
 
 
 

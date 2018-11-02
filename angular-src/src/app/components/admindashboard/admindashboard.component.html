@@ -128,12 +128,20 @@
 				<!--<div class="navbar-btn">
 					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
 				</div>-->
+			<img src="https://media.licdn.com/dms/image/C4D0BAQF_b_0TP2Bj1Q/company-logo_200_200/0?e=2159024400&v=beta&t=4oRuFhXESdwXXcD_riSoNZgnb_ZVUaKewz5o8LY0W_A" height="100px" width="100px" class="techbrise"/>
 				<form class="navbar-form navbar-left">
 					<div class="input-group">
 						<input type="text" value="" class="form-control" placeholder="Search dashboard...">
 						<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
 					</div>
 				</form>
+				
+
+ <a  [routerLink]="['/manageemployees']" class="btn btn-secondary" id="addemp"><span> Add Employee </span></a>
+					   
+					   <input type="button" value="Logout" class="logout" (click)="onLogoutClick()"/>
+					   
+	
 			<!--	<div class="navbar-btn navbar-btn-right">
 					<a class="btn btn-success update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
 				</div>-->
@@ -163,7 +171,7 @@
 							</ul>
 						</li>-->
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+						<!--	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>-->
 							<ul class="dropdown-menu">
 								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 								<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
@@ -180,30 +188,48 @@
 			</div>
 		</nav>
 		<!-- END NAVBAR -->
+
+
+<!-- Label to Show Notification bar -->
+
+<!-- The checkbox -->
+<input type="checkbox" id="toggleTop" name="toggleTop" value="toggleTop" checked="checked">
+<!-- The Notification bar container -->
+<div id="topbar">
+	<div class="col-md-4">Announcements:</div>
+	<div class="col-md-6"><marquee>Here The Announcements will be flashed</marquee></div>
+    <!-- Label to Hide Notification bar -->
+   <!-- <label for="toggleTop" id="hideTop">X</label>-->
+</div>
+
 		<!-- LEFT SIDEBAR -->
 		<div id="sidebar-nav" class="sidebar">
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a  [routerLink]="['/admindashboard']" href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Admin Dashboard</span></a></li>
 
 					<!--	<li><a href="#" class=""><i class="lnr lnr-code"></i> <span>Manage Employees</span></a></li>-->
 						<li><a  [routerLink]="['/manageemployees']">  <i class="lnr lnr-code"></i><span> Manage Employees  </span></a></li>
+						<li><a  [routerLink]="['/']">  <i class="lnr lnr-code"></i><span> Attendance Report  </span></a></li>
 						<li><a  [routerLink]="['/adminleave']">  <i class="lnr lnr-code"></i><span> Manage Leaves </span></a></li>
-						<li><a href="#" class=""><i class="lnr lnr-code"></i> <span>Send Messages</span></a></li>
-						<li><a  [routerLink]="['/manageevents']">  <i class="lnr lnr-code"></i><span> Manage Events  </span>     </a></li>
-						<li><a href="#" class=""><i class="lnr lnr-code"></i> <span>Update Holidays</span></a></li>
-            <li><a href="#" class=""><i class="lnr lnr-code"></i> <span>Create Meeting Calendar</span></a></li>
+						<li><a  [routerLink]="['/']">  <i class="lnr lnr-code"></i><span> Salary Report </span></a></li>
+						<li><a  [routerLink]="['/']">  <i class="lnr lnr-code"></i><span>Pending Leave Request </span></a></li>
+						<li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span> Add Events  </span></a></li>
+						<li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span> Add Holidays
+	 </span></a></li>
+	 <li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span> Add Announcements </span></a></li>
+
            <!-- <li><a href="#" class=""><i class="lnr lnr-code"></i> <span>Logout</span></a></li>-->
 
            
 						<!--<li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>HR Profile</span></a></li>-->
 						<!--<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Empty</span></a></li>-->
-            <li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
+           <!-- <li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>-->
            <!-- <li class="nav-item " >
                 <a class="nav-link" (click)="onLogoutClick()"  >LogOut<span class="sr-only"></span></a>
 			  </li>-->
-			 <li><a (click)="onLogoutClick()" href="#">LogOut</a></li>
+		<!--	 <li><a (click)="onLogoutClick()" href="#">LogOut</a></li>-->
 						<li>
 							<!--<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Empty</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>-->
 							<div id="subPages" class="collapse ">
@@ -222,6 +248,8 @@
 			</div>
 		</div>
 		<!-- END LEFT SIDEBAR -->
+	
+
 		<!-- MAIN -->
 		<div class="main">
 			<!-- MAIN CONTENT -->
@@ -261,6 +289,29 @@
 				</div>
 			</div>
 			<!-- END MAIN CONTENT -->
+		<!--	<marquee height="100px">
+					HAPPY BIRTHDAY!!	
+				 </marquee>-->
+<div class="flex-container">
+
+ <div> <a  [routerLink]="['/manageemployees']"> <span> Manage Employees  </span></a></div>
+  <!--<img src = "https://image.shutterstock.com/image-photo/birthday-cake-candles-bright-lights-260nw-418556503.jpg" height="50px" width="50px" class="image">-->
+  <div>Attendance Report</div>
+  <div> <a  [routerLink]="['/adminleave']"> <span> Leave Report </span></a></div>
+  
+</div>
+
+<div class="flex-container">
+		<div>Salary Report</div>
+		<div>Holidays</div>
+		<div> <a  [routerLink]="['/manageevents']"> <span>Manage Events </span></a></div>
+		
+	  </div>
+	  <div class="flex-container">
+			
+			<div>Pending Leaves</div>
+		  </div>
+
 		</div>
 		<!-- END MAIN -->
 		<div class="clearfix"></div>

@@ -47,6 +47,7 @@ mongoose.connection.on('error', (err) => {
 const app = express();
 
 const users = require('./routes/users');
+const user1 = require('./routes/user1');
 const events = require('./routes/events');
 const leaves = require('./routes/leave');
 const adminleave = require('./routes/adminleave');
@@ -70,6 +71,7 @@ app.use('/users', users);
 app.use('/events', events);
 app.use('/leaves', leaves);
 app.use('/adminleave', adminleave);
+app.use('/user1', user1);
 app.use('/adminrejectleave', adminrejectleave);
 //app.use('/getleavecount',getleavecount);
 

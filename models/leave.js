@@ -3,9 +3,9 @@ const bcrypt = require('bcryptjs');
 const config = require('../config/leavedatabase');
 
 const LeaveSchema = mongoose.Schema({
-    empname: {
+   empname: {
         type: String,
-        required: true
+      //  required: true
 
     },
 
@@ -28,10 +28,13 @@ const LeaveSchema = mongoose.Schema({
     },
     leavecount: {
         type: Number,
-       default: 18
+        default: 18
     },
     status: {
         type: String
+    },
+    acceptedleaves:{
+        type:String
     }
 });
 

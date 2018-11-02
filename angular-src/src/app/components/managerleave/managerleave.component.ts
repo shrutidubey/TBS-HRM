@@ -9,14 +9,13 @@ import { LeaveService } from '../../services/leave.service';
 import { Leave } from '../../shared/leave.model';
 
 
-declare var M: any;
 @Component({
-  selector: 'app-adminleave',
-  templateUrl: './adminleave.component.html',
-  styleUrls: ['./adminleave.component.css'],
-  providers: [AdminleaveService]
+  selector: 'app-managerleave',
+  templateUrl: './managerleave.component.html',
+  styleUrls: ['./managerleave.component.css']
 })
-export class AdminleaveComponent implements OnInit {
+export class ManagerleaveComponent implements OnInit {
+
 
   constructor(private adminleaveService: AdminleaveService,
     private authService:AuthService,
@@ -26,7 +25,7 @@ private router:Router) { }
   ngOnInit() {
     this.resetForm();
     this.refreshAdminleaveList();
-    this.authService.checkAdminLeave();
+    //this.authService.checkAdminLeave();
   }
   onLogoutClick(){
     this.authService.logout();
@@ -115,4 +114,3 @@ private router:Router) { }
 
 
 }
-

@@ -100,6 +100,7 @@ getUsers = function(req, res, next) {
 }
 */
 var count = 18
+ var totalleaves  = 18;
 gemail = "null"
 var gempname
 var i = 0;
@@ -126,7 +127,9 @@ router.put('/:id', (req, res) => {
         todate: req.body.todate,
         leavereason: req.body.leavereason,
         leavecount: req.body.leavecount - diffDays-1,
-         status: req.body.status, 
+        acceptedleaves:totalleaves - req.body.leavecount,
+        status: req.body.status, 
+
     };
    Adminleave.find({empname:req.body.empname},{leavecount:1,_id:0},(err,docs)=>{
       /*  if(!err)

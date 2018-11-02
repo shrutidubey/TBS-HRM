@@ -5,6 +5,7 @@ import { Session } from 'protractor';
 import {FlashMessagesService} from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 var logusername;
+var userrole;
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +36,7 @@ export class AuthService {
       .pipe(map(res => res.json()));
   }
 
+ 
 
 
   getProfile() {
@@ -49,10 +51,10 @@ export class AuthService {
 
 
   storeUsername(user) {
-    logusername = user.username;
-    console.log("in auth service" + user.username);
+    logusername = user;
+   // userrole = user.role
+    console.log("in auth service" + user);
     return logusername;
-
   }
 
   getUsername() {
@@ -65,12 +67,29 @@ export class AuthService {
     this.authToken = token;
     this.user = user;
     console.log(this.user);
-
    //var abc =  localStorage.getItem('user');
    //console.log("new method"+abc);
+   this.findRole();
 
   }
 
+  findRole(){
+    var abc = this.user.role;
+  
+    console.log("role"+abc);
+    return abc;
+  }
+
+
+  getId(username){
+    let headers = new Headers();
+    this.loadToken();
+    headers.append('Authorization', this.authToken);
+    headers.append('Content-Type', 'application/json');
+    return this.http.get('http://localhost:9008/users/findid', { headers: headers })
+      .pipe(map(res => res.json()));
+
+  }
   loadToken() {
     const token = localStorage.getItem('id_token');
     this.authToken = token;
