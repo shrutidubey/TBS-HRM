@@ -14,11 +14,7 @@ export class LeaveService {
   readonly baseURP = 'http://localhost:9008/leaves2/empname';
 
   constructor(private http: HttpClient) { }
-/*
-  postLeave(leave: Leave) {
-    return this.http.post(this.baseURL, leave);
-  }
-  */
+
 
  postLeave(leave: Leave) {
   return this.http.post(this.baseURL ,leave);

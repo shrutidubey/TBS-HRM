@@ -33,17 +33,11 @@ export class EditProfileService {
 
  
   putEmployee(emp: Employee) {
-  // return this.http.put(this.baseURL + `/${emp._id}`, emp);
+  
   console.log("hey i am insiside putemployee")
    return this.http.put(this.baseURL + `/${emp._id}`,emp);
-  //return this.http.post(this.baseURL, emp);
-  }
-/*
-  putEvent(event: Event) {
 
-    return this.http.put(this.baseURL + `/${event._id}`, event);
   }
-*/
 
 
   

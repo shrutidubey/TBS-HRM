@@ -147,13 +147,13 @@
          margin:0 auto;
         
          /* Animations: */
-        -webkit-transition-timing-function: ease-in-out;
+       /* -webkit-transition-timing-function: ease-in-out;
          -webkit-transition-duration: .4s;
          -webkit-transition-property: all;
          
          -moz-transition-timing-function: ease-in-out;
          -moz-transition-duration: .4s;
-         -moz-transition-property: all;
+         -moz-transition-property: all;*/
        }
        
        .login:hover {
@@ -171,28 +171,31 @@
          padding:10px 20px 10px 0;
          color:White;
          font-size:14px;
-         text-align:left;
+       text-align:center;
          text-indent:40px;
          display:block;
          margin:0 auto;
-      margin-left:1100px;
+         margin-left:1100px;
+       /*  text-align:center*/
+    
         
          /* Animations: */
-        -webkit-transition-timing-function: ease-in-out;
+     /*   -webkit-transition-timing-function: ease-in-out;
          -webkit-transition-duration: .4s;
          -webkit-transition-property: all;
          
          -moz-transition-timing-function: ease-in-out;
          -moz-transition-duration: .4s;
-         -moz-transition-property: all;
+         -moz-transition-property: all;*/
        }
-       
+       /*
        .logout:hover {
          background-image: url( 'https://dh3vbjnk0bnfa.cloudfront.net/static/centralauth/images/btn-login.png' );
          background-position: 65px 5px;
          text-indent: 15px;  
        }
-    
+       
+    */
        .flex-container {
         display: flex;
         flex-wrap: nowrap;
@@ -300,7 +303,7 @@
     } 
      #hideTop {
         float: right;
-        display: inline-block;
+     /*   display: inline-block;*/
     } 
     /* Displaying the bar when the checkbox is checked */
      #toggleTop:checked + #topbar {

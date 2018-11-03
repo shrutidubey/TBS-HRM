@@ -76,20 +76,7 @@ router.post('/', (req, res) => {
     });
 
 });
-/*
-router.get('/logout', function (req, res, next) {
-    if (req.session) {
-    req.session.destroy(function (err) {
-    if (err) {
-    return next(err)
-    }
-    else {
-    return res.redirect('/')
-    }
-    });
-    }
-    });
-    */
+
 router.post('/authenticate', (req, res, next) => {
 
 
@@ -160,10 +147,8 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
-       //return res.status(400).send('No record with given id:', $(req.params.id));
       console.log("no record with given id");
       password = req.body.password;
-      //User.hashPassword(password);
       console.log("inside put");
 
     var emp = {
@@ -172,21 +157,9 @@ router.put('/:id', (req, res) => {
         username: req.body.username,
         password: req.body.password,
         role:req.body.role,
-       // gender: req.body.gender
+      
     };
-/*
-  User.editUser(emp, (err, emp) => {
-    
-        if (err) {
-            res.json({ success: false, msg: 'Failed to register user' });
-            console.log("inside edit user")
 
-        } else {
-            res.json({ success: true, msg: 'User registered' });
-        }
-    });
-    
-       */
 
 
    User.findByIdAndUpdate(req.params.id, { $set: emp }, { new: true }, (err, doc) => {
@@ -292,21 +265,6 @@ router.get('/', (req, res) => {
         }
     });
 });
-/*
-router.get('/:username', (req, res) => {
-
-    User.getUserByUsername(req.params.username, (err, docs) => {
-        if (!err) {
-            console.log("hey")
-            res.send(docs);
-
-        }
-        else {
-            console.log('Error in retrieving Leave' + JSON.stringify(err, undefined, 2));
-        }
-    });
-});
-*/
 
 
 

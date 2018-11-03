@@ -1,5 +1,4 @@
 const express = require('express');
-//var popup = require('popups')
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -73,7 +72,7 @@ app.use('/leaves', leaves);
 app.use('/adminleave', adminleave);
 app.use('/user1', user1);
 app.use('/adminrejectleave', adminrejectleave);
-//app.use('/getleavecount',getleavecount);
+
 
 app.get('/', (req, res) => {
     res.send("Invalid endpoint");

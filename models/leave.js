@@ -5,7 +5,6 @@ const config = require('../config/leavedatabase');
 const LeaveSchema = mongoose.Schema({
    empname: {
         type: String,
-      //  required: true
 
     },
 

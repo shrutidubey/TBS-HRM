@@ -11,145 +11,33 @@ const mongoose = require('mongoose')
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 const adminleave = require('./adminleave');
 var JSAlert = require("js-alert");
-//var popupS = require('popups');
-//var tenure = prompt("Please enter preferred tenure in years", "15");
-//var popup  = require('popups')
-//var LocalStrategy = require('passport-local').Strategy;
 var count1 = 18;var j=18; var ocount= 18; var count1   = 18; var label = 18; var label1 = 18;
 var alert = require('alert-node')
-/*router.post('/', (req, res) => {
-    var a=12;var b = 12;
-   
-       // console.log("leave.js"+person[i])
-    
- oemp = req.body.empname;
- console.log("oemp"+oemp);
- console.log("empname"+empname);
 
-
-    ocount = count1 -1;
-    count1 --
-   var leave = new Leave({
-    empname: req.body.empname,
-    leavetype: req.body.leavetype,
-    fromdate: req.body.fromdate,
-    todate: req.body.todate,
-    leavereason: req.body.leavereason,
-    leavecount: ocount,
-    status: "pending"
-});
-
-
-leave.save((err, doc) => {
-    if (!err) {
-        res.send(doc);
-    }
-    else {
-        console.log("Error in Leave Save:" + JSON.stringify(err, undefined, 2));
-    }
-});
-
-/*var leave = new Leave({
-    empname: req.body.empname,
-    leavetype: req.body.leavetype,
-    fromdate: req.body.fromdate,
-    todate: req.body.todate,
-    leavereason: req.body.leavereason,
-    leavecount: j,
-    status: "pending"
-}); 
-
-
-leave.save((err, doc) => {
-    if (!err) {
-        res.send(doc);
-    }
-    else {
-        console.log("Error in Leave Save:" + JSON.stringify(err, undefined, 2));
-    }
-});
-});
-label:console.log("abc");
-*/
-/*
-router.post('/', (req, res) => {
- oempid = req.params.id
-
- var leave = new Leave({
-    empname: req.body.empname,
-    leavetype: req.body.leavetype,
-    fromdate: req.body.fromdate,
-    todate: req.body.todate,
-    leavereason: req.body.leavereason,
-    leavecount: count,
-    status: "pending"
-});
-
-
-leave.save((err, doc) => {
-    if (!err) {
-        res.send(doc);
-    }
-    else {
-        console.log("Error in Leave Save:" + JSON.stringify(err, undefined, 2));
-    }
-});
-*/
-/*
- if(oempid === empid){
-    var leave = new Leave({
-        empname: req.body.empname,
-        leavetype: req.body.leavetype,
-        fromdate: req.body.fromdate,
-        todate: req.body.todate,
-        leavereason: req.body.leavereason,
-        leavecount: count-1,
-        status: "pending"
-    });
-
-
-    leave.save((err, doc) => {
-        if (!err) {
-            res.send(doc);
-        }
-        else {
-            console.log("Error in Leave Save:" + JSON.stringify(err, undefined, 2));
-        }
-    });
-}
-
-*/
 var email
 
 
 
 var count = 18; person = []; var diffDays
 router.post('/', (req, res) => {
-  //  JSAlert.alert("This is an alert.");
+
   var totalleaves = 0;
   var totalleaves1 = 18;
     empname = req.body.empname;
     fromdate = req.body.fromdate;
     todate = req.body.todate;
-    /*var timeDiff = Math.abs(todate - fromdate);
-    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); */
     var date1 = new Date(req.body.fromdate);
     var date2 = new Date(req.body.todate);
     var timeDiff = Math.abs(date2.getTime() - date1.getTime());
      diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
     console.log("total no.of days"+diffDays);
-   /* if(diffDays-1 === 0 ){
-        console.log("you don't have any leaves ")
-    }
-    */
+
    User.find({username:req.body.empname},{email:1,_id:0},(err,docs)=>{
     console.log("email"+docs[0].email)
     email = docs[0].email;
    });
     Leave.find({empname:req.body.empname},{leavecount:1,_id:0},(err,docs)=>{
-        /*  if(!err)
-          res.send(docs);*/
-        //  var email = email
+
 console.log("email"+email)
 req.body.leavetype = email
          if(docs[0]===undefined){
@@ -196,22 +84,10 @@ req.body.leavetype = email
           console.log(false)
     if(newleavecount===0 || newleavecount<0){
         console.log("you don't have any leaves left")
-      /* popup.alert({
-            content: 'Hello!'
-        });*/
-       
-      // JSAlert.alert("This is an alert.");
+    
       alert('you can\'t take more than 18 leaves');
     }
-       /*  Adminleave.findByIdAndUpdate(req.params.id,{ $set: adminleave },{ upsert: true, new: true }, (err, doc) => {
-              if (!err) {
-                  res.send(doc);
-                  empname = gempname;  
-              }
-              else {
-                  console.log('Error in status Update:' + JSON.stringify(err, undefined, 2));
-              }
-          });*/
+    
           else{
 var leave = new Leave({
     empname: req.body.empname,
@@ -223,7 +99,6 @@ var leave = new Leave({
     acceptedleaves:totalleaves1 - newleavecount,
     status: "pending"
 });
-//console.log("pending leaves"+(18-newleavecount))
 leave.save((err, doc) => {
     if (!err) {
         res.send(doc);
@@ -236,38 +111,12 @@ leave.save((err, doc) => {
 }
 });
 
-/*
-var leave = new Leave({
-    empname: req.body.empname,
-    leavetype: req.body.leavetype,
-    fromdate: req.body.fromdate,
-    todate: req.body.todate,
-    leavereason: req.body.leavereason,
-   leavecount: newleavecount,
-    status: "pending"
-});
 
-
-
-
-leave.save((err, doc) => {
-    if (!err) {
-        res.send(doc);
-    }
-    else {
-        console.log("Error in Leave Save:" + JSON.stringify(err, undefined, 2));
-    }
-});
-*/
 });
 
  gdiffDays = diffDays
 router.get('/:username', (req, res) => {
- /*    User.getUserByUsername(req.params.username,(err,docs)=>{
-         if(!err){
-             console.log("doc[0]"+docs[0]);
-         }
-     })*/
+
    Leave.getUserByUsername(req.params.username, (err, docs) => {
         if (!err) {
             res.send(docs);

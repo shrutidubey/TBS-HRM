@@ -23,15 +23,11 @@ export class EmployeeService {
   }
 
   putEmployee(emp: Employee) {
-  // return this.http.put(this.baseURL + `/${emp._id}`, emp);
+
    return this.http.put(this.baseURL + `/${emp._id}`,emp);
-  //return this.http.post(this.baseURL, emp);
+ 
   }
-/*
-  putEvent(event: Event) {
-    return this.http.put(this.baseURL + `/${event._id}`, event);
-  }
-*/
+
 
 
   

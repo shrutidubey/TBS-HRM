@@ -103,13 +103,13 @@
      margin:0 auto;
     
      /* Animations: */
-    -webkit-transition-timing-function: ease-in-out;
+   /* -webkit-transition-timing-function: ease-in-out;
      -webkit-transition-duration: .4s;
      -webkit-transition-property: all;
      
      -moz-transition-timing-function: ease-in-out;
      -moz-transition-duration: .4s;
-     -moz-transition-property: all;
+     -moz-transition-property: all;*/
    }
    
    .login:hover {
@@ -134,13 +134,13 @@
   margin-left:1100px;
     
      /* Animations: */
-    -webkit-transition-timing-function: ease-in-out;
+  /*  -webkit-transition-timing-function: ease-in-out;
      -webkit-transition-duration: .4s;
      -webkit-transition-property: all;
      
      -moz-transition-timing-function: ease-in-out;
      -moz-transition-duration: .4s;
-     -moz-transition-property: all;
+     -moz-transition-property: all;*/
    }
    
    .logout:hover {
@@ -255,7 +255,7 @@
     color: #fff;
 } 
  #hideTop {
-    float: right;
+   /* float: right;*/
     display: inline-block;
 } 
 /* Displaying the bar when the checkbox is checked */
@@ -631,13 +631,13 @@ input.btn.btn-primary {
      margin:0 auto;
     
      /* Animations: */
-    -webkit-transition-timing-function: ease-in-out;
+   /* -webkit-transition-timing-function: ease-in-out;
      -webkit-transition-duration: .4s;
      -webkit-transition-property: all;
      
      -moz-transition-timing-function: ease-in-out;
      -moz-transition-duration: .4s;
-     -moz-transition-property: all;
+     -moz-transition-property: all;*/
    }
    
    .login:hover {
@@ -662,13 +662,14 @@ input.btn.btn-primary {
   margin-left:1100px;
     
      /* Animations: */
-    -webkit-transition-timing-function: ease-in-out;
+  /*  -webkit-transition-timing-function: ease-in-out;
      -webkit-transition-duration: .4s;
      -webkit-transition-property: all;
      
      -moz-transition-timing-function: ease-in-out;
      -moz-transition-duration: .4s;
-     -moz-transition-property: all;
+     -moz-transition-property: all;*/
+
    }
    
    .logout:hover {

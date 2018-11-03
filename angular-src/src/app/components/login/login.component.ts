@@ -68,15 +68,15 @@ export class LoginComponent implements OnInit {
         }
        // var abc = this.authService.findRole();
     });
-
-
+this.authService.storeUsername(user);
+/*
      this.authService.storeUsername(user){
     
 
       console.log("login.component.ts" + user.username);
 
     }
-  
+  */
 
 
   }

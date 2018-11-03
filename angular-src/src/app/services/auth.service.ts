@@ -67,8 +67,7 @@ export class AuthService {
     this.authToken = token;
     this.user = user;
     console.log(this.user);
-   //var abc =  localStorage.getItem('user');
-   //console.log("new method"+abc);
+
    this.findRole();
 
   }
@@ -94,16 +93,6 @@ export class AuthService {
     const token = localStorage.getItem('id_token');
     this.authToken = token;
   }
-/*
-  logout(){
-    let headers = new Headers();
-    this.loadToken();
-    headers.append('Authorization', this.authToken);
-    headers.append('Content-Type', 'application/json');
-    return this.http.get('http://localhost:9008/users/logout', { headers: headers })
-      .pipe(map(res => res.json()));
-  }
-  */
 
 
   logout() {
@@ -117,12 +106,9 @@ export class AuthService {
   
   checkUserLogged(){
   
-   // var exists =  localStorage.getItem('user');
+  
     var exists =  localStorage.getItem('user');
-   //var localStorageUsername =JSON.parse(localStorage.getItem('user'));
- //   var localStorageUsername = exists.username;
-    //if(exists)
-  //console.log("yes yes"+localStorageUsername.username);
+   
    
     if(exists&&JSON.parse(localStorage.getItem('user')).username!="admin"){
       
@@ -145,20 +131,7 @@ export class AuthService {
 
   checkAdminDashboard(){
     var exists =  JSON.parse(localStorage.getItem('user'));
-    /*var localStorageUsername = exists.username;
-    if(localStorageUsername==="admin"){
-    if(this.authToken){
-      this.router.navigate(['admindashboard']);
-    }
-  }
-    else{
-      this.router.navigate(['login']);
-      this.flashMessage.show('Please Login to continue',{
-        cssClass:'alert-success',
-        timeout:3000
-    
-      });
-    }*/
+ 
 
     if(exists&&JSON.parse(localStorage.getItem('user')).username==="admin"){
       

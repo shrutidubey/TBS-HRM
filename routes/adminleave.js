@@ -62,43 +62,10 @@ router.get('/', (req, res) => {
             console.log('Error in retrieving Leaves:' + JSON.stringify(err, undefined, 2));
         }
     });
-//console.log("docs"+abcd)
-  /*var usersProjection = { 
-    __v: false,
-    //_id: false,
-    fromdate:false,
-    todate:false,
-    leavetype:false,
-    leavereason:false
-};
 
-Adminleave.find({}, usersProjection, function (err, docs) {
-    if (err) return next(err);
-    res.json(docs);
- //console.log("admin leave abc"+abc);
- //localStorage.setItem("quentinTarantino", JSON.stringify(abc));
-
-});  
-*/
 });
 
-//console.log("quentinTarantino"+abc);
-//console.log(vdno)
-/*
 
-getUsers = function(req, res, next) {
-
-    var usersProjection = { 
-        __v: false,
-        _id: false
-    };
-
-    Adminleave.find({}, usersProjection, function (err, docs) {
-        if (err) return next(err);
-        res.json(docs);
-    });    
-}
-*/
 var count = 18
  var totalleaves  = 18;
 gemail = "null"
@@ -107,7 +74,7 @@ var i = 0;
 
 router.put('/:id', (req, res) => {
     email = req.body.leavetype
-   // empname = req.body.empname
+ 
  console.log("empname"+req.body.empname);
   
  
@@ -132,8 +99,7 @@ router.put('/:id', (req, res) => {
 
     };
    Adminleave.find({empname:req.body.empname},{leavecount:1,_id:0},(err,docs)=>{
-      /*  if(!err)
-        res.send(docs);*/
+     
         var abc = docs[0];
         console.log("abc"+JSON.stringify(abc))
         if(abc)
@@ -150,19 +116,7 @@ router.put('/:id', (req, res) => {
                 console.log('Error in status Update:' + JSON.stringify(err, undefined, 2));
             }
         });
-    /*    Adminleave.update(
-            { 
-                _id: found._id, 
-                'leaves.empname': req.params.user_id
-            },
-            {
-                $set: { 'leaves.$.leavecount': '18'} },
-            }, function(err, count) 
-                   if (err) return next(err);
-                   callback(err, count);
-        });
-        */
-   //adminleave.save( { empname : req.body.empname, leavecount: 90} );
+  
    });
 
 
@@ -179,7 +133,7 @@ router.put('/:id', (req, res) => {
 
         to: req.body.leavetype,
         subject: 'Regarding leave',
-        text: 'Leave Approved'
+        text: 'OK,Approved'
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
@@ -191,17 +145,7 @@ router.put('/:id', (req, res) => {
         }
     });
 
-/*
-    Adminleave.findByIdAndUpdate(req.params.id,{ $set: adminleave },{ upsert: true, new: true }, (err, doc) => {
-        if (!err) {
-            res.send(doc);
-            empname = gempname;  
-        }
-        else {
-            console.log('Error in status Update:' + JSON.stringify(err, undefined, 2));
-        }
-    });
-    */
+
     
    var j
    for(j=0;j<person.length;j++)

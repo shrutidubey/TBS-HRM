@@ -23,11 +23,10 @@ const UserSchema = mongoose.Schema({
     },
     gender:{
         type:String,
-        //required:true
+       
     },
     role:{
         type:String,
-       // required:true
     }
 
 });
@@ -42,7 +41,7 @@ module.exports.getUserByUsername = function (username, callback) {
     const query = { username: username}
     console.log({ username: username})
     User.findOne(query, callback);
- //   console.log(User.findOne(query, callback));
+
 }
 
 module.exports.addUser = function (newUser, callback) {
@@ -60,8 +59,7 @@ module.exports.editUser = function(newUser,callback){
     bcrypt.genSalt(10,(err,salt)=>{
         bcrypt.hash(newUser.password,salt,(err,hash)=>{
             newUser.password = hash;
-           //console.log("hashed password"newUser.password));
-           // newUser.findByIdAndUpdate(callbakck);
+        
         });
     });
 }
