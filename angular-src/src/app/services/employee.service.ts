@@ -8,14 +8,21 @@ import { Employee } from '../shared/employee.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class EmployeeService {
   selectedEmployee: Employee | {} = {};
   employees: Employee[];
   readonly baseURL = "http://localhost:9008/users";
+  readonly baseURI = "http://localhost:9008/user1"
   constructor(private http: HttpClient) { }
 
   postEmployee(emp: Employee) {
     return this.http.post(this.baseURL, emp);
+  }
+
+  getUserByUsername(user) {
+    console.log("employee.service.ts" + user);
+    return this.http.get(this.baseURI + `/${user}`);
   }
 
   getEmployeeList() {

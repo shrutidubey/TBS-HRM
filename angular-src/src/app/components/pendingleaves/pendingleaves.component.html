@@ -113,6 +113,7 @@
 .logout{
   position:absolute;
   margin-right:100px;
+  text-align:center;
 }
 
 	</style>
@@ -214,8 +215,8 @@
 						<li><a  [routerLink]="['/']">  <i class="lnr lnr-code"></i><span> Attendance Report  </span></a></li>
 						<li><a  [routerLink]="['/adminleave']">  <i class="lnr lnr-code"></i><span> Manage Leaves </span></a></li>
 						<li><a  [routerLink]="['/']">  <i class="lnr lnr-code"></i><span> Salary Report </span></a></li>
-						<li><a  [routerLink]="['/pendingleaves']">  <i class="lnr lnr-code"></i><span>Pending Leave Request </span></a></li>
-						<li><a  [routerLink]="['/manageevents']">  <i class="lnr lnr-code"></i><span> Add Events  </span></a></li>
+						<li><a  [routerLink]="['/']">  <i class="lnr lnr-code"></i><span>Pending Leave Request </span></a></li>
+						<li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span> Add Events  </span></a></li>
 						<li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span> Add Holidays
 	 </span></a></li>
 	 <li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span> Add Announcements </span></a></li>
@@ -292,24 +293,7 @@
 		<!--	<marquee height="100px">
 					HAPPY BIRTHDAY!!	
 				 </marquee>-->
-				 
-<div class="flex-container">
- <div class="ele1"> <a  [routerLink]="['/manageemployees']"> <span> Manage Employees  </span></a></div>
-  <!--<img src = "https://image.shutterstock.com/image-photo/birthday-cake-candles-bright-lights-260nw-418556503.jpg" height="50px" width="50px" class="image">-->
-  <div class="ele2">Attendance Report</div>
-  <div class="ele3"> <a  [routerLink]="['/adminleave']"> <span> Leave Report </span></a></div>
-</div>
 
-<div class="flex-container">
-		<div class="ele4">Salary Report</div>
-		<div class="ele5">Holidays</div>
-		<div class="ele6"> <a  [routerLink]="['/manageevents']"> <span>Manage Events </span></a></div>
-		
-	  </div>
-	  <div class="flex-container">
-			<div class="ele6"> <a  [routerLink]="['/pendingleaves']"> <span>Pending Leaves </span></a></div>
-			
-		  </div>
 
 		</div>
 		<!-- END MAIN -->
@@ -449,3 +433,125 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+<div class="change">
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="row">
+          <div class="col s5">
+            <form #adminleaveForm="ngForm" (ngSubmit)="onSubmit(adminleaveForm)">
+
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave._id">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="empname" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.empname" placeholder="Enter full name"
+                    required>
+                  <label>Employee Username :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="leavetype" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.leavetype" placeholder="leave Type">
+                  <label>Employee Email</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="fromdate" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.fromdate" placeholder="fromdate">
+                  <label>From Date :</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="todate" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.todate" placeholder="todate">
+                  <label>To Date:</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="leavereason" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.leavereason" placeholder="Leave Reason">
+                  <label>Leave Reason:</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="leavecount" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.leavecount" placeholder="Leave count">
+                  <label>Leave Count:</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="status" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.status" placeholder="Status">
+                  <label>Status:</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <button class="btn btn-custom right" type="button" (click)="resetForm(adminleaveForm)">Reset</button>
+                  <button class="btn btn-custom right" type="submit" [disabled]="!adminleaveForm.valid">Submit</button>
+                </div>
+              </div>
+            </form>
+            </div>
+            <div class="change1">
+          </div>
+          <div class="col s7">
+            <table class="responsive-table highlight">
+              <thead class="thead">
+                <tr>
+                  <th>Employee Name</th>
+                  <th>Employee Email</th>
+                  <th>From Date</th>
+                  <th>To Date</th>
+                  <th>Leave Reason</th>
+                  <th>Leave Count</th>
+                  <th>Status</th>
+                  <th>
+
+                  </th>
+                </tr>
+              </thead>
+              <tr *ngFor="let adminleave of adminleaveService.adminleaves">
+                <td>{{adminleave.empname}}</td>
+                <td>{{adminleave.leavetype}}</td>
+                <td>{{adminleave.fromdate}}</td>
+                <td>{{adminleave.todate}}</td>
+                <td>{{adminleave.leavereason}}</td>
+                <td>{{adminleave.leavecount}}</td>
+                <td>{{adminleave.status}}</td>
+
+                <td>
+                </td>
+                <td>
+                  <a class="action-btn" (click)="onAccept(adminleave)">
+                    <i class="material-icons">Action</i>
+                  </a>
+                  <a class="action-btn" (click)="onReject(adminleave._id,adminleaveForm)">
+                    <i class="material-icons">Remove</i>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+

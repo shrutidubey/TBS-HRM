@@ -17,7 +17,7 @@ private router:Router) { }
 
   ngOnInit() {
     //this.authService.checkUserLogged();
-    
+    this.authService.checkManagerDashboard();
    }
  
    onLogoutClick(){

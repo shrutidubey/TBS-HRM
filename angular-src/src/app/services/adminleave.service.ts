@@ -12,11 +12,11 @@ export class AdminleaveService {
   adminleaves: Adminleave[];
   readonly baseURL = 'http://localhost:9008/adminleave';
   readonly baseURI = 'http://localhost:9008/adminrejectleave';
+  readonly baseURF = 'http://localhost:9008/leaves2/pendingleaves'
   constructor(private http: HttpClient) { }
 
   postAdminleave(adminleave: Adminleave) {
     return this.http.post(this.baseURL, adminleave);
-
   }
 
 
@@ -34,6 +34,9 @@ export class AdminleaveService {
     return this.http.put(this.baseURL + `/${adminleave._id}`, adminleave);
   }
 
+  getUserByStatus(){
+    return this.http.get(this.baseURF);
+  }
 
   putAdminRejectleave(adminleave: Adminleave) {
     return this.http.put(this.baseURI + `/${adminleave._id}`, adminleave)

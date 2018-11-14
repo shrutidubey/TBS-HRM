@@ -29,7 +29,7 @@ export class EditprofileComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
   this.refreshEmployeeList();
-   // this.authService.checkManageEmployees();
+   this.authService.checkManageEmployees();
   }
 
   resetForm(form?: NgForm) {

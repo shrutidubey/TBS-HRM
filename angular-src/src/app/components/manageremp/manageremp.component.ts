@@ -31,7 +31,7 @@ export class ManagerempComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
     this.refreshEmployeeList();
-  //  this.authService.checkManageEmployees();
+    this.authService.checkManagerEmp();
   }
 
   onLogoutClick(){

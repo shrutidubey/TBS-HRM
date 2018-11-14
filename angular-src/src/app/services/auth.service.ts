@@ -36,6 +36,12 @@ export class AuthService {
       .pipe(map(res => res.json()));
   }
 
+  getPendingLeaves(){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:9008/leaves2/pendingleaves', { headers: headers })
+      .pipe(map(res => res.json()));
+  }
  
 
 
@@ -67,14 +73,12 @@ export class AuthService {
     this.authToken = token;
     this.user = user;
     console.log(this.user);
-
-   this.findRole();
+     this.findRole();
 
   }
 
   findRole(){
     var abc = this.user.role;
-  
     console.log("role"+abc);
     return abc;
   }
@@ -151,9 +155,13 @@ export class AuthService {
   }
 
 
+
+  
+
+
   checkManageEmployees(){
     var exists =  JSON.parse(localStorage.getItem('user'));
-    var localStorageUsername = exists.username;
+  /*  var localStorageUsername = exists.username;
     if(localStorageUsername==="admin"){
     if(this.authToken){
       this.router.navigate(['manageemployees']);
@@ -166,19 +174,15 @@ export class AuthService {
         timeout:3000
     
       });
-    }
-  }
+    }*/
 
-  checkEmployeeLeave(){
-    var exists =  JSON.parse(localStorage.getItem('user'));
-    var localStorageUsername = exists.username;
-    console.log("whole value"+localStorageUsername )
-    
-    if(localStorageUsername!="admin"){
-    if(exists ){
-      this.router.navigate(['manageleaves']);
+    if(exists&&JSON.parse(localStorage.getItem('user')).username==="admin"){
+      
+      this.router.navigate(['manageemployees']);
+      console.log("new method"+exists)
+
     }
-  }
+    
     else{
       this.router.navigate(['login']);
       this.flashMessage.show('Please Login to continue',{
@@ -188,13 +192,134 @@ export class AuthService {
       });
     }
 
+  }
+
+  checkManagerEmp(){
+
+    var exists =  JSON.parse(localStorage.getItem('user'));
+    /*  var localStorageUsername = exists.username;
+      if(localStorageUsername==="admin"){
+      if(this.authToken){
+        this.router.navigate(['manageemployees']);
+      }
+    }
+      else{
+        this.router.navigate(['login']);
+        this.flashMessage.show('Please Login to continue',{
+          cssClass:'alert-success',
+          timeout:3000
+      
+        });
+      }*/
   
+      if(exists&&JSON.parse(localStorage.getItem('user')).username==="ashish"){
+        
+        this.router.navigate(['manageeemp']);
+        console.log("new method"+exists)
+  
+      }
+      
+      else{
+        this.router.navigate(['login']);
+        this.flashMessage.show('Please Login to continue',{
+          cssClass:'alert-success',
+          timeout:3000
+      
+        });
+      }
+
+  }
+
+  checkEmployeeLeave(){
+    var exists =  JSON.parse(localStorage.getItem('user'));
+
+    if(exists){
+      
+      this.router.navigate(['manageleaves']);
+      console.log("new method"+exists)
+
+    }
+    
+    else{
+      this.router.navigate(['login']);
+      this.flashMessage.show('Please Login to continue',{
+        cssClass:'alert-success',
+        timeout:3000
+    
+      });
+    }
+
+ 
+  }
+  checkManagerDashboard(){
+    var exists =  JSON.parse(localStorage.getItem('user'));
+ 
+
+    if(exists&&JSON.parse(localStorage.getItem('user')).username==="ashish"){
+      
+      this.router.navigate(['managerdashboard']);
+      console.log("new method"+exists)
+
+    }
+    
+    else{
+      this.router.navigate(['login']);
+      this.flashMessage.show('Please Login to continue',{
+        cssClass:'alert-success',
+        timeout:3000
+    
+      });
+    }
+  }
+
+ 
+  
+  checkEmployeeDashboard(){
+    var exists =  JSON.parse(localStorage.getItem('user'));
+
+    if(exists){
+      
+      this.router.navigate(['dashboard']);
+      console.log("new method"+exists)
+
+    }
+    
+    else{
+      this.router.navigate(['login']);
+      this.flashMessage.show('Please Login to continue',{
+        cssClass:'alert-success',
+        timeout:3000
+    
+      });
+    }
+
+  }
+
+  checkManagerLeave(){
+    var exists =  JSON.parse(localStorage.getItem('user'));
+ 
+
+    if(exists&&JSON.parse(localStorage.getItem('user')).username==="ashish"){
+      
+      this.router.navigate(['managerleave']);
+      console.log("new method"+exists)
+    }
+    
+    else{
+      this.router.navigate(['login']);
+      this.flashMessage.show('Please Login to continue',{
+        cssClass:'alert-success',
+        timeout:3000
+    
+      });
+    }
+
   }
 
   
   checkAdminLeave(){
     var exists =  JSON.parse(localStorage.getItem('user'));
-    var localStorageUsername = exists.username;
+   /* var localStorageUsername = exists.username;
     if(localStorageUsername==="admin"){
     if(this.user){
 
@@ -209,6 +334,22 @@ export class AuthService {
     
       });
     }
+  }*/
+
+  if(exists&&JSON.parse(localStorage.getItem('user')).username==="admin"){
+      
+    this.router.navigate(['adminleave']);
+    console.log("new method"+exists)
+
+  }
+  
+  else{
+    this.router.navigate(['login']);
+    this.flashMessage.show('Please Login to continue',{
+      cssClass:'alert-success',
+      timeout:3000
+  
+    });
   }
 
   
@@ -216,3 +357,5 @@ export class AuthService {
 }
 
 
+
+}

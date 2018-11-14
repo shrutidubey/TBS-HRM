@@ -7,9 +7,11 @@ const mongoose = require('mongoose');
 const config = require('./config/database');
 const config1 = require('./config/database1');
 const config2 = require('./config/leavedatabase');
+const config3 = require('./config/holidaydatabase');
 const routes = require('./models/user.js');
 const routes1 = require('./models/event.js');
 const routes2 = require('./models/leave.js');
+const routes3 = require('./models/holiday');
 var flash = require('connect-flash');
 var JSAlert = require("js-alert");
 
@@ -20,6 +22,8 @@ a="abc"
 mongoose.connect(config.database);
 mongoose.connect(config1.database1);
 mongoose.connect(config2.leavedatabase);
+mongoose.connect('mongodb://localhost:27017/holidaydatabase');
+
 mongoose.connection.on('connected', () => {
     console.log('connected to database' + config.database)
 });
@@ -43,6 +47,14 @@ mongoose.connection.on('error', (err) => {
     console.log(' database error' + config2.leavedatabase)
 });
 
+mongoose.connection.on('connected', () => {
+    console.log('connected to database' + config3.holidaydatabase)
+});
+
+mongoose.connection.on('error', (err) => {
+    console.log(' database error' + config3.holidaydatabase)
+});
+
 const app = express();
 
 const users = require('./routes/users');
@@ -52,6 +64,8 @@ const leaves = require('./routes/leave');
 const adminleave = require('./routes/adminleave');
 const adminrejectleave = require('./routes/adminrejectleave');
 const getleavecount = require('./routes/getleavecount');
+const leaves2 = require('./routes/leaves2');
+const holidays = require('./routes/holidays');
 const port = 9008;
 
 app.use(cors({ origin: 'http://localhost:4200' }));
@@ -72,8 +86,8 @@ app.use('/leaves', leaves);
 app.use('/adminleave', adminleave);
 app.use('/user1', user1);
 app.use('/adminrejectleave', adminrejectleave);
-
-
+app.use('/leaves2',leaves2);
+app.use('/holidays',holidays);
 app.get('/', (req, res) => {
     res.send("Invalid endpoint");
 });

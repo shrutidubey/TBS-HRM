@@ -7,16 +7,15 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { Adminleave } from '../../shared/adminleave.model';
 import { LeaveService } from '../../services/leave.service';
 import { Leave } from '../../shared/leave.model';
-
-
 @Component({
-  selector: 'app-managerleave',
-  templateUrl: './managerleave.component.html',
-  styleUrls: ['./managerleave.component.css']
+  selector: 'app-pendingleaves',
+  templateUrl: './pendingleaves.component.html',
+  styleUrls: ['./pendingleaves.component.css'],
+  providers: [AdminleaveService]
 })
-export class ManagerleaveComponent implements OnInit {
+export class PendingleavesComponent implements OnInit {
 
-
+  
   constructor(private adminleaveService: AdminleaveService,
     private authService:AuthService,
   private flashMessage:FlashMessagesService,
@@ -25,8 +24,7 @@ private router:Router) { }
   ngOnInit() {
     this.resetForm();
     this.refreshAdminleaveList();
-    this.authService.checkManagerLeave();
-    //this.authService.checkAdminLeave();
+  //  this.authService.checkAdminLeave();
   }
   onLogoutClick(){
     this.authService.logout();
@@ -86,10 +84,32 @@ private router:Router) { }
     }
   }
 
-  refreshAdminleaveList() {
-    this.adminleaveService.getAdminleaveList().subscribe((res) => {
-      this.adminleaveService.adminleaves = res as Adminleave[];
+
+
+ /* refreshLeaveList() {
+    //var username = this.authService.getUsername();
+    var  username = JSON.parse(localStorage.getItem('user')).username
+    console.log("local storage username"+JSON.parse(localStorage.getItem('user')).username)
+    console.log("username inside refresh Leave List"+username)
+    this.leaveService.getUserByUsername(username).subscribe((res) => {
+     this.leaveService.leaves = res as Leave[];
+    // console.log("youuuu"+this.leaveService.leaves[0].empname)
+     //console.log("youuuu1"+ (res as Leave[]))
+    //  console.log("username"+)
     });
+  }*/
+  refreshAdminleaveList() {
+  /*  this.adminleaveService.getAdminleaveList().subscribe((res) => {
+     // this.adminleaveService.adminleaves = res as Adminleave[];
+var abc;
+console.log("abc"+abc)
+     var pendingleaves = this.authService.getPendingLeaves();
+     console.log("pending leaves"+this.authService.getPendingLeaves());
+    });*/
+
+    this.adminleaveService.getUserByStatus().subscribe((res)=>{
+      this.adminleaveService.adminleaves = res as Adminleave[];
+    })
   }
 
   onAccept(adminleave: Adminleave) {
@@ -109,7 +129,6 @@ private router:Router) { }
         //M.toast({html:'Leave Rejected',classes:'rounded'});
       });
     }
-
     console.log('Leave rejected');
   }
 

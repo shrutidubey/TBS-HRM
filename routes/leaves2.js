@@ -6,6 +6,7 @@ const config = require('../config/leavedatabase');
 const Leave = require('../models/leave');
 const User = require('../models/user')
 var count1 = require('./adminleave');
+const Adminleave = require('../models/leave');
 var ObjectId = require('mongoose').Types.ObjectId;
 const mongoose = require('mongoose')
 const AutoIncrement = require('mongoose-sequence')(mongoose);
@@ -24,4 +25,25 @@ router.get('/empname', (req, res) => {
 });
 
 });
+
+
+
+router.get('/pendingleaves',(req,res)=>{
+
+  console.log("inside pending leaves")
+
+  
+Adminleave.find({status:"pending"},(err, docs) => {
+      if (!err) {
+          console.log("docccc"+docs['empname'])
+          res.send(docs);   
+      }
+      else {
+          console.log('Error in retrieving Leaves:' + JSON.stringify(err, undefined, 2));
+      }
+  });
+
+
+});
+
 module.exports = router;

@@ -28,6 +28,10 @@ import { EditprofileComponent } from './components/editprofile/editprofile.compo
 import { AppDashboardComponent } from './components/app-dashboard/app-dashboard.component';
 import { ManagerleaveComponent } from './components/managerleave/managerleave.component';
 import { ManagerempComponent } from './components/manageremp/manageremp.component';
+import { PendingleavesComponent } from './components/pendingleaves/pendingleaves.component';
+//import { HolidayComponent } from './components/holiday/holiday.component';
+import { HolidaysComponent } from './components/holidays/holidays.component';
+//import { HolidayComponent } from './components/holiday/holiday.component';
 
 
 const appRoutes:Routes = [
@@ -82,7 +86,17 @@ const appRoutes:Routes = [
   },
   {
     path:'manageremp',component:ManagerempComponent
+  },
+  {
+    path:'pendingleaves',component:PendingleavesComponent
+  },
+ /* {
+    path:'manageholidays',component:HolidayComponent
+  },*/
+  {
+    path:'holidays',component:HolidaysComponent
   }
+  
 ]
 
 
@@ -107,7 +121,10 @@ const appRoutes:Routes = [
     EditprofileComponent,
     AppDashboardComponent,
     ManagerleaveComponent,
-    ManagerempComponent
+    ManagerempComponent,
+    PendingleavesComponent,
+    //HolidayComponent,
+    HolidaysComponent
   ],
   imports: [
     BrowserModule,
