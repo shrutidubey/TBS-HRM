@@ -7,7 +7,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { Adminleave } from '../../shared/adminleave.model';
 import { LeaveService } from '../../services/leave.service';
 import { Leave } from '../../shared/leave.model';
-
+import { EmployeeService } from '../../services/employee.service';
+import { Employee } from '../../shared/employee.model';
 
 declare var M: any;
 @Component({
@@ -21,12 +22,13 @@ export class AdminleaveComponent implements OnInit {
   constructor(private adminleaveService: AdminleaveService,
     private authService:AuthService,
   private flashMessage:FlashMessagesService,
-private router:Router) { }
-
+private router:Router,
+private employeeService:EmployeeService) { }
+name:String;
   ngOnInit() {
     this.resetForm();
     this.refreshAdminleaveList();
-    this.authService.checkAdminLeave();
+   this.authService.checkAdminLeave();
   }
   onLogoutClick(){
     this.authService.logout();
@@ -67,10 +69,6 @@ private router:Router) { }
 
 
 
-
-
-
-
   resetForm(form?: NgForm) {
     if (form)
       form.reset();
@@ -87,9 +85,18 @@ private router:Router) { }
   }
 
   refreshAdminleaveList() {
-    this.adminleaveService.getAdminleaveList().subscribe((res) => {
-      this.adminleaveService.adminleaves = res as Adminleave[];
+
+    this.employeeService.getEmployeeList().subscribe((res) => {
+
+      this.employeeService.employees = res as Employee[];
+  
+  
     });
+ // this.adminleaveService.getAllUsernames();
+  //console.log("this.adminleaveService.getAllUsernames()"+this.adminleaveService.getAllUsernames()[0])
+  this.adminleaveService.getAdminleaveList().subscribe((res) => {
+    this.adminleaveService.adminleaves = res as Adminleave[];
+  });
   }
 
   onAccept(adminleave: Adminleave) {
@@ -113,6 +120,12 @@ private router:Router) { }
     console.log('Leave rejected');
   }
 
-
+onView(adminleave: Adminleave){
+  this.adminleaveService.selectedAdminleave = adminleave;
+  var username = this.adminleaveService.selectedAdminleave.empname;
+  this.adminleaveService.storeUsername(username);
+  console.log("username"+this.adminleaveService.selectedAdminleave.empname);
+//  this.adminleaveService.getLeaveRecord(this.adminleaveService.selectedAdminleave.empname);
+}
 }
 

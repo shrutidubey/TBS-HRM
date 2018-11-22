@@ -542,6 +542,10 @@
                   </a>
                   <a class="action-btn" (click)="onReject(adminleave._id,adminleaveForm)">
                     <i class="material-icons">Remove</i>
+									</a>
+																		<!--<li><a  [routerLink]="['/manageemployees']">  <i class="lnr lnr-code"></i><span> Manage Employees  </span></a></li>-->
+									<a class="action-btn" [routerLink]="['/leaverecord']" (click)="onView(adminleave)">
+                    <i class="material-icons">View Details</i>
                   </a>
                 </td>
               </tr>

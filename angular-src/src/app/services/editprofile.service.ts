@@ -12,6 +12,7 @@ export class EditProfileService {
   employees: Employee[];
   readonly baseURL = "http://localhost:9008/users";
   readonly baseURI = "http://localhost:9008/user1"
+ 
   constructor(private http: HttpClient) { }
 
   postEmployee(emp: Employee) {
@@ -24,6 +25,7 @@ export class EditProfileService {
     
   }
 
+ 
   getUserByUsername(user) {
     console.log("employee.service.ts" + user);
 

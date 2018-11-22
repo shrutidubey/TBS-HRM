@@ -1,8 +1,9 @@
 export class Employee {
-    _id:String;
-    name:String;
-    email:String;
-    username:String;
-    password:String;
-    role:String;
+    _id:string;
+    name:string;
+    email:string;
+    username:string;
+    password:string;
+   newpassword:string;
+    role:string;
 }

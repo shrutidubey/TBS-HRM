@@ -3,6 +3,8 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { LeaveService } from '../../services/leave.service';
+import { EmployeeService } from '../../services/employee.service';
+import { ResetpasswordComponent } from '../resetpassword/resetpassword.component';
 
 
 
@@ -19,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService,
     private router: Router,
     private flashMessage: FlashMessagesService,
-    private leaveService:LeaveService) { }
+    private leaveService:LeaveService,
+  private employeeService:EmployeeService) { }
 
   ngOnInit() {
   }
@@ -78,7 +81,13 @@ this.authService.storeUsername(user);
     }
   */
 
+ 
+
 
   }
+  resetpassword(){
 
+    this.employeeService.getuser(this.username)
+
+  }
 }

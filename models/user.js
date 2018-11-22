@@ -27,7 +27,13 @@ const UserSchema = mongoose.Schema({
     },
     role:{
         type:String,
-    }
+    },
+  
+    resetPasswordToken: String,
+    resetPasswordExpires: Date,
+    isAdmin:{type:Boolean,default: false}
+
+
 
 });
 
@@ -41,6 +47,20 @@ module.exports.getUserByUsername = function (username, callback) {
     const query = { username: username}
     console.log({ username: username})
     User.findOne(query, callback);
+
+}
+
+module.exports.getUserByEmail = function(email,callback){
+    console.log("inside getUserByUsername functio"+email);
+    const query = {email:email}
+    User.find(query,callback)
+}
+
+module.exports.getUserByUsernames = function (username, callback) {
+    console.log("inside main get user by username function"+username);
+    const query = { username: username}
+    console.log({ username: username})
+    User.find(query, callback);
 
 }
 
@@ -67,9 +87,43 @@ module.exports.editUser = function(newUser,callback){
 module.exports.comparePassword = function (candidatePassword, hash, callback) {
     bcrypt.compare(candidatePassword, hash, function (err, isMatch) {
         if (err)
-            throw err;
+             throw err;
         callback(null, isMatch);
  
     });
 }
- 
+
+
+ UserSchema.pre('save',function(next){
+     var user = this;
+     var SALT_FACTOR = 5;
+
+     if(!user.isModified('password'))
+     return next();
+
+
+     bcrypt.genSalt(SALT_FACTOR,function(err,salt){
+         if(err)
+         return next(err);
+
+
+        bcrypt.hash(user.password,salt,null,function(err,hash){
+            if(err)
+            return next(err);
+            user.password = hash;
+            next();
+        });
+     });
+
+
+
+
+
+
+
+
+
+
+
+
+ })

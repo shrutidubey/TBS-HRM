@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ 
+    <script type="text/javascript">
+      function noBack()
+       {
+           window.history.forward()
+       }
+      noBack();
+      window.onload = noBack;
+      window.onpageshow = function(evt) { if (evt.persisted) noBack() }
+      window.onunload = function() { void (0) }
+  </script>
+
+  </head>
+  <body >
+<div class="cont">  
+  <div class="form">
+    <form (submit)="onLoginSubmit()">
+      <img class="log_img" src="/assets/images/logo-dark (1).png" alt="oops">
+      <h1 >TechBrise- Login</h1>
+      <div class="form-group">
+      <input type="text"
+             class="user"
+             [(ngModel)]="email"
+             name="email"
+             placeholder="Please enter your email"/>
+             </div>
+         <!--    <div class="form-group">
+     <input type="password" 
+             class="pass"
+             [(ngModel)]="password"
+             name="password"
+             placeholder="Password"/>
+             </div>-->
+     
+     <a class="register" [routerLink]="['/resetpassword']" (click)="resetpassword()"><u>Reset Password</u></a>
+  </form>
+  </div>  
+</div>
+</body>
+
+</html>

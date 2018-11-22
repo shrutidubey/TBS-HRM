@@ -199,7 +199,7 @@ export class ManageemployeesComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
     this.refreshEmployeeList();
-    this.authService.checkManageEmployees();
+    //this.authService.checkManageEmployees();
   }
 
   onLogoutClick(){
@@ -223,7 +223,8 @@ export class ManageemployeesComponent implements OnInit {
       email: "",
       username: "",
       password: "",
-      role:""
+      role:"",
+      newpassword:""
     }
   }
 
@@ -334,5 +335,13 @@ this.password = fpassword;
 
       });
     }
+  }
+
+  onView(emp: Employee){
+    this.employeeService.selectedEmployee = emp;
+    var username = this.employeeService.selectedEmployee.name;
+    this.employeeService.storeUsername(username);
+    console.log("username"+this.employeeService.selectedEmployee.name);
+  //  this.adminleaveService.getLeaveRecord(this.adminleaveService.selectedAdminleave.empname);
   }
 }

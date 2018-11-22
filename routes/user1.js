@@ -21,6 +21,6 @@ router.get('/:username', (req, res) => {
                console.log('Error in retrieving Leave' + JSON.stringify(err, undefined, 2));
            }
        });
-   });
+   }); 
 
-module.exports = router;
+module.exports = router;  

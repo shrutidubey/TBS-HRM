@@ -31,6 +31,13 @@ import { ManagerempComponent } from './components/manageremp/manageremp.componen
 import { PendingleavesComponent } from './components/pendingleaves/pendingleaves.component';
 //import { HolidayComponent } from './components/holiday/holiday.component';
 import { HolidaysComponent } from './components/holidays/holidays.component';
+import { VieweventsComponent } from './components/viewevents/viewevents.component';
+import { ViewholidaysComponent } from './components/viewholidays/viewholidays.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { NewpasswordComponent } from './components/newpassword/newpassword.component';
+import { SendemailComponent } from './components/sendemail/sendemail.component';
+import { LeaverecordComponent } from './components/leaverecord/leaverecord.component';
+
 //import { HolidayComponent } from './components/holiday/holiday.component';
 
 
@@ -95,6 +102,24 @@ const appRoutes:Routes = [
   },*/
   {
     path:'holidays',component:HolidaysComponent
+  },
+  {
+    path:'viewevents',component:VieweventsComponent
+  },
+  {
+    path:'viewholidays',component:ViewholidaysComponent
+  },
+  {
+    path:'resetpassword',component:ResetpasswordComponent
+  },
+  {
+    path:'newpassword',component:NewpasswordComponent
+  },
+  {
+    path:'sendemail',component:SendemailComponent
+  },
+  {
+    path:'leaverecord',component:LeaverecordComponent
   }
   
 ]
@@ -124,7 +149,14 @@ const appRoutes:Routes = [
     ManagerempComponent,
     PendingleavesComponent,
     //HolidayComponent,
-    HolidaysComponent
+    HolidaysComponent,
+    VieweventsComponent,
+    ViewholidaysComponent,
+    ResetpasswordComponent,
+    NewpasswordComponent,
+    SendemailComponent,
+    LeaverecordComponent,
+  
   ],
   imports: [
     BrowserModule,

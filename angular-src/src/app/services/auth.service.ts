@@ -28,6 +28,32 @@ export class AuthService {
       .pipe(map(res => res.json()));
 
   }
+/*
+ resetPassword(user){
+  
+  let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    console.log("inside reset password");
+    return this.http.post('http://localhost:9008/uippooi', user, { headers: headers })
+      .pipe(map(res => res.json()));
+ 
+ }
+ */
+
+
+
+
+ resetPassword(email){
+  
+
+  let headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  console.log("inside reset password");
+  return this.http.get('http://localhost:9008/abchg')
+    .pipe(map(res => res.json()));
+}
+ 
+ 
 
   authenticateUser(user) {
     let headers = new Headers();
@@ -55,6 +81,7 @@ export class AuthService {
   }
 
 
+  
 
   storeUsername(user) {
     logusername = user;

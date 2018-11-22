@@ -37,7 +37,7 @@ private router:Router) { }
     
     this.resetForm();
     this.refreshLeaveList();
-    this.authService.checkEmployeeLeave();
+   this.authService.checkEmployeeLeave();
   }
   onLogoutClick(){
     this.authService.logout();
@@ -81,6 +81,7 @@ private router:Router) { }
     var  username = JSON.parse(localStorage.getItem('user')).username
     console.log("local storage username"+JSON.parse(localStorage.getItem('user')).username)
     console.log("username inside refresh Leave List"+username)
+ //  console.log("inside leave service now see this"+this.leaveService.getUserByUsername(username)[0])
     this.leaveService.getUserByUsername(username).subscribe((res) => {
      this.leaveService.leaves = res as Leave[];
     // console.log("youuuu"+this.leaveService.leaves[0].empname)

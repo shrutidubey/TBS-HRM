@@ -12,10 +12,14 @@ export class LeaveService {
   readonly baseURL = 'http://localhost:9008/leaves';
   readonly baseURI = 'http://localhost:9008/leaves1';
   readonly baseURP = 'http://localhost:9008/leaves2/empname';
+  readonly baseURT = 'http://localhost:9008/editprofile'
 
   constructor(private http: HttpClient) { }
 
-
+  getUserByUsernames(user) {
+    console.log("employee.service.ts" + user);
+    return this.http.get(this.baseURT + `/${user}`);
+  }
  postLeave(leave: Leave) {
   return this.http.post(this.baseURL ,leave);
 }

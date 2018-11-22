@@ -6,30 +6,48 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Employee } from '../../shared/employee.model';
+import { LeaveService } from '../../services/leave.service';
+import { Leave } from '../../shared/leave.model';
+
 
 @Component({
   selector: 'app-editprofile',
   templateUrl: './editprofile.component.html',
-  styleUrls: ['./editprofile.component.css']
+  styleUrls: ['./editprofile.component.css'],
+  providers: [EmployeeService,LeaveService]
+
 })
 export class EditprofileComponent implements OnInit {
+  
+  
   name: String;
-  username: String;
   email: String;
-  password: String;
-  role:String
-
-  constructor(private employeeService: EmployeeService,
-    private validateService: ValidateService,
-    private flashMessage: FlashMessagesService,
-    private authService: AuthService,
-    private router: Router
-  ) { }
+  username: String;
+  password:String;
+  role:String;
+  
+  constructor(private leaveService: LeaveService
+    , private authService: AuthService,
+  private employeeService:EmployeeService,
+private flashMessage:FlashMessagesService,
+private ValidateService:ValidateService,
+private router:Router) { }
 
   ngOnInit() {
+    
     this.resetForm();
-  this.refreshEmployeeList();
-   this.authService.checkManageEmployees();
+    this.refreshEmployeeList();
+    //this.authService.checkEmployeeLeave();
+  }
+  onLogoutClick(){
+    this.authService.logout();
+    this.flashMessage.show('You are logged out',{
+      cssClass:'alert-success',
+      timeout:3000
+
+    });
+    this.router.navigate(['/login']);
+    return false;
   }
 
   resetForm(form?: NgForm) {
@@ -41,92 +59,95 @@ export class EditprofileComponent implements OnInit {
       name: "",
       email: "",
       username: "",
-      password: "",
-      role:""
+      password:"",
+      role:"",
+      newpassword:""
+     
     }
   }
-
 
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
-    console.log(this.name);
-      console.log(this.email);
-      const user = {
-        name: this.name,
-        email: this.email,
-        username: this.username,
-        password: this.password,
-        role:this.role
-      }
-
-      if (!this.validateService.validateRegister(user)) {
-        this.flashMessage.show('Please fill all the fields', { cssClass: 'alert-danger', timeout: 3000 });
-        return false;
-      }
-
-      if (!this.validateService.validateEmail(user.email)) {
-        this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
-        return false;
-      }
-
-      this.authService.registerUser(user).subscribe(data => {
-        if (data.success) {
-          this.flashMessage.show('employee successfully registered', { cssClass: 'alert-succes', timeout: 3000 });
-
-          this.resetForm(form);
-          this.refreshEmployeeList();
+      console.log(this.name);
+        console.log(this.email);
+        const user = {
+          name: this.name,
+          email: this.email,
+          username: this.username,
+       //   password: this.password,
+       //   role:this.role
         }
-        else {
-          this.flashMessage.show('Something went wrong', { cssClass: 'alert-danger', timeout: 3000 });
-          this.router.navigate(['/manageemployees']);
+  
+        if (!this.ValidateService.validateRegister(user)) {
+          this.flashMessage.show('Please fill all the fields', { cssClass: 'alert-danger', timeout: 3000 });
+          return false;
         }
-      })
-
- 
-  }
-    else {
-
-      this.employeeService.putEmployee(form.value).subscribe((res) => {
-       this.resetForm(form);
-        this.refreshEmployeeList();
-
-      });
-
-      
+  
+        if (!this.ValidateService.validateEmail(user.email)) {
+          this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
+          return false;
+        }
+  
+        this.authService.registerUser(user).subscribe(data => {
+          if (data.success) {
+            this.flashMessage.show('employee successfully registered', { cssClass: 'alert-succes', timeout: 3000 });
+  
+            this.resetForm(form);
+            this.refreshEmployeeList();
+          }
+          else {
+            this.flashMessage.show('Something went wrong', { cssClass: 'alert-danger', timeout: 3000 });
+            this.router.navigate(['/manageemployees']);
+          }
+        })
+  
+   
     }
+      else {
+  
+        this.employeeService.putEmployee(form.value).subscribe((res) => {
+         this.resetForm(form);
+          this.refreshEmployeeList();
+  
+        });
+  
+        
+      }
+  }
 
-  }
-  employees:any
-  array = [];
   refreshEmployeeList() {
-    var  username = JSON.parse(localStorage.getItem('user')).username
-    console.log("username"+username);
-    let arr = []
-    this.employeeService.getUserByUsername(username).subscribe((res) => {
-    this.employeeService.employees = res as Employee[];
-    });
-    //this.array = this.employeeService.getArray();
-    //console.log("this.array"+this.array);
-   // console.log("joooo"+ res as Employee[]);
-  }
-/*
-  refreshEmployeeList() {
-    //var username = this.authService.getUsername();
-    var  username = JSON.parse(localStorage.getItem('user')).username
+    
+  /*  var  username = JSON.parse(localStorage.getItem('user')).username
     console.log("local storage username"+JSON.parse(localStorage.getItem('user')).username)
-    console.log("uername inside refresh Leave List"+username)
-    //console.log("yes yes"+this.employeeService.getUserByUsername(username))
+    console.log("username inside refresh Leave List"+username)
     this.employeeService.getUserByUsername(username).subscribe((res) => {
-     this.employeeService.employees = res as Employee[];
-//console.log("youuuu"+this.employeeService.employees[0].name)
-    // console.log("youuuu"+this.leaveService.leaves[0].empname)
-     //console.log("youuuu1"+ (res as Leave[]))
-    //  console.log("username"+)
-    });
+    var abc = (Array.of(res as Employee[])[0])['name']
+     console.log(abc);
+     var cdf = Array.of(this.employeeService.employees)
+     cdf = (Array.of(res as Employee[])[0])['name']
+     this.employeeService.employees = abc
+console.log("this.employeeService.employees"+this.employeeService.employees)
+     console.log( "cdf"+cdf)
+     //this.employeeService.employees[0] =abc;
+   //  this.employeeService.employees['name'] = (Array.of(res as Employee[])[0])['name'];
+   //  this.employeeService.employees['email'] = (Array.of(res as Employee[])[0])['email'];
+  //   this.employeeService.employees['username'] = (Array.of(res as Employee[])[0])['username'];
+    
+    });*/
+//var  abc:[]
+    var  username = JSON.parse(localStorage.getItem('user')).username;
+    this.employeeService.getUserByUsername(username).subscribe((res)=>{
+     
+
+      this.employeeService.employees =  res as Employee[];
+    })
+   
+
+  //  console.log("this.employeeService.employees = res as Employee[]"+(this.employeeService.employees) )
   }
-  */
-onEdit(emp: Employee) {
-    console.log("edit");
+
+  onEdit(emp: Employee) {
+  /*  console.log("edit");
     this.flashMessage.show('you can now edit the employee details', { cssClass: 'alert-succes', timeout: 3000 });
     this.employeeService.selectedEmployee = emp;
     //this.employeeService.selectedEmployee = emp
@@ -154,15 +175,21 @@ this.password = fpassword;
 
   //this.employeeService.sendUserInfo();
 
-  //this.employeeService.sendEmail();
-  }
-  
- /*
-  onEdit(emp: Employee) {
+  //this.employeeService.sendEmail();*/
+ 
     this.employeeService.selectedEmployee = emp;
-  }
-  */
+    
   
+  }
+/*
+  refreshAdminleaveList() {
+    this.adminleaveService.getAdminleaveList().subscribe((res) => {
+      this.adminleaveService.adminleaves = res as Adminleave[];
+    });
+  }
+*/
+
+
   onDelete(_id: string, form: NgForm) {
     if (confirm('Are you sure to delete this record?') == true) {
       this.employeeService.deleteEmployee(_id).subscribe((res) => {
