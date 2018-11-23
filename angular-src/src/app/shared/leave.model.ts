@@ -7,5 +7,6 @@ export class Leave {
     leavereason:string;
     leavecount:string;
     status:string;
-    acceptedleaves:string
+    acceptedleaves:string;
+    totalleaves:string
 }

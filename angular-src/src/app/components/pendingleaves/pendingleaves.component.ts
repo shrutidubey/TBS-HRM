@@ -79,7 +79,8 @@ private router:Router) { }
       fromdate: "",
       todate: "",
       leavereason: "",
-      status: ""
+      status: "",
+      approvedby:""
 
     }
   }

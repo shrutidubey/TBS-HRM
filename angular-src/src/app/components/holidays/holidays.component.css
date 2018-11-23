@@ -1,0 +1,89 @@
+.col-lg-12.col-md-6.col-sm-2.col-md-offset-1 {
+    left: 30px;
+    top: 50px;
+  }
+  
+  table {
+    border-collapse: collapse;
+  }
+  
+  table, td, th {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  thead tr th {
+    height: 45px;
+    color: #292929;
+    text-transform: uppercase;
+    text-align: center;
+    width: 15%;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+    
+  }
+  
+  td {
+    width: 15%;
+    height: 60px;
+    text-align: center;
+  }
+  
+  .card {
+    background-color: transparent;
+    border: 1px solid transparent;
+  }
+  
+  .material-icons {
+    padding: 4px 10px 5px 10px;
+    border-radius: 2px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-color: #518c51;
+  }
+  
+  .material-icons-d {
+    padding: 4px 10px 5px 10px;
+    border-radius: 2px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-color: #b93524;
+    cursor: pointer;
+  }
+  
+  .material-icons-popup {
+    padding: 4px 10px 5px 10px;
+    border-radius: 2px;
+    margin: 5px;
+    font-size: initial;
+    background-color: #33a2ff;
+    cursor: pointer;
+  }
+  
+  i.fa.fa-edit {
+    margin-right: 5px;
+  }
+  
+  i.fa.fa-trash-o {
+    margin-right: 5px;
+  }
+  button.btn.btn-custom.right {
+    margin: 5px;
+    width: 120px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-image: linear-gradient(to right, #eb8024, #eb8024, #eb8024, #eb8024);
+  }
+  
+  a.action-btn {
+    color: #fff !important;
+  }
+  
+  p.h4.mb-4 {
+    font-size: 24px;
+  }

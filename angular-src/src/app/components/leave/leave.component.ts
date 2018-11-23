@@ -63,7 +63,10 @@ private router:Router) { }
       leavereason: "",
       leavecount: "",
       acceptedleaves:"",
-      status: ""
+      status: "",
+      //approvedby:"",
+      totalleaves:"",
+     
     }
   }
 

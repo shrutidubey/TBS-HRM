@@ -51,6 +51,7 @@ req.body.leavetype = email
             leavereason: req.body.leavereason,
             leavecount: count,
             acceptedleaves:totalleaves,
+            totalleaves:18,
             status: "pending"
         });
         
@@ -97,6 +98,7 @@ var leave = new Leave({
     leavereason: req.body.leavereason,
     leavecount: newleavecount,
     acceptedleaves:totalleaves1 - newleavecount,
+    totalleaves:18,
     status: "pending"
 });
 leave.save((err, doc) => {

@@ -1,0 +1,9 @@
+<app-mag-dashboard></app-mag-dashboard>
+  <div class="col-md-12 col-md-offset-2">
+      <div class="view-holi" >
+        <h4 class="head">Holidays list 2019</h4>
+        <ul style="list-style: none; margin: 0; padding: 0;" *ngFor="let holiday of holidayService.holidays">
+          <li class="list-odd"><span>{{holiday.holidayname}} &nbsp;&nbsp;|</span> <span>{{holiday.fromdate}} &nbsp;&nbsp;|</span> <span>{{holiday.todate}} &nbsp;&nbsp;|</span> <span>{{holiday.duration}}</span> </li>
+        </ul>
+      </div>      
+  </div>

@@ -6,6 +6,6 @@ export class Adminleave {
     todate:string;
     leavereason:string;
     status:string;
-
+approvedby:string;
 
 }

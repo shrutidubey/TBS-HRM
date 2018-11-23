@@ -78,17 +78,18 @@ name:String;
       fromdate: "",
       todate: "",
       leavereason: "",
-      status: ""
+      status: "",
+      approvedby:""
 
     }
   }
 
   refreshAdminleaveList() {
-  var username = this.adminleaveService.getrecord();
+  var username = this.employeeService.getrecord();
   console.log("inside leave record"+username);
 
   
-    this.employeeService.getUserByUsername(username).subscribe((res) => {
+    this.leaveService.getUserByUsername(username).subscribe((res) => {
   
       this.adminleaveService.adminleaves = res as Adminleave[];
      // console.log("this.leaveService.leaves = res as Leave[]"+this.leaveService.leaves['empname']);

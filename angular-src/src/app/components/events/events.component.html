@@ -1,52 +1,47 @@
-
-<div class="row">
+<app-main-dashboard></app-main-dashboard>
+<div class="col-lg-12 col-md-6 col-sm-2 col-md-offset-1">
   <div class="col s12">
     <div class="card">
       <div class="card-content white-text">
         <div class="row">
-          <div class="col s5">
-            <form #eventForm="ngForm" (ngSubmit)="onSubmit(eventForm)">
-              
-              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="eventService.selectedEvent._id">
-              <div class="row">
-                <div class="input-field col s12">
-                  <input type="text" name="eventname" #name="ngModel" [(ngModel)]="eventService.selectedEvent.eventname" placeholder="Enter event name" required>
-                  <label>Event Name :
-                    <label class="red-text">*</label>
-                  </label>
+          <div class="col-md-12" >
+              <div >
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                  <a ><i class="material-icons-popup">Add Event</i></a>
+                </p>
+              </div>  
+              <!-- Default form register -->
+            <form class="text-center border border-light p-5" #eventForm="ngForm" (ngSubmit)="onSubmit(eventForm)" >
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="eventService.selectedEvent._id">  
+              <p class="h4 mb-4">Add Event</p>
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- Event Name -->
+                        <input type="text" id="defaultRegisterFormFirstName" class="form-control" name="eventname" #name="ngModel" [(ngModel)]="eventService.selectedEvent.eventname" placeholder="Enter event name" required>
+                    </div>
+                    <div class="col">
+                        <!-- Venue -->
+                        <input type="text" id="defaultRegisterFormLastName" class="form-control" name="venue" #name="ngModel" [(ngModel)]="eventService.selectedEvent.venue" placeholder="Venue">
+                    </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input type="text" name="venue" #name="ngModel" [(ngModel)]="eventService.selectedEvent.venue" placeholder="Venue">
-                  <label>Venue:</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input type="text" name="date" #name="ngModel" [(ngModel)]="eventService.selectedEvent.date" placeholder="Date">
-                  <label>Date :</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input type="text" name="time" #name="ngModel" [(ngModel)]="eventService.selectedEvent.time" placeholder="time">
-                  <label>Time:</label>
-                </div>
-              </div>
 
-              <div class="row">
-                <div class="input-field col s12">
-                  <input type="text" name="description" #name="ngModel" [(ngModel)]="eventService.selectedEvent.description" placeholder="description">
-                  <label>Description:</label>
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- Event date -->
+                        <input type="date" id="defaultRegisterFormFirstName" class="form-control" name="date" #name="ngModel" [(ngModel)]="eventService.selectedEvent.date" placeholder="Date">
+                    </div>
+                    <div class="col">
+                        <!-- Event Timing -->
+                        <input type="text" id="defaultRegisterFormLastName" class="form-control" name="time" #name="ngModel" [(ngModel)]="eventService.selectedEvent.time" placeholder="time">
+                    </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Reset</button>
-                  <button class="btn btn-custom right" type="submit" [disabled]="!eventForm.valid">Submit</button>
-                </div>
-              </div>
+
+                <!-- E-mail -->
+                <input type="text" id="defaultRegisterFormLastName" class="form-control mb-4" name="description" #name="ngModel" [(ngModel)]="eventService.selectedEvent.description" placeholder="description">
+         
+                <!-- Sign up button -->
+                <button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Reset</button>
+                <button class="btn btn-custom right" type="submit" [disabled]="!eventForm.valid">Submit</button>
             </form>
           </div>
           <div class="col s7">
@@ -58,6 +53,7 @@
                       <th>Date</th>
                       <th>Time</th>
                       <th>Description</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tr *ngFor="let event of eventService.events">
@@ -68,10 +64,10 @@
                     <td>{{event.description}}</td>
                     <td>
                         <a class="action-btn" (click)="onEdit(event)">
-                          <i class="material-icons">edit</i>
+                          <a class="material-icons"><i class="fa fa-edit"></i>Edit</a>
                         </a>
                         <a class="action-btn" (click)="onDelete(event._id,eventForm)">
-                          <i class="material-icons">delete</i>
+                          <a class="material-icons-d"><i class="fa fa-trash-o"></i>Delete</a>
                         </a>
                       </td>
                   </tr>
@@ -83,4 +79,3 @@
   </div>
 
 </div>
-

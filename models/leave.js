@@ -34,6 +34,10 @@ const LeaveSchema = mongoose.Schema({
     },
     acceptedleaves:{
         type:String
+    },
+    totalleaves:{
+        type:String,
+        default:18
     }
 });
 

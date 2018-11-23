@@ -28,12 +28,9 @@
     padding: 24px 35px;
     background-color: #fff;
 }
-
 .col-md-3	{
 	margin-right: 5%;
 }
-
-
 .card {
     position:absolute;
     width:300px;
@@ -109,13 +106,11 @@
 #img-adjust{
   margin-right:-100px;
 }
-
 .logout{
   position:absolute;
   margin-right:100px;
   text-align:center;
 }
-
 	</style>
 <body>
 	<!-- WRAPPER -->
@@ -315,7 +310,6 @@
 	<script>
 	$(function() {
 		var data, options;
-
 		// headline charts
 		data = {
 			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -324,7 +318,6 @@
 				[14, 25, 18, 34, 29, 38, 44],
 			]
 		};
-
 		options = {
 			height: 300,
 			showArea: true,
@@ -336,10 +329,7 @@
 			},
 			lineSmooth: false,
 		};
-
 		new Chartist.Line('#headline-chart', data, options);
-
-
 		// visits trend charts
 		data = {
 			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -351,7 +341,6 @@
 				data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
 			}]
 		};
-
 		options = {
 			fullWidth: true,
 			lineSmooth: false,
@@ -367,7 +356,6 @@
 			},
 			axisX: {
 				showGrid: false,
-
 			},
 			axisY: {
 				showGrid: false,
@@ -379,10 +367,7 @@
 				right: 20
 			}
 		};
-
 		new Chartist.Line('#visits-trends-chart', data, options);
-
-
 		// visits chart
 		data = {
 			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -390,17 +375,13 @@
 				[6384, 6342, 5437, 2764, 3958, 5068, 7654]
 			]
 		};
-
 		options = {
 			height: 300,
 			axisX: {
 				showGrid: false
 			},
 		};
-
 		new Chartist.Bar('#visits-chart', data, options);
-
-
 		// real-time pie chart
 		var sysLoad = $('#system-load').easyPieChart({
 			size: 130,
@@ -413,21 +394,16 @@
 			lineCap: "square",
 			animate: 800
 		});
-
 		var updateInterval = 3000; // in milliseconds
-
 		setInterval(function() {
 			var randomVal;
 			randomVal = getRandomInt(0, 100);
-
 			sysLoad.data('easyPieChart').update(randomVal);
 			sysLoad.find('.percent').text(randomVal);
 		}, updateInterval);
-
 		function getRandomInt(min, max) {
 			return Math.floor(Math.random() * (max - min + 1)) + min;
 		}
-
 	});
 	</script>
 </body>
@@ -557,5 +533,3 @@
   </div>
 </div>
 </div>
-
-

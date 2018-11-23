@@ -37,6 +37,11 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { NewpasswordComponent } from './components/newpassword/newpassword.component';
 import { SendemailComponent } from './components/sendemail/sendemail.component';
 import { LeaverecordComponent } from './components/leaverecord/leaverecord.component';
+import { EmpDashboardComponent } from './components/emp-dashboard/emp-dashboard.component';
+import { MagDashboardComponent } from './components/mag-dashboard/mag-dashboard.component';
+import { MainDashboardComponent } from './components/main-dashboard/main-dashboard.component';
+import { MngHolidayComponent } from './components/mng-holiday/mng-holiday.component';
+import { MngEventComponent } from './components/mng-event/mng-event.component';
 
 //import { HolidayComponent } from './components/holiday/holiday.component';
 
@@ -120,6 +125,22 @@ const appRoutes:Routes = [
   },
   {
     path:'leaverecord',component:LeaverecordComponent
+  },
+  {
+    path:'emp-dashboard',component:EmpDashboardComponent
+  },
+  {
+    path:'mag-dashboard',component:MagDashboardComponent
+  },
+  {
+    path:'main-dashboard',component:MainDashboardComponent
+  },
+  {
+    path:'mng-holiday',component:MngHolidayComponent
+  },
+  
+  {
+    path:'mng-event',component:MngEventComponent
   }
   
 ]
@@ -156,6 +177,11 @@ const appRoutes:Routes = [
     NewpasswordComponent,
     SendemailComponent,
     LeaverecordComponent,
+    EmpDashboardComponent,
+    MagDashboardComponent,
+    MainDashboardComponent,
+    MngHolidayComponent,
+    MngEventComponent,
   
   ],
   imports: [

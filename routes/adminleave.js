@@ -19,7 +19,8 @@ router.post('/', (req, res) => {
         fromdate: req.body.fromdate,
         todate: req.body.todate,
         leavereason: req.body.leavereason,
-        status: req.body.status
+        status: req.body.status,
+        approvedby:req.body.approvedby
     });
 
 
@@ -96,7 +97,7 @@ router.put('/:id', (req, res) => {
         leavecount: req.body.leavecount - diffDays-1,
         acceptedleaves:totalleaves - req.body.leavecount,
         status: req.body.status, 
-
+       approvedby:req.body.approvedby
     };
    Adminleave.find({empname:req.body.empname},{leavecount:1,_id:0},(err,docs)=>{
      

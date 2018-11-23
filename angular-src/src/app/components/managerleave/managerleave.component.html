@@ -137,7 +137,7 @@
 				</form>
 				
 
- <a  [routerLink]="['/manageremp']" class="btn btn-secondary" id="addemp"><span> Add Employee </span></a>
+ <a  [routerLink]="['/manageemployees']" class="btn btn-secondary" id="addemp"><span> Add Employee </span></a>
 					   
 					   <input type="button" value="Logout" class="logout" (click)="onLogoutClick()"/>
 					   
@@ -207,11 +207,17 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a  [routerLink]="['/managerdashboard']" href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Manager Dashboard</span></a></li>
+						<li><a  [routerLink]="['/admindashboard']" href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Admin Dashboard</span></a></li>
 
 					<!--	<li><a href="#" class=""><i class="lnr lnr-code"></i> <span>Manage Employees</span></a></li>-->
-						<li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span>Attendance Report </span></a></li>
+						<li><a  [routerLink]="['/']">  <i class="lnr lnr-code"></i><span> Attendance Report  </span></a></li>
+						<li><a  [routerLink]="['/adminleave']">  <i class="lnr lnr-code"></i><span> Manage Leaves </span></a></li>
+						<li><a  [routerLink]="['/']">  <i class="lnr lnr-code"></i><span> Salary Report </span></a></li>
 						<li><a  [routerLink]="['/']">  <i class="lnr lnr-code"></i><span>Pending Leave Request </span></a></li>
+						<li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span> Add Events  </span></a></li>
+						<li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span> Add Holidays
+	 </span></a></li>
+	 <li><a  [routerLink]="">  <i class="lnr lnr-code"></i><span> Add Announcements </span></a></li>
 
            <!-- <li><a href="#" class=""><i class="lnr lnr-code"></i> <span>Logout</span></a></li>-->
 
@@ -285,7 +291,6 @@
 		<!--	<marquee height="100px">
 					HAPPY BIRTHDAY!!	
 				 </marquee>-->
-
 
 
 		</div>
@@ -427,13 +432,6 @@
 
 </html>
 
-
-
-
-
-
-
-
 <div class="change">
 <div class="row">
   <div class="col s12">
@@ -441,60 +439,59 @@
       <div class="card-content white-text">
         <div class="row">
           <div class="col s5">
-            <form #adminleaveForm="ngForm" (ngSubmit)="onSubmit(adminleaveForm)">
-
-              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave._id">
-              <div class="row">
+            <form #employeeForm="ngForm" (submit)="onSubmit(employeeForm)">
+              
+              <input type="hidden" name="_id" #_id="ngModel"  [(ngModel)]="employeeService.selectedEmployee._id">
+           <!--   <div class="row">
                 <div class="input-field col s12">
-                  <input type="text" name="empname" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.empname" placeholder="Enter full name"
-                    required>
-                  <label>Employee Username :
-                    <label class="red-text">*</label>
-                  </label>
+                    <label>Name :
+                        <label class="red-text">*</label>
+                    </label>
+                  <input type="text" name="name"  [(ngModel)]="name"  placeholder="Enter full name" required>
                 </div>
-              </div>
-              <div class="row">
+              </div>-->
+           <!--   <div class="row">
                 <div class="input-field col s12">
-                  <input type="text" name="leavetype" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.leavetype" placeholder="leave Type">
-                  <label>Employee Email</label>
+                    <label>Email :</label>
+                  <input type="text" name="email" [(ngModel)]="email" placeholder="Eg : johndoe@gmail.com">
                 </div>
-              </div>
+              </div>-->
               <div class="row">
                 <div class="input-field col s12">
-                  <input type="text" name="fromdate" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.fromdate" placeholder="fromdate">
-                  <label>From Date :</label>
+                 <!--   <label>Username :</label>-->
+                  <input type="hidden" name="username"   [(ngModel)]="username" placeholder="username">
+                 </div>
+              </div>
+          <!--    <div class="row">
+                <div class="input-field col s12">
+                    <label>Password :</label>
+                  <input type="password" name="password"   [(ngModel)]="password"  placeholder="password">
+                  </div>
+              </div>-->
+             <!-- <div class="row">
+                  <div class="input-field col s12">
+                      <label>Role Assigned:</label>
+                    <input type="text" name="role"   [(ngModel)]="role" placeholder="Eg:Admin">
+                   </div>
+                </div>-->
+          <!--   <div class="form-group">
+                <div class="maxl">
+                    <label class="radio inline"> 
+                        <input type="radio" name="gender" value="male" [(ngModel)]="gender"  checked>
+                        <span> Male </span> 
+                    </label>
+                    <label class="radio inline"> 
+                        <input type="radio" name="gender" value="female" [(ngModel)]="gender">
+                        <span>Female </span> 
+                    </label>
                 </div>
-              </div>
+            </div>
+          -->
               <div class="row">
                 <div class="input-field col s12">
-                  <input type="text" name="todate" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.todate" placeholder="todate">
-                  <label>To Date:</label>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="input-field col s12">
-                  <input type="text" name="leavereason" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.leavereason" placeholder="Leave Reason">
-                  <label>Leave Reason:</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input type="text" name="leavecount" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.leavecount" placeholder="Leave count">
-                  <label>Leave Count:</label>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="input-field col s12">
-                  <input type="text" name="status" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.status" placeholder="Status">
-                  <label>Status:</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <button class="btn btn-custom right" type="button" (click)="resetForm(adminleaveForm)">Reset</button>
-                  <button class="btn btn-custom right" type="submit" [disabled]="!adminleaveForm.valid">Submit</button>
+              <!--    <button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Reset</button>
+				  <button class="btn btn-custom right" type="submit" >Submit</button>-->
+				  
                 </div>
               </div>
             </form>
@@ -502,48 +499,68 @@
             <div class="change1">
           </div>
           <div class="col s7">
-            <table class="responsive-table highlight">
-              <thead class="thead">
-                <tr>
-                  <th>Employee Name</th>
-                  <th>Employee Email</th>
-                  <th>From Date</th>
-                  <th>To Date</th>
-                  <th>Leave Reason</th>
-                  <th>Leave Count</th>
-                  <th>Status</th>
-                  <th>
-
-                  </th>
-                </tr>
-              </thead>
-              <tr *ngFor="let adminleave of adminleaveService.adminleaves">
-                <td>{{adminleave.empname}}</td>
-                <td>{{adminleave.leavetype}}</td>
-                <td>{{adminleave.fromdate}}</td>
-                <td>{{adminleave.todate}}</td>
-                <td>{{adminleave.leavereason}}</td>
-                <td>{{adminleave.leavecount}}</td>
-                <td>{{adminleave.status}}</td>
-
-                <td>
-                </td>
-                <td>
-                  <a class="action-btn" (click)="onAccept(adminleave)">
-                    <i class="material-icons">Action</i>
-                  </a>
-                  <a class="action-btn" (click)="onReject(adminleave._id,adminleaveForm)">
-                    <i class="material-icons">Remove</i>
-                  </a>
-                </td>
-              </tr>
-            </table>
+              <table class="responsive-table highlight">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                    <!--  <th>Email</th>-->
+                      <th>Username</th>
+                      <th>Role</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let emp of employeeService.employees">
+                    <td>{{emp.name}}</td>
+                    <!--<td>{{emp.email}}</td>-->
+                    <td>{{emp.username}}</td>
+                    <td>{{emp.role}}</td>
+                    <td>
+                     <!--  <a class="action-btn" (click)="onEdit(emp)">
+                          <b class="material-icons">Edit</b>
+                        </a>
+                        <a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
+                          <b class="material-icons">Delete</b>
+												</a>-->
+											<!--	<li><a  [routerLink]="['/editprofile']">  <i class="lnr lnr-code"></i><span> Edit profile  </span>     </a></li>-->
+												<a class="action-btn" (click)="onView(emp)" [routerLink]="['/leaverecord']">
+                          <b class="material-icons">View </b>
+                        </a>
+                      </td>
+                  </tr>
+                </table>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
 </div>
 
+</div>
+<!--
 
+<h2 class="page-header">Register</h2>
+<form (submit)="onSubmit()">
+<div class="form-group">
+<label>Name</label>
+<input type="text" [(ngModel)]="name" name="name" class="form-control">
+</div>
+<div class="form-group">
+    <label>Username</label>
+    <input type="text"  [(ngModel)]="username" name="username" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text"  [(ngModel)]="email" name="email" class="form-control">
+        </div>
+
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="text"  [(ngModel)]="password" name="password" class="form-control">
+            </div>
+
+<input type="submit" class="btn btn-primary" value="Submit">
+          
+
+          -->
