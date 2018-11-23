@@ -14,7 +14,7 @@ let newUser = new User({
     fromdate:req.body.fromdate,
     todate:req.body.todate,
     holidayname:req.body.holidayname,
-    duration:req.body.duration
+    duration:diff
 });
 
 User.addUser(newUser,(err,user)=>{
@@ -31,6 +31,14 @@ if(err){
 
 
     router.post('/',(req,res)=>{
+      
+
+
+        var fromdate  = new Date( req.body.fromdate);
+var todate = new Date(req.body.todate);
+var diff = Math.abs(fromdate.getDay() - todate.getDay());
+console.log("difference"+diff)
+
        var holiday = new Holiday({
             fromdate:req.body.fromdate,
             todate:req.body.todate,
@@ -66,7 +74,7 @@ router.post('/authenticate',(req,res,next)=>{
            return res.json({success:false,msg:'User not found'});
        }
      
-
+  
       User.comparePassword(password,user.password,(err,isMatch)=>{
            if(err)
            throw err;
@@ -121,6 +129,9 @@ router.post('/authenticate',(req,res,next)=>{
 
 
         router.put('/:id',(req,res)=>{
+            var fromdate  = req.body.fromdate;
+            var todate = req.body.todate;
+            var diff = (todate - fromdate)+1;
             if(!ObjectId.isValid(req.params.id))
             return res.status(400).send('No record with given id:',$(req.params.id));
             var holiday = {

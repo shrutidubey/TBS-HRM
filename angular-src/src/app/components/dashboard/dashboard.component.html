@@ -17,7 +17,7 @@
             </a>
         </div>
         <div class="ele2">
-            <a  [routerLink]="['/leave']">
+            <a  [routerLink]="['/manageleaves']">
                 <div><span class="Emp-heading">Apply Leave</span></div>
                 <div>
                     <img src="/assets/images/cal.png" style="width: 35%;">
@@ -71,20 +71,22 @@
             </a>
         </div>
         <div class="ele6">
-            <a  [routerLink]="['/']">
+           
                 <div><span class="Emp-heading">View Events</span></div>
-            </a>
+           
             <div>
                 <img src="/assets/images/calendar.png" style="height: 100px; margin-top: 10px;">
             </div>
             <div class="col-sm-12" id="view-all-me">
+                    <a  [routerLink]="['/manageevents']">
                 <button type="button" class="btn btn-succes">View All</button>
+            </a>
             </div>
         </div>					
     </div>
     <div class="flex-container">					
         <div class="ele7">
-            <a  [routerLink]="['/']">
+            <a  [routerLink]="['/emp-pending']">
                 <div><span class="Emp-heading">Pending Leaves</span></div>
                 <div class="col-sm-10" id="pending-leaves">
                         <span>4</span> <br><span id="span-side">Pending</span>

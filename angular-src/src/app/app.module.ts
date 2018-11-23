@@ -42,6 +42,7 @@ import { MagDashboardComponent } from './components/mag-dashboard/mag-dashboard.
 import { MainDashboardComponent } from './components/main-dashboard/main-dashboard.component';
 import { MngHolidayComponent } from './components/mng-holiday/mng-holiday.component';
 import { MngEventComponent } from './components/mng-event/mng-event.component';
+import { EmpPendingComponent } from './components/emp-pending/emp-pending.component';
 
 //import { HolidayComponent } from './components/holiday/holiday.component';
 
@@ -141,6 +142,9 @@ const appRoutes:Routes = [
   
   {
     path:'mng-event',component:MngEventComponent
+  },
+  {
+    path:'emp-pending',component:EmpPendingComponent
   }
   
 ]
@@ -182,6 +186,7 @@ const appRoutes:Routes = [
     MainDashboardComponent,
     MngHolidayComponent,
     MngEventComponent,
+    EmpPendingComponent,
   
   ],
   imports: [

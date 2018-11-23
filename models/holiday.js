@@ -20,7 +20,7 @@ const HolidaySchema = mongoose.Schema({
 
     duration: {
         type: String,
-        required: true,
+       // required: true,
     },
   
 });
