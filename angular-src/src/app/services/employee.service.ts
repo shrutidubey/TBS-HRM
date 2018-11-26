@@ -22,6 +22,7 @@ export class EmployeeService {
   readonly baseURT = "http://localhost:9008/editprofile"
   readonly baseURY = "http://localhost:9008/forgot"
   readonly baseURZ = "http://localhost:9008/forgot"
+  readonly baseURB = "http://localhost:9008/getbirthday"
   constructor(private http: HttpClient) { }
   /*this.isbnsource.getBooks(this.isbn).subscribe(
     data => { this.foundBooks = data.json();
@@ -65,7 +66,9 @@ findByEmail(user){
     return this.http.get("http://localhost:9008/getUserByEmail"+`/${user}`)
 }
 
-
+getEmployeeBirthDay(getmonth){
+  return this.http.get("http://localhost:9008/getbirthday" + `/${getmonth}`);
+}
   
 
   deleteEmployee(_id: string) {
@@ -81,6 +84,10 @@ findByEmail(user){
 
   getusername(){
     return user;
+  }
+
+  getupload(){
+    return this.http.get("http://localhost:9008/uploadlogo");
   }
 
   storeUsername(username){

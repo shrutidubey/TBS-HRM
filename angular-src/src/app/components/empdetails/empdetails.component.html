@@ -1,0 +1,92 @@
+<app-main-dashboard></app-main-dashboard>
+<!-- MAIN -->
+<div class="main">
+		<!-- MAIN CONTENT -->
+		<div class="main-content">
+			<div class="container-fluid">
+				<div class="change">
+					<div class="row">
+						<div class="col s12">
+							<div class="card">
+								<div class="card-content white-text">
+									<div class="row">
+										<div class="col-md-12">
+											<!-- Default form register -->
+									<!--		<form class="text-center border border-light p-5" #employeeForm="ngForm" (submit)="onSubmit(employeeForm)">
+												<input type="hidden" name="_id" #_id="ngModel"  [(ngModel)]="employeeService.selectedEmployee._id">										
+												<div class="form-row mb-4">
+													<div class="col">
+												
+														<input type="text" id="defaultRegisterFormFirstName" class="form-control" name="name"  [(ngModel)]="name"  placeholder="Enter full name" required>
+													</div>
+													<div class="col">
+											
+														<input type="text" id="defaultRegisterFormLastName" class="form-control" name="email" [(ngModel)]="email" placeholder="Eg : johndoe@gmail.com">
+													</div>
+												</div>
+												<div class="form-row mb-4">
+													<div class="col">
+													
+														<input type="text" id="defaultRegisterFormUName" class="form-control" placeholder="User Name" name="username"  [(ngModel)]="username" placeholder="username">
+													</div>
+													<div class="col">
+												
+														<input type="password" id="defaultRegisterFormPName" class="form-control" placeholder="Password" name="password"   [(ngModel)]="password"  placeholder="password">
+	
+													</div>
+												</div>
+												
+											
+												<input type="text" id="defaultRegisterFormRName" class="form-control mb-4" name="role"   [(ngModel)]="role" placeholder="Eg:Admin">
+												
+											
+												<button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Reset</button>
+												<button class="btn btn-custom right" type="submit" >Submit</button>
+												
+											</form>-->
+										</div>
+										<div class="col s7">
+											<table class="responsive-table highlight">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Email</th>
+                            <th>Username</th>
+                            <th>Address</th>
+                            <th>Contact No.</th>
+                            <th>D.O.B.</th>
+                            <th>Blood Group</th>
+                            <th>Role</th>
+													<!--	<th>Action</th>-->
+													</tr>
+												</thead>
+												<tr *ngFor="let emp of employeeService.employees">
+													<td>{{emp.name}}</td>
+													<td>{{emp.email}}</td>
+													<td>{{emp.username}}</td>
+                          <td>{{emp.address}}</td>
+                          <td>{{emp.contactno}}</td>
+                          <td>{{emp.dob}}</td>
+                          <td>{{emp.bloodgrp}}</td>
+                          <td>{{emp.role}}</td>
+													<td>
+												<!--	<a class="action-btn" (click)="onEdit(emp)">
+													<b class="material-icons" style="    font-weight: normal;"><i class="fa fa-edit"></i>Edit</b>
+													</a>
+													<a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
+													<b class="material-icons-d" style="    font-weight: normal;"><i class="fa fa-trash-o"></i>Delete</b>
+													</a>-->
+													</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- END MAIN CONTENT -->
+	</div>

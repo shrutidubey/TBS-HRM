@@ -22,7 +22,7 @@
                         <div class="col-md-12">
                             <form (submit)="onRegisterSubmit()">
                             <div class="form-group">
-                                <input type="text" [(ngModel)]="name" name="name" class="form-control" placeholder="First Name">
+                                <input type="text" [(ngModel)]="name" name="name" class="form-control" placeholder="Full Name">
                             </div>
                             <div class="form-group">
                                 <input type="text"  [(ngModel)]="username" name="username" class="form-control" placeholder="Username">
@@ -36,6 +36,9 @@
                             <div class="form-group">
                                     <input type="text"  [(ngModel)]="role" name="role" class="form-control" placeholder="Role">
                                 </div>
+                                <div class="form-group">
+                                        <input type="text"  [(ngModel)]="role" name="role" class="form-control" placeholder="Role">
+                                    </div>
                            <!-- <div class="form-group">
                                 <div class="maxl">
                                     <label class="radio inline"> 
@@ -50,6 +53,7 @@
                             </div>-->
                             <input type="submit" class="btn btn-primary" value="Submit">
                           </form>
+                        
                         </div>                        
                     </div>
                 </div>        

@@ -224,7 +224,11 @@ export class ManageemployeesComponent implements OnInit {
       username: "",
       password: "",
       role:"",
-      newpassword:""
+      newpassword:"",
+      address:"",
+      contactno:"",
+      dob:"",
+      bloodgrp:""
     }
   }
 

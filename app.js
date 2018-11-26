@@ -17,17 +17,25 @@ const config = require('./config/database');
 const config1 = require('./config/database1');
 const config2 = require('./config/leavedatabase');
 const config3 = require('./config/holidaydatabase');
+const config4 = require('./config/logodatabase')
 const routes = require('./models/user.js');
 const routes1 = require('./models/event.js');
 const routes2 = require('./models/leave.js');
 const routes3 = require('./models/holiday');
 
+//var Schema = mongoose.Schema;
 
 
 var flash = require('connect-flash');
 var JSAlert = require("js-alert");
+//mongoose.connect('mongodb://127.0.0.1:27017/upload');
 
-
+//let conn = mongoose.connection;
+//let multer = require('multer');
+//let GridFsStorage = require('multer-gridfs-storage');
+//let Grid = require('gridfs-stream');
+//Grid.mongo = mongoose.mongo;
+//let gfs = Grid(config4.db);
 empname = "test";
 person = ["a"];
 a="abc"
@@ -35,10 +43,11 @@ mongoose.connect(config.database);
 mongoose.connect(config1.database1);
 mongoose.connect(config2.leavedatabase);
 mongoose.connect('mongodb://localhost:27017/holidaydatabase');
-
+//mongoose.connect('mongodb://127.0.0.1:27017/upload')
 mongoose.connection.on('connected', () => {
     console.log('connected to database' + config.database)
 });
+
 
 mongoose.connection.on('error', (err) => {
     console.log(' database error' + config.database)
@@ -67,6 +76,16 @@ mongoose.connection.on('error', (err) => {
     console.log(' database error' + config3.holidaydatabase)
 });
 
+
+mongoose.connection.on('connected', () => {
+    console.log('connected to database' + config4.logodatabase)
+});
+
+mongoose.connection.on('error', (err) => {
+    console.log(' database error' + config4.logodatabase)
+});
+
+
 const app = express();
 
 const users = require('./routes/users');
@@ -81,7 +100,9 @@ const holidays = require('./routes/holidays');
 const editprofile = require('./routes/editprofile');
 const forgot = require('./routes/forgot');
 const getuserbyemail = require('./routes/getUserByEmail');
-const getusernames = require('./routes/getusernames')
+const getusernames = require('./routes/getusernames');
+const getbirthday = require('./routes/getbirthday');
+const uploadlogo = require('./routes/uploadlogo');
 const port = 9008;
 
 app.use(cors({ origin: 'http://localhost:4200' }));
@@ -108,6 +129,8 @@ app.use('/editprofile',editprofile);
 app.use('/forgot',forgot);
 app.use('/getuserbyemail',getuserbyemail);
 app.use('/getusernames',getusernames);
+app.use('/getbirthday',getbirthday)
+app.use('/uploadlogo',uploadlogo)
 app.use(favicon());
 app.use(logger('dev'));
 app.use(cookieParser());
@@ -150,4 +173,35 @@ passport.deserializeUser(function(id,done){
     User.findById(id,function(err,user){
         done(err,user)
     });
+});
+
+
+app.use('/', routes);
+ 
+//URL : http://localhost:3000/images/
+// To get all the images/files stored in MongoDB
+app.get('/images', function(req, res) {
+//calling the function from index.js class using routes object..
+routes.getImages(function(err, genres) {
+if (err) {
+throw err;
+ 
+}
+res.json(genres);
+ 
+});
+});
+ 
+// URL : http://localhost:3000/images/(give you collectionID)
+// To get the single image/File using id from the MongoDB
+app.get('/images/:id', function(req, res) {
+ 
+//calling the function from index.js class using routes object..
+routes.getImageById(req.params.id, function(err, genres) {
+if (err) {
+throw err;
+}
+//res.download(genres.path);
+res.send(genres.path)
+});
 });

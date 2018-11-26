@@ -56,7 +56,11 @@ export class ManagerempComponent implements OnInit {
       username: "",
       password: "",
       role:"",
-      newpassword:""
+      newpassword:"",
+      contactno:"",
+      address:"",
+      bloodgrp:"",
+      dob:""
     }
   }
 

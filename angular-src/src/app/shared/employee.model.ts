@@ -6,4 +6,8 @@ export class Employee {
     password:string;
    newpassword:string;
     role:string;
+    address:string;
+    contactno:string;
+    dob:string;
+    bloodgrp:string
 }

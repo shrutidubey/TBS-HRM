@@ -42,7 +42,11 @@ export class NewpasswordComponent implements OnInit {
       username: "",
       password: "",
       role:"",
-      newpassword:""
+      newpassword:"",
+      address:"",
+      dob:"",
+      contactno:"",
+      bloodgrp:""
     }
   }
 

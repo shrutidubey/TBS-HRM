@@ -57,7 +57,12 @@ export class AdminleaveComponent implements OnInit {
       username: "",
       password: "",
       role:"",
-      newpassword:""
+      newpassword:"",
+      address:"",
+      contactno:"",
+      dob:"",
+      bloodgrp:""
+
     }
   }
 

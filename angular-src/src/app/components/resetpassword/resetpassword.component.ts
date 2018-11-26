@@ -56,7 +56,12 @@ private router:Router) { }
       username: "",
       password:"",
       role:"",
-     newpassword:""
+     newpassword:"",
+     address:"",
+     contactno:"",
+     dob:"",
+     bloodgrp:""
+
     }
   }
 

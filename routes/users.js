@@ -146,17 +146,27 @@ router.get('/:id', (req, res) => {
 
 
 router.put('/:id', (req, res) => {
+
     if (!ObjectId.isValid(req.params.id))
       console.log("no record with given id");
       password = req.body.password;
       console.log("inside put");
-
+      var utc = new Date(req.body.dob).toJSON().slice(0,10).replace(/-/g,'/');
+      console.log("utc"+utc);
+      var d = new Date(req.body.dob)
+      var getmonth = d.getMonth()
+console.log("date inside users.js"+d.getMonth())
     var emp = {
         name: req.body.name,
         email: req.body.email,
         username: req.body.username,
         password: req.body.password,
         role:req.body.role,
+        address:req.body.address,
+        contactno:req.body.contactno,
+        dob:utc,
+        bloodgrp:req.body.bloodgrp,
+        month:getmonth
       
     };
 

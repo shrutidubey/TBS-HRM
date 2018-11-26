@@ -44,6 +44,9 @@ import { MngHolidayComponent } from './components/mng-holiday/mng-holiday.compon
 import { MngEventComponent } from './components/mng-event/mng-event.component';
 import { EmpPendingComponent } from './components/emp-pending/emp-pending.component';
 import { EmpLeavereportComponent } from './components/emp-leavereport/emp-leavereport.component';
+import { EmpdetailsComponent } from './components/empdetails/empdetails.component';
+import { BirthdayComponent } from './components/birthday/birthday.component';
+import { UploadlogoComponent } from './components/uploadlogo/uploadlogo.component';
 
 //import { HolidayComponent } from './components/holiday/holiday.component';
 
@@ -149,7 +152,16 @@ const appRoutes:Routes = [
   },
   {
     path:'emp-leavereport',component:EmpLeavereportComponent
-  }
+  },
+  {
+    path:'emp-details',component:EmpdetailsComponent
+  },
+{
+  path:'birthday',component:BirthdayComponent
+},
+{
+  path:'uploadlogo',component:UploadlogoComponent
+}
   
 ]
 
@@ -192,6 +204,9 @@ const appRoutes:Routes = [
     MngEventComponent,
     EmpPendingComponent,
     EmpLeavereportComponent,
+    EmpdetailsComponent,
+    BirthdayComponent,
+    UploadlogoComponent,
   
   ],
   imports: [

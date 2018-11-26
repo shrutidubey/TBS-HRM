@@ -57,7 +57,11 @@ export class ManagerleaveComponent implements OnInit {
       username: "",
       password: "",
       role:"",
-      newpassword:""
+      newpassword:"",
+      address:"",
+      contactno:"",
+      dob:"",
+      bloodgrp:""
     }
   }
 

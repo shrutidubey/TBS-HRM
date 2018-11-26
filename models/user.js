@@ -28,7 +28,22 @@ const UserSchema = mongoose.Schema({
     role:{
         type:String,
     },
-  
+  address:{
+      type:String
+  },
+  contactno:{
+      type:String
+  },
+  dob:{
+      type:Date
+  },
+  bloodgrp:{
+      type:String
+  },
+  month:{
+      type:String
+  },
+
     resetPasswordToken: String,
     resetPasswordExpires: Date,
     isAdmin:{type:Boolean,default: false}
@@ -47,6 +62,14 @@ module.exports.getUserByUsername = function (username, callback) {
     const query = { username: username}
     console.log({ username: username})
     User.findOne(query, callback);
+
+}
+
+module.exports.getUserByDob = function (month, callback) {
+    console.log("inside user.js"+month);
+    const query = { month: month}
+    console.log({ month:month})
+    User.find(query, callback);
 
 }
 

@@ -19,7 +19,7 @@ router.get('/:username', (req, res) => {
            }
            else {
                console.log('Error in retrieving Leave' + JSON.stringify(err, undefined, 2));
-           }
+            }
        });
    }); 
 

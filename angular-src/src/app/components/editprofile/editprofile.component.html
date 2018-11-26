@@ -556,10 +556,35 @@ onpageshow="if (event.persisted) noBack();" onunload="">-->
 
               <div class="row">
                 <div class="input-field col s12">
-                    <label>Username:</label>
-                  <input type="text" name="username" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.username" placeholder="Username">
+                    <label>Address:</label>
+                  <input type="text" name="address" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.address" placeholder="Enter Address">
                 </div>
-              </div>
+							</div>
+							<div class="row">
+									<div class="input-field col s12">
+											<label>Contact No.:</label>
+										<input type="text" name="contactno" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.contactno" placeholder="Enter Contact No">
+									</div>
+								</div>
+
+								<div class="row">
+										<div class="input-field col s12">
+												<label>D.O.B:</label>
+											<input type="text" name="dob" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.dob" placeholder="Enter you D.O.B">
+										</div>
+									</div>
+									<div class="row">
+											<div class="input-field col s12">
+													<label>Blood Group:</label>
+												<input type="text" name="bloodgrp" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.bloodgrp" placeholder="Enter Your Blood Group">
+											</div>
+										</div>
+									<div class="row">
+											<div class="input-field col s12">
+													<label>Username:</label>
+												<input type="text" name="username" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.username" placeholder="Username">
+											</div>
+										</div>
             
              <div class="row">
                   <div class="input-field col s12">
@@ -593,7 +618,10 @@ onpageshow="if (event.persisted) noBack();" onunload="">-->
                       <th> Name</th>
                       <th>Email</th>
                       <th>Username</th>
-                    
+											<th>Address</th>
+											<th>Contact No.</th>
+											<th>D.O.B</th>
+											<th>Blood Group</th>
                     <!--  <th>Accepted Leaves</th>-->
                       <th></th>
                     </tr>
@@ -604,11 +632,11 @@ onpageshow="if (event.persisted) noBack();" onunload="">-->
                   
                     <td>{{emp.email}}</td>
                     <td>{{emp.username}}</td>
-                   <!-- <td>  {{emp.password}} </td>-->
-                   <!--<td>{{emp.role}}</td>-->
+                   <td>  {{emp.address}} </td>
+                   <td>{{emp.contactno}}</td>
                   
-                    <!--<td>{{leave.acceptedleaves}}</td>-->
-                   <!-- <td>{{18-leave.leavecount}}</td>-->
+                    <td>{{emp.dob}}</td>
+                    <td>{{emp.bloodgrp}}</td>
                   <td>
                         <a class="action-btn" (click)="onEdit(emp)">
                           <i class="material-icons">edit</i>

@@ -1,0 +1,101 @@
+button.btn.btn-custom.right {
+    margin: 5px;
+    width: 120px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-image: linear-gradient(to right, #eb8024, #eb8024, #eb8024, #eb8024);
+}
+.row    {
+    margin-right: 0px;
+    margin-top: 20px;
+}
+table.responsive-table.highlight th {
+    width: 1%;
+}
+
+.material-icons {
+    padding: 4px 10px 5px 10px;
+    border-radius: 2px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-color: #518c51;
+}
+.material-icons-d {
+    padding: 4px 10px 5px 10px;
+    border-radius: 2px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-color: #b93524;
+}
+form.ng-untouched.ng-pristine.ng-invalid {
+    margin-bottom: 30px;
+}
+
+td {
+    width: 15%;
+    height: 60px;
+    text-align: center;
+}
+
+th {
+    text-align: center;
+}
+
+p#man-emp {
+    font-size: 26px;
+}
+
+.form-control {
+    height: 40px;
+    font-size: 16px;
+}
+
+
+.change {
+    position: relative;
+    left: 140px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+thead tr th {
+    height: 45px;
+    color: #292929;
+    text-transform: uppercase;
+}
+
+i.fa.fa-edit {
+    margin-right: 5px;
+}
+
+i.fa.fa-trash-o {
+    margin-right: 5px;
+}
+
+.col.s7 {
+    padding: 3rem;
+    margin-bottom: 30px;
+}
+
+p#man-emp {
+    font-size: 26px;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.col-md-12.col-md-offset-1 {
+    left: 40px;
+    top: 50px;
+}
