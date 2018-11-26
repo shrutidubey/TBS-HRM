@@ -6,7 +6,7 @@ import { LeaveService } from '../../services/leave.service';
 import { EmployeeService } from '../../services/employee.service';
 import { ResetpasswordComponent } from '../resetpassword/resetpassword.component';
 
-
+var abc ="abc"
 
 @Component({
   selector: 'app-login',
@@ -25,6 +25,17 @@ export class LoginComponent implements OnInit {
   private employeeService:EmployeeService) { }
 
   ngOnInit() {
+
+   var admin =  this.employeeService.getEmployeeList()
+
+console.log("users list"+JSON.stringify(admin))
+    if(abc == "abc"){
+    //  this.router.navigate(['admindashboard']);
+    console.log("true")
+    }else{
+    //  this.router.navigate(['managerdashboard']);
+    console.log("false")
+    }
   }
   
   onLoginSubmit() {

@@ -1,0 +1,57 @@
+<app-emp-dashboard></app-emp-dashboard>
+<div class="main">
+<!-- MAIN CONTENT -->
+	<div class="main-content">
+		<div class="change">
+			<div class="row">
+				<div class="col s12">
+					<div class="card">
+						<div class="card-content white-text">
+							<div class="row">
+								<div class="col-md-12">
+									<!-- Default form register -->
+								
+								</div>									
+								<div class="col s7">
+									<table class="responsive-table highlight">
+										<thead class="thead">
+											<tr>
+												<th>Employee Name</th>
+												<th>Employee Email</th>
+												<th>From Date</th>
+												<th>To Date</th>
+												<th>Leave Reason</th>
+												<th>Leave Count</th>
+												<th>Status</th>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tr *ngFor="let adminleave of adminleaveService.adminleaves">
+											<td>{{adminleave.empname}}</td>
+											<td>{{adminleave.leavetype}}</td>
+											<td>{{adminleave.fromdate}}</td>
+											<td>{{adminleave.todate}}</td>
+											<td>{{adminleave.leavereason}}</td>
+											<td>{{adminleave.leavecount}}</td>
+											<td>{{adminleave.status}}</td>					
+											
+											<td>
+										<!--		<a class="action-btn" (click)="onAccept(adminleave)">
+													<i class="material-icons">Action</i>
+												</a>-->
+												<a class="action-btn" (click)="onReject(adminleave._id,adminleaveForm)">
+													<i class="material-icons-r">Remove</i>
+												</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>					
+	</div>
+<!-- END MAIN CONTENT -->
+</div>

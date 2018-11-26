@@ -36,14 +36,16 @@ if(err){
 
         var fromdate  = new Date( req.body.fromdate);
 var todate = new Date(req.body.todate);
-var diff = Math.abs(fromdate.getDay() - todate.getDay());
-console.log("difference"+diff)
+var timeDiff = Math.abs(todate.getTime() - fromdate.getTime());
+var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24))+1
+//var diff = (todate.getDay() - fromdate.getDay())+1;
+console.log("difference"+diffDays)
 
        var holiday = new Holiday({
             fromdate:req.body.fromdate,
             todate:req.body.todate,
             holidayname:req.body.holidayname,
-            duration:req.body.duration
+            duration:diffDays
         
         });
 

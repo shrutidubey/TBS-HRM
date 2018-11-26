@@ -1,0 +1,100 @@
+.change {
+    position: relative;
+    left: 125px;
+}
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+thead tr th {
+    height: 45px;
+    color: #292929;
+    text-transform: uppercase;
+}
+.material-icons {
+    padding: 4px 10px 5px 10px;
+    border-radius: 2px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-color: #703688;
+    cursor: pointer;
+}
+
+.material-icons-r {
+    padding: 4px 10px 5px 10px;
+    border-radius: 2px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-color: #b93524;
+    cursor: pointer;
+}
+
+p#man-emp {
+    font-size: 26px;
+}
+
+.form-control {
+    height: 40px;
+    font-size: 16px;
+}
+
+.input-field.col.s12 label {
+    width: 25%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.input-field.col.s12 input {
+    height: 36px;
+    width: 62%;
+    padding-left: 15px;
+}
+
+.row {
+    margin-right: 0px;
+    margin-top: 20px;
+}
+
+.input-field.col.s12.buttn {
+    text-align: center;
+}
+
+button.btn.btn-custom.right {
+    margin: 5px;
+    width: 120px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-image: linear-gradient(to right, #eb8024, #eb8024, #eb8024, #eb8024);
+}
+
+td {
+    width: 15%;
+    height: 60px;
+    text-align: center;
+}
+
+th {
+    text-align: center;
+}
+
+.card {
+    background-color:transparent;
+    border: none;
+}
+
+.col.s7 {
+    margin-bottom: 30px;
+}
+
+tr:hover {
+    background-color: #2b333e;
+    color: #fff;
+}

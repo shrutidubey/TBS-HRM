@@ -43,6 +43,7 @@ import { MainDashboardComponent } from './components/main-dashboard/main-dashboa
 import { MngHolidayComponent } from './components/mng-holiday/mng-holiday.component';
 import { MngEventComponent } from './components/mng-event/mng-event.component';
 import { EmpPendingComponent } from './components/emp-pending/emp-pending.component';
+import { EmpLeavereportComponent } from './components/emp-leavereport/emp-leavereport.component';
 
 //import { HolidayComponent } from './components/holiday/holiday.component';
 
@@ -145,6 +146,9 @@ const appRoutes:Routes = [
   },
   {
     path:'emp-pending',component:EmpPendingComponent
+  },
+  {
+    path:'emp-leavereport',component:EmpLeavereportComponent
   }
   
 ]
@@ -187,6 +191,7 @@ const appRoutes:Routes = [
     MngHolidayComponent,
     MngEventComponent,
     EmpPendingComponent,
+    EmpLeavereportComponent,
   
   ],
   imports: [

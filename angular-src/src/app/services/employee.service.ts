@@ -47,6 +47,7 @@ this.foundBooks = Array.of(this.foundBooks);
   }
 
   getEmployeeList() {
+    console.log("in employee.service"+ JSON.stringify(this.http.get(this.baseURL)));
     return this.http.get(this.baseURL);
   }
 

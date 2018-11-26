@@ -9,11 +9,11 @@ import { LeaveService } from '../../services/leave.service';
 import { Leave } from '../../shared/leave.model';
 
 @Component({
-  selector: 'app-emp-pending',
-  templateUrl: './emp-pending.component.html',
-  styleUrls: ['./emp-pending.component.css']
+  selector: 'app-emp-leavereport',
+  templateUrl: './emp-leavereport.component.html',
+  styleUrls: ['./emp-leavereport.component.css']
 })
-export class EmpPendingComponent implements OnInit {
+export class EmpLeavereportComponent implements OnInit {
 
   constructor(private adminleaveService: AdminleaveService,
     private authService:AuthService,
@@ -117,26 +117,10 @@ console.log("abc"+abc)
 */var i;
 
      this.leaveService.getUserByUsername(username).subscribe((res)=>{
-       var length = Object.keys(JSON.parse(JSON.stringify(res as Adminleave[]))).length
-     console.log( "pending leaves"+(JSON.parse(JSON.stringify (res as Adminleave[])))[0].status);
-    for(i=0;i<length;i++){
-      console.log("status"+JSON.parse(JSON.stringify (res as Adminleave[]))[i].status)
-      var status = JSON.parse(JSON.stringify (res as Adminleave[]))[i].status;
-      
-      var abc = Array.of(this.adminleaveService.adminleaves)
-      console.log("op"+JSON.stringify(this.adminleaveService.adminleaves))
-      if(status == "pending"){
-       // abc[i]= JSON.parse(JSON.stringify (res as Adminleave[]))[i];
-     //  this.adminleaveService.adminleaves[i] = JSON.parse(JSON.stringify (res as Adminleave[]))[i]
-      console.log("op"+JSON.stringify(this.adminleaveService.adminleaves[i]))
-      }
-      else
-     {
-      console.log("op"+this.adminleaveService.adminleaves[i])
-     }
-    }
-    //  this.adminleaveService.adminleaves = res as Adminleave[];
+      this.adminleaveService.adminleaves = res as Adminleave[]
     })
+    //  this.adminleaveService.adminleaves = res as Adminleave[];
+  
   }
 
   onAccept(adminleave: Adminleave) {
