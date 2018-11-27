@@ -7,11 +7,28 @@ const User = require('../models/user');
 var ObjectId = require('mongoose').Types.ObjectId;
 var nodemailer = require('nodemailer');
 let mongoose = require('mongoose');
+const crypto = require('crypto');
+const multer = require('multer')
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream')
+const methodOverride = require('method-override')
+const URI = 'mongodb://localhost:27017/mongouploads'
+
+const conn = mongoose.createConnection(URI);
+
+let gfs;
+
+conn.once('open',()=>{
+     gfs = Grid(conn.db,mongoose.mongo);
+     gfs.collection('uploads')
+})
+
+
 
 //const config4 = require('./config/logodatabase')
 //mongoose.connect('mongodb://127.0.0.1:27017/files');
 //let conn = mongoose.connection;
-
+/*
 mongoose.connect('mongodb://localhost:27017/logodatabase');
 let conn = mongoose.connection;
 let multer = require('multer');
@@ -56,9 +73,9 @@ router.post('/upload', (req, res) => {
 // Downloading a single file
 router.get('/file/:filename', (req, res) => {
     gfs.collection('ctFiles'); //set collection name to lookup into
-
+*/
     /** First check if file exists */
-    gfs.files.find({filename: req.params.filename}).toArray(function(err, files){
+   /* gfs.files.find({filename: req.params.filename}).toArray(function(err, files){
         if(!files || files.length === 0){
             return res.status(404).json({
                 responseCode: 1,
@@ -102,5 +119,8 @@ router.get('/files', (req, res) => {
         res.json(filesData);
     });
 });
+*/
+
+
 
 module.exports = router

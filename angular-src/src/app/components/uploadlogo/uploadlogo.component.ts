@@ -4,65 +4,46 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { EmployeeService } from '../../services/employee.service';
+import { FileserviceService } from '../../services/fileservice.service';
+//import { FileUploader } from 'ng2-file-upload';
+import {  FileUploader, FileSelectDirective } from 'ng2-file-upload'
+//import { FileSelectDirective } from 'ng2-file-upload';
 @Component({
   selector: 'app-uploadlogo',
   templateUrl: './uploadlogo.component.html',
-  styleUrls: ['./uploadlogo.component.css']
+  styleUrls: ['./uploadlogo.component.css'],
+  providers:[FileserviceService]
 })
 export class UploadlogoComponent implements OnInit {
 
-  name: String;
-  username: String;
-  email: String;
-  password: String;
-  role:String;
-
-  constructor(private validateService: ValidateService,
-    private flashMessage: FlashMessagesService,
-    private authService: AuthService,
-    private router: Router,
-    private employeeService:EmployeeService
-
-  ) { }
+  
+  constructor(private FileService: FileserviceService) { }
+  private files = [];
+  private url = 'http://localhost:9008/upload';
+  
+  private uploader: FileUploader;
 
   ngOnInit() {
-  }
+    this.uploader = new FileUploader({url: this.url});
 
-  onRegisterSubmit() {
-    const user = {
-      name: this.name,
-      email: this.email,
-      username: this.username,
-      password: this.password,
-      role:this.role
-    }
-    console.log(this.name);
-    if (!this.validateService.validateRegister(user)) {
-
-      this.flashMessage.show('Please fill all the fields', { cssClass: 'alert-danger', timeout: 3000 });
-      return false;
-
-    }
-
-    if (!this.validateService.validateEmail(user.email)) {
-
-      this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
-      return false;
-
-    }
-    this.authService.registerUser(user).subscribe(data => {
-      if (data.success) {
-        this.flashMessage.show('You are now registered and can now log in', { cssClass: 'alert-success', timeout: 3000 });
-        this.router.navigate(['/login']);
-      } else {
-        this.flashMessage.show('Something went wrong ', { cssClass: 'alert-danger', timeout: 3000 });
-        this.router.navigate(['/register']);
+    this.FileService.showFileNames().subscribe(response => {
+      for (let i = 0; i < response.json().length; i++) {
+        this.files[i] = {
+          filename: response.json()[i].filename,
+          originalname: response.json()[i].originalname,
+          contentType: response.json()[i].contentType
+        };
       }
     });
-
   }
 
-  onSubmit(){
-    this.employeeService.getupload();
+  downloadPdf(filename, contentType) {
+    this.FileService.downloadPDF(filename, contentType).subscribe(
+      (res) => {
+        const file = new Blob([res.blob()], { type: contentType });
+      const fileURL = URL.createObjectURL(file);
+      window.open(fileURL);
+      }
+    );
   }
 }

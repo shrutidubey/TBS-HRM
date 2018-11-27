@@ -97,4 +97,8 @@ getEmployeeBirthDay(getmonth){
  getrecord(){
    return user
  }
+
+ getTodayBirthDay(time){
+  return this.http.get("http://localhost:9008/gettbirthday" + `/${time}`);
+ }
 }

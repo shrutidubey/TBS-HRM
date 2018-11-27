@@ -47,9 +47,10 @@ import { EmpLeavereportComponent } from './components/emp-leavereport/emp-leaver
 import { EmpdetailsComponent } from './components/empdetails/empdetails.component';
 import { BirthdayComponent } from './components/birthday/birthday.component';
 import { UploadlogoComponent } from './components/uploadlogo/uploadlogo.component';
-
+//import {FileUploadModule} from "ng2-file-upload";
 //import { HolidayComponent } from './components/holiday/holiday.component';
-
+import { FileSelectDirective } from 'ng2-file-upload';
+import { TbirthdayComponent } from './components/tbirthday/tbirthday.component';
 
 const appRoutes:Routes = [
 
@@ -161,6 +162,9 @@ const appRoutes:Routes = [
 },
 {
   path:'uploadlogo',component:UploadlogoComponent
+},
+{
+  path:'tbirthday',component:TbirthdayComponent
 }
   
 ]
@@ -207,6 +211,9 @@ const appRoutes:Routes = [
     EmpdetailsComponent,
     BirthdayComponent,
     UploadlogoComponent,
+    FileSelectDirective,
+    TbirthdayComponent,
+    //FileUploadModule
   
   ],
   imports: [

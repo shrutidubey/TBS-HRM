@@ -155,6 +155,9 @@ router.put('/:id', (req, res) => {
       console.log("utc"+utc);
       var d = new Date(req.body.dob)
       var getmonth = d.getMonth()
+      var getdate = d.getDate();
+      console.log("date"+getdate)
+
 console.log("date inside users.js"+d.getMonth())
     var emp = {
         name: req.body.name,
@@ -166,8 +169,8 @@ console.log("date inside users.js"+d.getMonth())
         contactno:req.body.contactno,
         dob:utc,
         bloodgrp:req.body.bloodgrp,
-        month:getmonth
-      
+        month:getmonth,
+      date:getdate
     };
 
 

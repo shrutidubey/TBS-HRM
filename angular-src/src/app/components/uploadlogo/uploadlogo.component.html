@@ -1,12 +1,178 @@
-<html>
+<!--<html>
 <head>
  <title>test</title>
 </head>
 <body>
     <form (submit)="onSubmit()" method="POST" enctype="multipart/form-data">
-<!--<form action= "/" method="POST" enctype="multipart/form-data">-->
+<form action= "/" method="POST" enctype="multipart/form-data">
  <input type="file" name="myimage" >
  <input type="submit" name="submit" value="submit">
 </form>
 </body>
+</html>-->
+
+<!--
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <br>
+            <form>
+                <div class="form-group">
+                    <label for="multiple">Choose file(s)</label>
+                    <input type="file" class="form-control" name="multiple" ng2FileSelect [uploader]="uploader" multiple  />
+                </div>            
+            </form>
+        </div>
+        </div>
+        <br>
+        <div class="col-md-8">
+             File(s) Selected: {{ uploader?.queue?.length }}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th width="50%">Name</th>
+                    <th>Size</th>
+                    <th>Progress</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of uploader.queue">
+                    <td><strong>{{ item.file.name }}</strong></td>
+                    <td nowrap>{{ item.file.size/1024/1024 | number:'.2' }} MB</td>
+                    <td>
+                        <div class="progress" style="margin-bottom: 0;">
+                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <span *ngIf="item.isSuccess"><i class="fa fa-check"></i></span>
+                        <span *ngIf="item.isCancel"><i class="fa fa-ban"></i></span>
+                        <span *ngIf="item.isError"><i class="fa fa-times"></i></span>
+                    </td>
+                    <td nowrap>
+                        <button type="button" class="btn btn-success btn-xs"
+                                (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                            <span class="fa fa-upload"></span> Upload
+                        </button>
+                        <button type="button" class="btn btn-warning btn-xs"
+                                (click)="item.cancel()" [disabled]="!item.isUploading">
+                            <span class="fa fa-ban"></span> Cancel
+                        </button>
+                        <button type="button" class="btn btn-danger btn-xs"
+                                (click)="item.remove()">
+                            <span class="fa fa-trash"></span> Remove
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+  
+            <div>
+                <hr>
+                <div>
+                    Total progress:
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                    </div>
+                    <hr>
+                </div>
+                <button type="button" class="btn btn-success btn-s"
+                        (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                    <span class="fa fa-upload"></span> Upload all
+                </button>
+                <button type="button" class="btn btn-warning btn-s"
+                        (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+                    <span class="fa fa-ban"></span> Cancel all
+                </button>
+                <button type="button" class="btn btn-danger btn-s"
+                        (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                    <span class="fa fa-trash"></span> Remove all
+                </button>
+            </div>
+        </div>
+  </div>
+  <hr>
+  
+  <div class="container">
+      <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>File Name</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let file of files">
+              <td>{{ file.originalname }}</td>
+              <td><button class="btn btn-primary button" (click)="downloadPdf(file.filename, file.contentType)">Download</button></td>
+            </tr>   
+          </tbody>
+        </table>
+    </div>
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <style>
+    img {
+      width: 100%;
+    }
+  </style>
+  <title> File Uploads</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 m-auto">
+        <h1 class="text-center display-4 my-4"> File Uploads</h1>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+          <div class="custom-file mb-3">
+            <input type="file" name="file" id="file" class="custom-file-input">
+            <label for="file" class="custom-file-label">Choose File</label>
+          </div>
+          <input type="submit" value="Submit" class="btn btn-primary btn-block">
+        </form>
+        <hr>
+
+
+     <!--   <% if(files){ %>
+            <% files.forEach(function(file) { %>
+              <div class="card card-body mb-3">
+                <% if(file.isImage) { %>
+                  <img src="image/<%= file.filename %>" alt="">
+                  <% } else { %>
+                    <%= file.filename %>
+                      <% } %>
+                        <form method="POST" action="/files/<%= file._id %>?_method=DELETE">
+                          <button class="btn btn-danger btn-block mt-4">Delete</button>
+                        </form>
+              </div>
+              <% } %>
+                <% } else { %>
+                  <p>No files to show</p>
+                  <% } %>-->
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

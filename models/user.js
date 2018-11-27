@@ -43,7 +43,9 @@ const UserSchema = mongoose.Schema({
   month:{
       type:String
   },
-
+date:{
+type:String
+},
     resetPasswordToken: String,
     resetPasswordExpires: Date,
     isAdmin:{type:Boolean,default: false}
@@ -68,6 +70,15 @@ module.exports.getUserByUsername = function (username, callback) {
 module.exports.getUserByDob = function (month, callback) {
     console.log("inside user.js"+month);
     const query = { month: month}
+    console.log({ month:month})
+    User.find(query, callback);
+
+}
+
+
+module.exports.getUserBytDob = function (month, date,callback) {
+    console.log("inside user.js"+month);
+    const query = { month: month,date:date}
     console.log({ month:month})
     User.find(query, callback);
 

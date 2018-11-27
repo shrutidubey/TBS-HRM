@@ -8,11 +8,11 @@ import { AuthService } from '../../services/auth.service';
 import { Employee } from '../../shared/employee.model';
 
 @Component({
-  selector: 'app-birthday',
-  templateUrl: './birthday.component.html',
-  styleUrls: ['./birthday.component.css']
+  selector: 'app-tbirthday',
+  templateUrl: './tbirthday.component.html',
+  styleUrls: ['./tbirthday.component.css']
 })
-export class BirthdayComponent implements OnInit {
+export class TbirthdayComponent implements OnInit {
 
   name: String;
   username: String;
@@ -115,24 +115,24 @@ export class BirthdayComponent implements OnInit {
   }
 
   refreshEmployeeList() {
- /*   var D =new Date();
-    var getmonth = D.getMonth()*/
-    var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
-    //document.write(utc);
-var nutc = new Date(utc)
-var nnutc = nutc.toISOString()
-    console.log("date"+nutc.toISOString())
-    //console.log("Today's Date"+D.)
-   // console.log("Month"+D.getTimezoneOffset())
-this.employeeService.getEmployeeBirthDay(nnutc).subscribe((res)=>{
-  this.employeeService.employees = res as Employee[];
-});
-   /* this.employeeService.getEmployeeList().subscribe((res) => {
-    console.log("dob"+(JSON.parse(JSON.stringify(res as Employee[]))))
-    this.employeeService.employees = res as Employee[];
-
-    });*/
-  }
+    /*   var D =new Date();
+       var getmonth = D.getMonth()*/
+       var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+       //document.write(utc);
+   var nutc = new Date(utc)
+   var nnutc = nutc.toISOString()
+       console.log("date"+nutc.toISOString())
+       //console.log("Today's Date"+D.)
+      // console.log("Month"+D.getTimezoneOffset())
+   this.employeeService.getTodayBirthDay(nnutc).subscribe((res)=>{
+     this.employeeService.employees = res as Employee[];
+   });
+      /* this.employeeService.getEmployeeList().subscribe((res) => {
+       console.log("dob"+(JSON.parse(JSON.stringify(res as Employee[]))))
+       this.employeeService.employees = res as Employee[];
+   
+       });*/
+     }
 onEdit(emp: Employee) {
     console.log("edit");
     this.flashMessage.show('you can now edit the employee details', { cssClass: 'alert-succes', timeout: 3000 });
@@ -190,5 +190,4 @@ this.password = fpassword;
     console.log("username"+this.employeeService.selectedEmployee.name);
   //  this.adminleaveService.getLeaveRecord(this.adminleaveService.selectedAdminleave.empname);
   }
-
 }

@@ -9,6 +9,7 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const methodOverride = require('method-override')
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
 const async = require('async');
@@ -17,12 +18,12 @@ const config = require('./config/database');
 const config1 = require('./config/database1');
 const config2 = require('./config/leavedatabase');
 const config3 = require('./config/holidaydatabase');
-const config4 = require('./config/logodatabase')
+const config4 = require('./config/mongouploads')
 const routes = require('./models/user.js');
 const routes1 = require('./models/event.js');
 const routes2 = require('./models/leave.js');
 const routes3 = require('./models/holiday');
-
+//const crypto = require('crypto');
 //var Schema = mongoose.Schema;
 
 
@@ -78,11 +79,11 @@ mongoose.connection.on('error', (err) => {
 
 
 mongoose.connection.on('connected', () => {
-    console.log('connected to database' + config4.logodatabase)
+    console.log('connected to database' + config4.mongouploads)
 });
 
 mongoose.connection.on('error', (err) => {
-    console.log(' database error' + config4.logodatabase)
+    console.log(' database error' + config4.mongouploads)
 });
 
 
@@ -103,11 +104,22 @@ const getuserbyemail = require('./routes/getUserByEmail');
 const getusernames = require('./routes/getusernames');
 const getbirthday = require('./routes/getbirthday');
 const uploadlogo = require('./routes/uploadlogo');
+const gettbirthday = require('./routes/gettbirthday');
 const port = 9008;
 
-app.use(cors({ origin: 'http://localhost:4200' }));
+//app.use(cors({ origin: 'http://localhost:4200' }));
+
+app.use((req, res, next) => {
+    res.append('Access-Control-Allow-Origin' , 'http://localhost:4200');
+    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.append("Access-Control-Allow-Headers", "Origin, Accept,Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+    res.append('Access-Control-Allow-Credentials', true);
+    next();
+});
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
+app.use(methodOverride('_method'));
+
 
 /*
 app.use(passport.initialize());
@@ -131,6 +143,7 @@ app.use('/getuserbyemail',getuserbyemail);
 app.use('/getusernames',getusernames);
 app.use('/getbirthday',getbirthday)
 app.use('/uploadlogo',uploadlogo)
+app.use('/gettbirthday',gettbirthday)
 app.use(favicon());
 app.use(logger('dev'));
 app.use(cookieParser());
