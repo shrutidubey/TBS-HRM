@@ -105,6 +105,7 @@ const getusernames = require('./routes/getusernames');
 const getbirthday = require('./routes/getbirthday');
 const uploadlogo = require('./routes/uploadlogo');
 const gettbirthday = require('./routes/gettbirthday');
+const getuserandleave = require('./routes/getuserandleave');
 const port = 9008;
 
 //app.use(cors({ origin: 'http://localhost:4200' }));
@@ -144,6 +145,7 @@ app.use('/getusernames',getusernames);
 app.use('/getbirthday',getbirthday)
 app.use('/uploadlogo',uploadlogo)
 app.use('/gettbirthday',gettbirthday)
+app.use('/getuserandleave',getuserandleave)
 app.use(favicon());
 app.use(logger('dev'));
 app.use(cookieParser());

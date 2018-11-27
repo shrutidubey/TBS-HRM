@@ -176,7 +176,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:dob', (req, res) => {
-    var d = new Date(req.params.dob)
+var d = new Date(req.params.dob)
 var getmonth = d.getMonth();
 var getdate = d.getDate();
 console.log("date"+getdate);

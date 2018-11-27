@@ -52,3 +52,18 @@ module.exports.getUserByUsername = function (empname, callback) {
     const query = { empname: empname }
     Leave.find(query, callback);
 }
+
+
+module.exports.getUserAndLeave = function (empname, callback) {
+    const query = { empname: empname,status:"pending"}
+    Leave.find(query, callback);
+}
+/*
+module.exports.getUserAndLeave = function (username, callback) {
+    console.log("inside main get user by username function"+username);
+    const query = { username: username}
+    console.log({ username: username})
+    Leave.findOne(query, callback);
+
+}
+*/

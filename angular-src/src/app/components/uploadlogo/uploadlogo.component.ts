@@ -19,7 +19,7 @@ export class UploadlogoComponent implements OnInit {
   
   constructor(private FileService: FileserviceService) { }
   private files = [];
-  private url = 'http://localhost:9008/upload';
+  private url = 'http://localhost:9008/uploadlogo';
   
   private uploader: FileUploader;
 

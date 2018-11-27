@@ -100,42 +100,12 @@ private leaveService:LeaveService) { }
     });
   }*/
   refreshAdminleaveList() {
-  /*  this.adminleaveService.getAdminleaveList().subscribe((res) => {
-     // this.adminleaveService.adminleaves = res as Adminleave[];
-var abc;
-console.log("abc"+abc)
-     var pendingleaves = this.authService.getPendingLeaves();
-     console.log("pending leaves"+this.authService.getPendingLeaves());
-    });
-   */
-    var  username = JSON.parse(localStorage.getItem('user')).username
-  /*
-    this.adminleaveService.getUserByStatus().subscribe((res)=>{
-      console.log("username"+(JSON.stringify(res as Adminleave[])))
-      this.adminleaveService.adminleaves = res as Adminleave[];
-    })
-*/var i;
 
-     this.leaveService.getUserByUsername(username).subscribe((res)=>{
-       var length = Object.keys(JSON.parse(JSON.stringify(res as Adminleave[]))).length
-     console.log( "pending leaves"+(JSON.parse(JSON.stringify (res as Adminleave[])))[0].status);
-    for(i=0;i<length;i++){
-      console.log("status"+JSON.parse(JSON.stringify (res as Adminleave[]))[i].status)
-      var status = JSON.parse(JSON.stringify (res as Adminleave[]))[i].status;
+    var  username = JSON.parse(localStorage.getItem('user')).username
+    
+   this.adminleaveService.getUserByUserandLeave(username).subscribe((res)=>{
       
-      var abc = Array.of(this.adminleaveService.adminleaves)
-      console.log("op"+JSON.stringify(this.adminleaveService.adminleaves))
-      if(status == "pending"){
-       // abc[i]= JSON.parse(JSON.stringify (res as Adminleave[]))[i];
-     //  this.adminleaveService.adminleaves[i] = JSON.parse(JSON.stringify (res as Adminleave[]))[i]
-      console.log("op"+JSON.stringify(this.adminleaveService.adminleaves[i]))
-      }
-      else
-     {
-      console.log("op"+this.adminleaveService.adminleaves[i])
-     }
-    }
-    //  this.adminleaveService.adminleaves = res as Adminleave[];
+      this.adminleaveService.adminleaves = res as Adminleave[];
     })
   }
 

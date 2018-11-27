@@ -128,7 +128,6 @@ console.log("abc"+abc)
 
     console.log("leave accepted");
     this.refreshAdminleaveList();
-
   }
 
 

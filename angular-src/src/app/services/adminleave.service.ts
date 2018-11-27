@@ -15,6 +15,7 @@ export class AdminleaveService {
   readonly baseURI = 'http://localhost:9008/adminrejectleave';
   readonly baseURF = 'http://localhost:9008/leaves2/pendingleaves'
   readonly baseURT = 'http://localhost:9008/getusernames'
+  readonly baseURB = 'http://localhost:9008/getuserandleave'
   constructor(private http: HttpClient) { }
 
   postAdminleave(adminleave: Adminleave) {
@@ -57,4 +58,8 @@ return this.http.get(this.baseURT);
     return user
   }
 
+
+  getUserByUserandLeave(username){
+return this.http.get(this.baseURB + `/${username}`)
+  }
 }
