@@ -66,14 +66,14 @@ console.log("users list"+JSON.stringify(admin))
       if (role == "Admin" && data.success) {
         console.log("admin role")
         this.authService.storeUserData(data.token, data.user);
-        this.flashMessage.show('You are now logged in', { cssClass: 'alert-success', timeout: 5000 });
+     //   this.flashMessage.show('You are now logged in', { cssClass: 'alert-success', timeout: 3000 });
         this.router.navigate(['admindashboard']);
         // this.router.navigate(['admindashboard']);
       }
      else if(role=="Manager"&&data.success){
         console.log("manager role")
         this.authService.storeUserData(data.token, data.user);
-        this.flashMessage.show('You are now logged in', { cssClass: 'alert-success', timeout: 5000 });
+      //  this.flashMessage.show('You are now logged in', { cssClass: 'alert-success', timeout: 5000 });
         this.router.navigate(['managerdashboard']);
       }
       else
@@ -81,11 +81,11 @@ console.log("users list"+JSON.stringify(admin))
           this.authService.storeUserData(data.token, data.user);
           console.log("logged in user"+this.username);
           this.authService.storeUsername(this.username);
-          this.flashMessage.show('You are now logged in', { cssClass: 'alert-success', timeout: 5000 });
+         // this.flashMessage.show('You are now logged in', { cssClass: 'alert-success', timeout: 5000 });
           this.router.navigate(['dashboard']);
 
         } else {
-          this.flashMessage.show(data.msg, { cssClass: 'alert-danger', timeout: 5000 });
+          this.flashMessage.show('Invalid', { cssClass: 'alert-danger', timeout: 5000 });
           this.router.navigate(['login']);
         }
     
