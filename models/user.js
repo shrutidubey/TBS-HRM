@@ -48,7 +48,7 @@ type:String
 },
     resetPasswordToken: String,
     resetPasswordExpires: Date,
-    isAdmin:{type:Boolean,default: false}
+      isAdmin:{type:Boolean,default: false}
 
 
 

@@ -70,6 +70,8 @@ private router:Router) { }
     }
   }
 
+
+
   onSubmit(form: NgForm) {
     form.value.empname = JSON.parse(localStorage.getItem('user')).username
     this.leaveService.postLeave(form.value).subscribe((res) => {

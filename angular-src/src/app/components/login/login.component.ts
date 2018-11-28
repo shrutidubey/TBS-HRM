@@ -45,6 +45,14 @@ console.log("users list"+JSON.stringify(admin))
       password: this.password,
       name: this.name,
     }
+
+    console.log("missing credentials"+this.username)
+    if(this.username==undefined||this.password==undefined){
+      console.log("missing credentials"+this.username)
+      this.flashMessage.show('Missing Credentials', { cssClass: 'alert-danger', timeout: 5000 });
+      this.router.navigate(['login']);
+    }
+    else{
    var role
     this.authService.authenticateUser(user).subscribe(data => {
       this.leaveService.getId(this.username);
@@ -80,8 +88,10 @@ console.log("users list"+JSON.stringify(admin))
           this.flashMessage.show(data.msg, { cssClass: 'alert-danger', timeout: 5000 });
           this.router.navigate(['login']);
         }
+    
        // var abc = this.authService.findRole();
     });
+  }
 this.authService.storeUsername(user);
 /*
      this.authService.storeUsername(user){
