@@ -85,7 +85,7 @@ console.log("users list"+JSON.stringify(admin))
           this.router.navigate(['dashboard']);
 
         } else {
-          this.flashMessage.show('Invalid', { cssClass: 'alert-danger', timeout: 5000 });
+          this.flashMessage.show('Wrong Credentials', { cssClass: 'alert-danger', timeout: 5000 });
           this.router.navigate(['login']);
         }
     

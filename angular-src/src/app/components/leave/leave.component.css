@@ -61,3 +61,8 @@ thead tr th {
     color: #292929;
     text-transform: uppercase;
 }
+
+.alert-danger{
+    margin-top: 1000000px;
+    margin-left: 10000000px;
+}

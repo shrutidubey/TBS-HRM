@@ -105,9 +105,17 @@ export class AuthService {
   }
 
   findRole(){
-    var abc = this.user.role;
-    console.log("role"+abc);
-    return abc;
+  
+    
+    if (this.user == undefined){
+      //this.flashMessage.show('Username doesn\'t exist', { cssClass: 'alert-danger', timeout: 5000 });
+      this.router.navigate(['login']);
+    }
+    else{
+      var role = this.user.role;
+      console.log("role"+role);
+      return role;
+    }
   }
 
 

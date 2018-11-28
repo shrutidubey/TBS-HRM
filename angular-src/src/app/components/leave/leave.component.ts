@@ -6,7 +6,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Leave } from '../../shared/leave.model';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Employee } from '../../shared/employee.model';
 import { EmployeeService } from '../../services/employee.service';
 
@@ -37,6 +37,7 @@ private router:Router) { }
     
     this.resetForm();
     this.refreshLeaveList();
+    
    this.authService.checkEmployeeLeave();
   }
   onLogoutClick(){
@@ -73,12 +74,20 @@ private router:Router) { }
 
 
   onSubmit(form: NgForm) {
+   
     form.value.empname = JSON.parse(localStorage.getItem('user')).username
+
+    console.log("fromdate"+this.fromdate );
+    console.log("fromdate"+this.todate );
+    console.log("fromdate"+this.leavereason );
+  
+   
     this.leaveService.postLeave(form.value).subscribe((res) => {
       this.resetForm(form);
       this.refreshLeaveList();
       console.log(this.empname);
     });
+  
   }
 
   refreshLeaveList() {

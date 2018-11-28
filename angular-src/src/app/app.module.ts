@@ -51,7 +51,7 @@ import { UploadlogoComponent } from './components/uploadlogo/uploadlogo.componen
 //import { HolidayComponent } from './components/holiday/holiday.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { TbirthdayComponent } from './components/tbirthday/tbirthday.component';
-
+//import {  ReactiveFormsModule } from '@angular/forms';
 const appRoutes:Routes = [
 
   {
@@ -213,6 +213,7 @@ const appRoutes:Routes = [
     UploadlogoComponent,
     FileSelectDirective,
     TbirthdayComponent,
+   // ReactiveFormsModule
     //FileUploadModule
   
   ],
@@ -221,6 +222,7 @@ const appRoutes:Routes = [
     FormsModule,
     HttpModule,
     HttpClientModule,
+   // ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot()
   ],

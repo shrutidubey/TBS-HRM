@@ -3,24 +3,24 @@
   <!-- Default form register -->
 <form class="text-center border border-light p-5">
 
-    <p class="h4 mb-4">Sign up</p>
+    <!--<p class="h4 mb-4">Sign up</p>-->
 
     <div class="form-row mb-4">
-        <div class="col">
-            <!-- First name -->
+       <!-- <div class="col">
+             First name 
             <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
-        </div>
-        <div class="col">
+        </div>-->
+        <!--<div class="col">-->
             <!-- Last name -->
-            <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
-        </div>
+           <!-- <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">-->
+      <!--  </div>-->
     </div>
 
     <!-- E-mail -->
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+   <!-- <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">-->
 
     <!-- Sign up button -->
-    <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+   <!-- <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>-->
 
 </form>
 <!-- Default form register -->
@@ -30,12 +30,17 @@
       <div class="card-content white-text">
         <div class="row">
           <div class="col s5">
-            <form #leaveForm="ngForm" (ngSubmit)="onSubmit(leaveForm)">              
+            <form  #leaveForm="ngForm" (ngSubmit)="onSubmit(leaveForm)"  >              
               <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="leaveService.selectedLeave._id">
               <div class="row">
                 <div class="input-field col s12">
+                  
                     <label>From Date :</label>
-                  <input type="date" name="fromdate" #name="ngModel" [(ngModel)]="leaveService.selectedLeave.fromdate" placeholder="fromdate">
+                  <input id ="fromdate" type="date" name="fromdate" #name="ngModel" [(ngModel)]="leaveService.selectedLeave.fromdate" placeholder="fromdate">
+                <!--  <p class="error_message" *ngIf="ngForm.get('fromdate').invalid && (ngForm.submitted || ngForm.get('fromdate').dirty)">Please provide name</p>
+                -->
+              
+               
                 </div>
               </div>
               <div class="row">
