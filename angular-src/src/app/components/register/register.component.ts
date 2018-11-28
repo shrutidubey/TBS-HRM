@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
       email: this.email,
       username: this.username,
       password: this.password,
-      role:this.role
+      role:"Admin"
     }
     console.log(this.name);
     if (!this.validateService.validateRegister(user)) {
