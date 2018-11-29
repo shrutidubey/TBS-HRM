@@ -1,150 +1,147 @@
 <app-emp-dashboard></app-emp-dashboard>
 <!-- MAIN -->
-<div class="col-md-12 col-md-offset-1 ">	
-    <div class="flex-container">
-        <div class="ele1">
-            <a  [routerLink]="['/editprofile']">
-                <div><span class="Emp-heading">Edit Profile</span></div>
-                <div id="wrapper">
-                        <div class="avatar">
-                          <img class="avatar-pic" src="https://techbrise.com/wp-content/uploads/2018/11/DSC_0010-e1542180911186.jpg">
-                          <div class="avatar-line"></div>
+<div class="col-md-12 col-md-offset-1 ">
+   <!-- <div class="ad-dash-head"><h2>User Dashboard</h2><hr></div>	-->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team o-t1">
+                    <div class="picture">
+                    <img class="img-fluid" src="https://cmsmith.com/wp-content/uploads/2017/11/team-dummy-image.jpg">
+                    </div>
+                    <div class="team-content">
+                    <h3 class="name">Edit Profile</h3>
+                    
+                    </div>
+                    <ul class="social">
+                    <a  [routerLink]="['/editprofile']">
+                        <li><button type="button" class="btn btn-succes">View All</button></li>
+                    </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team o-t2">
+                    <div class="picture">
+                        <img class="img-fluid" src="https://picsum.photos/130/130?image=839">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="name">Apply Leave</h3>								
+                    </div>
+                    <ul class="social">
+                        <a [routerLink]="['/manageleaves']">
+                            <li><button type="button" class="btn btn-succes">View All</button></li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team o-t3">
+                    <div class="picture">
+                        <img class="img-fluid" src="https://picsum.photos/130/130?image=856">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="name">Leave Reportss</h3>
+                    </div>
+                    <ul class="social">
+                        <a  [routerLink]="['/emp-leavereport']">
+                            <li><button type="button" class="btn btn-succes">View All</button></li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team o-t4">
+                    <div class="picture">
+                        <img class="img-fluid" src="https://picsum.photos/130/130?image=836">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="name">Salary Reports</h3>
+                    </div>
+                    <ul class="social">
+                        <a  [routerLink]="['/']">
+                            <li><button type="button" class="btn btn-succes">View All</button></li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team o-t5">
+                    <div class="picture">
+                        <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="name">View Holiday's</h3>
+                    </div>
+                    <ul class="social">
+                        <a  [routerLink]="['/viewholidays']">
+                            <li><button type="button" class="btn btn-succes">View All</button></li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team o-t6">
+                    <div class="picture">
+                        <img class="img-fluid" src="https://picsum.photos/130/130?image=839">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="name">View Events</h3>
+                    </div>
+                    <ul class="social">
+                        <a  [routerLink]="['/viewevents']">
+                            <li><button type="button" class="btn btn-succes">View All</button></li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team o-t7">
+                    <div class="picture">
+                        <img class="img-fluid" src="https://picsum.photos/130/130?image=856">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="name">Pending Leaves</h3>
+                    </div>
+                    <ul class="social">
+                        <a  [routerLink]="['/emp-pending']">
+                            <li><button type="button" class="btn btn-succes">View All</button></li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+           <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team o-t8">
+                    <div class="picture" style="margin-bottom:25px">
+                        <img class="img-fluid" src="https://picsum.photos/130/130?image=836">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="name">Today Birthday</h3>
+                        <h4 class="title"></h4>
+                    </div>
+                    <ul class="social">
+                        <a [routerLink]="['/birthday']">
+                            <li><button type="button" class="btn btn-succes">View All</button></li>
+                        </a>
+                    </ul>
+                </div>
+            </div>-->
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="our-team o-t7">
+                        <div class="picture">
+                            <img class="img-fluid" src="https://picsum.photos/130/130?image=856">
                         </div>
-                      </div>
-                <div class="col-sm-12" id="view-all">
-                    <button type="button" class="btn btn-succes">Edit</button>
+                        <div class="team-content">
+                            <h3 class="name">Birthday Today</h3>
+                        </div>
+                        <ul class="social">
+                            <a  [routerLink]="['/tbirthday']">
+                                <li><button type="button" class="btn btn-succes">View All</button></li>
+                            </a>
+                        </ul>
+                    </div>
                 </div>
-            </a>
         </div>
-        <div class="ele2">
-            <a  [routerLink]="['/manageleaves']">
-                <div><span class="Emp-heading">Apply Leave</span></div>
-                <div>
-                    <img src="/assets/images/cal.png" style="width: 35%;">
-                </div>
-                <div class="col-sm-12" id="view-all-Att">
-                    <button type="button" class="btn btn-succes">Apply</button>
-                </div>
-            </a>
-        </div>
-        <div class="ele3">
-            <a  [routerLink]="['/emp-leavereport']">						
-                <div><span class="Emp-heading">Leave Report</span></div>
-                <div class="col-sm-4" id="active-side">
-                    <span>4</span> <br><span id="span-side">Accept</span>
-                </div>
-                <div class="col-sm-6" id="inactive-side">
-                        <span>1</span> <br><span id="span-side">Rejected</span>
-                </div>
-                <div class="col-sm-12" id="view-all">
-                    <button type="button" class="btn btn-succes ">View All</button>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="flex-container">
-        <div class="ele4">
-            <div><span class="Emp-heading">Salary Report</span></div>
-            <div>
-                <img src="/assets/images/calendar (1).png" style="height:100px; margin-top: 10px;">
-            </div>
-            <div class="col-sm-12" id="view-all-sal">
-                <button type="button" class="btn btn-succes">View All</button>
-            </div>
-        </div>
-        <div class="ele5">
-            <a  [routerLink]="['/viewholidays']">
-                <div><span class="Emp-heading">Holiday's <span style="color:chocolate;">Nov</span></span></div>
-                <div class="col-md-10" id="upcom-bday">
-                    <div class="col-md-2"><i class="fa fa-calendar"></i></div>
-                    <div class="col-md-8">Diwali</div>
-                    <div class="col-md-2">7th </div>
-                </div>
-                <div class="col-md-10" id="upcom-bday">
-                    <div class="col-md-2"><i class="fa fa-calendar"></i></div>
-                    <div class="col-md-8">Guru Nanak</div>
-                    <div class="col-md-2">7th </div>
-                </div>
-                <div class="col-sm-12" id="view-all-hd">
-                    <button type="button" class="btn btn-succes">View All</button>
-                </div>
-            </a>
-        </div>
-        <div class="ele6">
-           
-                <div><span class="Emp-heading">View Events</span></div>
-           
-            <div>
-                <img src="/assets/images/calendar.png" style="height: 100px; margin-top: 10px;">
-            </div>
-            <div class="col-sm-12" id="view-all-me">
-                    <a  [routerLink]="['/viewevents']">
-                <button type="button" class="btn btn-succes">View All</button>
-            </a>
-            </div>
-        </div>					
-    </div>
-    <div class="flex-container">					
-        <div class="ele7">
-            <a  [routerLink]="['/emp-pending']">
-                <div><span class="Emp-heading">Pending Leaves</span></div>
-                <div class="col-sm-10" id="pending-leaves">
-                        <span>4</span> <br><span id="span-side">Pending</span>
-                </div>
-                <div class="col-sm-12" id="view-all">
-                    <button type="button" class="btn btn-succes">View All</button>
-                </div>
-            </a>
-        </div>
-        <div class="ele8">
-                <a  [routerLink]="['/birthday']">
-            <div><span class="Emp-heading">Upcoming Birthday</span></div>
-            <div class="col-md-10" id="upcom-bday">
-                <div class="col-md-2"><i class="fa fa-birthday-cake" aria-hidden="true"></i></div>
-                <div class="col-md-6">Ashish</div>
-                <div class="col-md-4">9 Dec</div>
-            
-            </div>
-            <div class="col-md-10" id="upcom-bday">
-                <div class="col-md-2"><i class="fa fa-birthday-cake" aria-hidden="true"></i></div>
-                <div class="col-md-6">Prahant</div>
-                <div class="col-md-4">23 May</div>
-            </div>
-            <div class="col-md-10" id="upcom-bday">
-                <div>No Birthday this month</div>
-            </div>
-            <div class="col-sm-12" id="view-all-ub">
-                <button type="button" class="btn btn-succes">Birthday This Month</button>
-            </div>
-        </a>
-        </div>
-
-        
-
+    </div>	
 </div>
-
-<div class="ele9">
-        <a  [routerLink]="['/tbirthday']">
-    <div><span class="Emp-heading">Upcoming Birthday</span></div>
-    <div class="col-md-10" id="upcom-bday">
-        <div class="col-md-2"><i class="fa fa-birthday-cake" aria-hidden="true"></i></div>
-        <div class="col-md-6">Ashish</div>
-        <div class="col-md-4">9 Dec</div>
-    
-    </div>
-    <div class="col-md-10" id="upcom-bday">
-        <div class="col-md-2"><i class="fa fa-birthday-cake" aria-hidden="true"></i></div>
-        <div class="col-md-6">Prahant</div>
-        <div class="col-md-4">23 May</div>
-    </div>
-    <div class="col-md-10" id="upcom-bday">
-        <div>No Birthday this month</div>
-    </div>
-    <div class="col-sm-12" id="view-all-ub">
-        <button type="button" class="btn btn-succes">Birthday Today</button>
-    </div>
-</a>
-</div>
-</div>
-
-<!-- END MAIN -->

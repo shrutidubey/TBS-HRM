@@ -37,6 +37,13 @@ export class EventsComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+
+    if(!form.value.eventname || !form.value.venue || !form.value.date || !form.value.time ||!form.value.description){
+      console.log("error")
+
+      alert('Please Fill All the Fields')
+    }
+    else{
     if (form.value._id == "") {
       this.eventService.postEvent(form.value).subscribe((res) => {
         this.resetForm(form);
@@ -51,6 +58,8 @@ export class EventsComponent implements OnInit {
 
       })
     }
+
+  }
   }
 
   refreshEventList() {

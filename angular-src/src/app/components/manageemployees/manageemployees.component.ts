@@ -235,6 +235,13 @@ export class ManageemployeesComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
+
+      if(!form.value.name || !form.value.email || !form.value.username || !form.value.password ||!form.value.role){
+        console.log("error")
+
+        alert('Please Fill All the Fields')
+      }
+      else{
     console.log(this.name);
       console.log(this.email);
       const user = {
@@ -251,24 +258,25 @@ export class ManageemployeesComponent implements OnInit {
       }
 
       if (!this.validateService.validateEmail(user.email)) {
-        this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
+        //this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
+        alert('Please Enter a Valid Email')
         return false;
       }
 
       this.authService.registerUser(user).subscribe(data => {
         if (data.success) {
           this.flashMessage.show('employee successfully registered', { cssClass: 'alert-succes', timeout: 3000 });
-
           this.resetForm(form);
           this.refreshEmployeeList();
         }
         else {
-          this.flashMessage.show('Something went wrong', { cssClass: 'alert-danger', timeout: 3000 });
+        //this.flashMessage.show('Something went wrong', { cssClass: 'alert-danger', timeout: 3000 });
+        alert('Username or email already exists')
           this.router.navigate(['/manageemployees']);
         }
       })
 
- 
+    }
   }
     else {
 

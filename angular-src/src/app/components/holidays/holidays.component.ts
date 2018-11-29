@@ -36,8 +36,16 @@ export class HolidaysComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    if(!form.value.fromdate || !form.value.todate || !form.value.holidayname){
+      console.log("error")
+
+      alert('Please Fill All the Fields')
+    }
+    else{
     if (form.value._id == "") {
       this.holidayService.postHoliday(form.value).subscribe((res) => {
+       console.log("fromdate"+form.value.fromdate)
+       
         this.resetForm(form);
         this.refreshHolidayList();
 
@@ -51,7 +59,7 @@ export class HolidaysComponent implements OnInit {
       })
     }
   }
-
+  }
   refreshHolidayList() {
     this.holidayService.getHolidayList().subscribe((res) => {
       this.holidayService.holidays = res as Holiday[];
@@ -73,4 +81,5 @@ export class HolidaysComponent implements OnInit {
 
     }
   }
+
 }

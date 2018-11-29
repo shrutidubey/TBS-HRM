@@ -36,6 +36,7 @@ if(err){
 
         var fromdate  = new Date( req.body.fromdate);
 var todate = new Date(req.body.todate);
+console.log("this.body.fromdate"+req.body.fromdate)
 var timeDiff = Math.abs(todate.getTime() - fromdate.getTime());
 var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24))+1
 //var diff = (todate.getDay() - fromdate.getDay())+1;
@@ -53,6 +54,7 @@ console.log("difference"+diffDays)
             if(!err)
             {
                 res.send(doc);
+                console.log("holday doc"+doc)
             }
             else{
                 console.log("Error in Holiday Save:"+JSON.stringify(err,undefined,2));

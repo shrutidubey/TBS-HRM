@@ -5,7 +5,7 @@ const config = require('../config/holidaydatabase');
 const HolidaySchema = mongoose.Schema({
 
     fromdate: {
-        type: Date,
+        type:Date,
         required:true
 
     },

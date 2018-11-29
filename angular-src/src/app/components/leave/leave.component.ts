@@ -80,13 +80,27 @@ private router:Router) { }
     console.log("fromdate"+this.fromdate );
     console.log("fromdate"+this.todate );
     console.log("fromdate"+this.leavereason );
-  
+
+    if(!form.value.fromdate || !form.value.todate || !form.value.leavereason){
+      console.log("error")
+
+      alert('Please Fill All the Fields')
+    }
    
-    this.leaveService.postLeave(form.value).subscribe((res) => {
+    else{
+      this.leaveService.postLeave(form.value).subscribe((res) => {
+        this.resetForm(form);
+        this.refreshLeaveList();
+        console.log(this.empname);
+      });
+    }
+   
+    /*this.leaveService.postLeave(form.value).subscribe((res) => {
       this.resetForm(form);
       this.refreshLeaveList();
       console.log(this.empname);
-    });
+    });*/
+  
   
   }
 

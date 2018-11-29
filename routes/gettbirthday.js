@@ -15,7 +15,7 @@ var password = req.body.password;
         username: req.body.username,
         password: req.body.password,
         gender:req.body.gender,
-        role:req.body.role
+         role:req.body.role
 
     });
  

@@ -8,12 +8,11 @@ import { AuthService } from '../../services/auth.service';
 import { Employee } from '../../shared/employee.model';
 
 @Component({
-  selector: 'app-manageremp',
-  templateUrl: './manageremp.component.html',
-  styleUrls: ['./manageremp.component.css'],
-  providers:[EmployeeService]
+  selector: 'app-adm-leave',
+  templateUrl: './adm-leave.component.html',
+  styleUrls: ['./adm-leave.component.css']
 })
-export class ManagerempComponent implements OnInit {
+export class AdmLeaveComponent implements OnInit {
 
   name: String;
   username: String;
@@ -31,7 +30,7 @@ export class ManagerempComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
     this.refreshEmployeeList();
-    this.authService.checkManagerEmp();
+    //this.authService.checkManageEmployees();
   }
 
   onLogoutClick(){
@@ -57,21 +56,15 @@ export class ManagerempComponent implements OnInit {
       password: "",
       role:"",
       newpassword:"",
-      contactno:"",
       address:"",
-      bloodgrp:"",
-      dob:""
+      contactno:"",
+      dob:"",
+      bloodgrp:""
     }
   }
 
 
   onSubmit(form: NgForm) {
-    if(!form.value.name || !form.value.email || !form.value.username || !form.value.password ||!form.value.role){
-      console.log("error")
-
-      alert('Please Fill All the Fields')
-    }
-    else{
     if (form.value._id == "") {
     console.log(this.name);
       console.log(this.email);
@@ -90,7 +83,6 @@ export class ManagerempComponent implements OnInit {
 
       if (!this.validateService.validateEmail(user.email)) {
         this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
-        alert('Please Enter a Valid Email')
         return false;
       }
 
@@ -102,8 +94,7 @@ export class ManagerempComponent implements OnInit {
           this.refreshEmployeeList();
         }
         else {
-         // this.flashMessage.show('Something went wrong', { cssClass: 'alert-danger', timeout: 3000 });
-          alert('Username/Email already exxists')
+          this.flashMessage.show('Something went wrong', { cssClass: 'alert-danger', timeout: 3000 });
           this.router.navigate(['/manageemployees']);
         }
       })
@@ -120,10 +111,11 @@ export class ManagerempComponent implements OnInit {
 
       
     }
-  }
+
   }
 
   refreshEmployeeList() {
+    
     this.employeeService.getEmployeeList().subscribe((res) => {
 
       this.employeeService.employees = res as Employee[];
@@ -181,4 +173,41 @@ this.password = fpassword;
     }
   }
 
+  onView(emp: Employee){
+
+    console.log("edit");
+    this.flashMessage.show('you can now edit the employee details', { cssClass: 'alert-succes', timeout: 3000 });
+    this.employeeService.selectedEmployee = emp;
+    //this.employeeService.selectedEmployee = emp
+    var  fname = this.employeeService.selectedEmployee['name'];
+    var  femail = this.employeeService.selectedEmployee['email'];
+    var fusername = this.employeeService.selectedEmployee['username'];
+    var frole = this.employeeService.selectedEmployee['role'];
+    var fpassword = this.employeeService.selectedEmployee['password']
+    console.log("the selected employee is"+this.employeeService.selectedEmployee['username']);
+    console.log("the name is"+  fname);
+    console.log("the email is"+femail);
+    console.log( "the username is"+fusername);
+    console.log("theh role is"+frole);
+    console.log("the password is"+fpassword);
+     //fname ="Shruti"
+    console.log("emp value"+emp['name'])
+  // this.inputText();
+  //fname = emp['name'];
+
+this.name = fname;
+this.email = femail;
+this.username = fusername;
+this.role = frole;
+this.password = fpassword;
+
+  //this.employeeService.sendUserInfo();
+
+  //this.employeeService.sendEmail();
+    this.employeeService.selectedEmployee = emp;
+    var username = this.employeeService.selectedEmployee.username;
+    this.employeeService.storeUsername(username);
+    console.log("username"+this.employeeService.selectedEmployee.username);
+  //  this.adminleaveService.getLeaveRecord(this.adminleaveService.selectedAdminleave.empname);
+  }
 }

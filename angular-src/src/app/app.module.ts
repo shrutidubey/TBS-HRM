@@ -51,6 +51,10 @@ import { UploadlogoComponent } from './components/uploadlogo/uploadlogo.componen
 //import { HolidayComponent } from './components/holiday/holiday.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { TbirthdayComponent } from './components/tbirthday/tbirthday.component';
+import { AdmLeaveComponent } from './components/adm-leave/adm-leave.component';
+import { MngEditproComponent } from './components/mng-editpro/mng-editpro.component';
+import { MagLeaveComponent } from './components/mag-leave/mag-leave.component';
+
 //import {  ReactiveFormsModule } from '@angular/forms';
 const appRoutes:Routes = [
 
@@ -165,8 +169,14 @@ const appRoutes:Routes = [
 },
 {
   path:'tbirthday',component:TbirthdayComponent
-}
-  
+},
+
+  {
+    path:'adm-leave',component:AdmLeaveComponent
+  },
+  {
+    path:'mng-editpro',component:MngEditproComponent
+  }
 ]
 
 
@@ -213,6 +223,9 @@ const appRoutes:Routes = [
     UploadlogoComponent,
     FileSelectDirective,
     TbirthdayComponent,
+    AdmLeaveComponent,
+    MngEditproComponent,
+    MagLeaveComponent,
    // ReactiveFormsModule
     //FileUploadModule
   

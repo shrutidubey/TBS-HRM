@@ -1,5 +1,5 @@
-<app-emp-dashboard></app-emp-dashboard>
-<div class="col-lg-12 col-lg-offset-1">
+<app-mag-dashboard></app-mag-dashboard>
+  <div class="col-lg-12 col-lg-offset-1">
     <form class="text-center border border-light p-5" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
       <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">	
       <p class="h4 mb-4">Edit Your Profile</p>
@@ -93,7 +93,4 @@
         </tr>
       </table>
     </div>  
-  </div> 
-
-
-
+  </div>       
