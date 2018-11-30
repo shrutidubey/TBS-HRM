@@ -33,7 +33,7 @@ var password = req.body.password;
                 }
             });
         
-            var mailOptions = {
+                 var mailOptions = {
                 from: 'shrutid@techbrise.com',
                 to: req.body.email,
                 subject: 'Regarding Registration',

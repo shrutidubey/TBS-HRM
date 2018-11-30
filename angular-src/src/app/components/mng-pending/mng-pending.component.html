@@ -1,0 +1,100 @@
+<app-mag-dashboard></app-mag-dashboard>
+<div class="main">
+<!-- MAIN CONTENT -->
+	<div class="main-content">
+		<div class="change">
+			<div class="row">
+				<div class="col s12">
+					<div class="card">
+						<div class="card-content white-text">
+							<div class="row">
+								<div class="col-md-12">
+									<!-- Default form register -->
+									<form class="text-center border border-light p-5" #adminleaveForm="ngForm" (ngSubmit)="onSubmit(adminleaveForm)">
+										<input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave._id">
+										<!--<p class="h4 mb-4" id="man-emp">LEAVE STATUS</p>	-->								
+										<div class="form-row mb-4">
+											<div class="col">
+												<!-- First name -->
+												<input type="text" id="defaultRegisterFormFirstName" class="form-control" name="empname" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.empname" placeholder="Employee Name"
+													required>
+											</div>
+											<div class="col">
+												<!-- emp email -->
+												<input type="text" id="defaultRegisterFormLastName" class="form-control" name="leavetype" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.leavetype" placeholder="Employee Email">
+											</div>
+										</div>
+
+										<div class="form-row mb-4">
+											<div class="col">
+												<!-- from date -->
+												<input type="text" id="defaultRegisterFormFirstName" class="form-control" name="fromdate" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.fromdate" placeholder="from date">
+											</div>
+											<div class="col">
+												<!-- to date -->
+												<input type="text" id="defaultRegisterFormFirstName" class="form-control" name="todate" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.todate" placeholder="to date">
+											</div>
+										</div>
+
+										<div class="form-row mb-4">
+											<div class="col">
+												<!-- leave reason -->
+												<input type="text" id="defaultRegisterFormFirstName" class="form-control" name="leavereason" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.leavereason" placeholder="Leave Reason">
+											</div>
+											<div class="col">
+												<!-- leave count -->
+												<input type="text" id="defaultRegisterFormFirstName" class="form-control" name="leavecount" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.leavecount" placeholder="Leave count">
+											</div>
+										</div>
+									
+										<!-- status -->
+										<input type="text" id="defaultRegisterFormEmail" class="form-control mb-4" name="status" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.status" placeholder="Status">
+										<!-- Sign up button -->
+										<button class="btn btn-custom right" type="button" (click)="resetForm(adminleaveForm)">Reset</button>
+												<button class="btn btn-custom right" type="submit" [disabled]="!adminleaveForm.valid">Submit</button>
+									
+									</form>
+								</div>									
+								<div class="col s7">
+									<table class="responsive-table highlight">
+										<thead class="thead">
+											<tr>
+												<th>Employee Name</th>
+												<th>Employee Email</th>
+												<th>From Date</th>
+												<th>To Date</th>
+												<th>Leave Reason</th>
+												<th>Leave Count</th>
+												<th>Status</th>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tr *ngFor="let adminleave of adminleaveService.adminleaves">
+											<td>{{adminleave.empname}}</td>
+											<td>{{adminleave.leavetype}}</td>
+											<td>{{adminleave.fromdate}}</td>
+											<td>{{adminleave.todate}}</td>
+											<td>{{adminleave.leavereason}}</td>
+											<td>{{adminleave.leavecount}}</td>
+											<td>{{adminleave.status}}</td>					
+											
+											<td>
+												<a class="action-btn" (click)="onAccept(adminleave)">
+													<i class="material-icons">Action</i>
+												</a>
+												<a class="action-btn" (click)="onReject(adminleave._id,adminleaveForm)">
+													<i class="material-icons-r">Remove</i>
+												</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>					
+	</div>
+<!-- END MAIN CONTENT -->
+</div>

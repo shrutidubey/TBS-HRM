@@ -54,6 +54,10 @@ import { TbirthdayComponent } from './components/tbirthday/tbirthday.component';
 import { AdmLeaveComponent } from './components/adm-leave/adm-leave.component';
 import { MngEditproComponent } from './components/mng-editpro/mng-editpro.component';
 import { MagLeaveComponent } from './components/mag-leave/mag-leave.component';
+import { MngPendingComponent } from './components/mng-pending/mng-pending.component';
+import { MngTbirthdayComponent } from './components/mng-tbirthday/mng-tbirthday.component';
+import { MngLeaverecComponent } from './components/mng-leaverec/mng-leaverec.component';
+import { MngLeaveComponent } from './components/mng-leave/mng-leave.component';
 
 //import {  ReactiveFormsModule } from '@angular/forms';
 const appRoutes:Routes = [
@@ -176,7 +180,20 @@ const appRoutes:Routes = [
   },
   {
     path:'mng-editpro',component:MngEditproComponent
+  },
+  {
+    path:'mng-pending',component:MngPendingComponent
+  },
+  {
+    path:'mng-tbirthday',component:MngTbirthdayComponent
+  },
+  {
+    path:'mng-leaverec',component:MngLeaverecComponent
+  },
+  {
+    path:'mng-leave',component:MngLeaveComponent
   }
+ 
 ]
 
 
@@ -226,6 +243,10 @@ const appRoutes:Routes = [
     AdmLeaveComponent,
     MngEditproComponent,
     MagLeaveComponent,
+    MngPendingComponent,
+    MngTbirthdayComponent,
+    MngLeaverecComponent,
+    MngLeaveComponent,
    // ReactiveFormsModule
     //FileUploadModule
   

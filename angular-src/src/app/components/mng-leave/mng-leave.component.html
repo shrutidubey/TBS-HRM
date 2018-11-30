@@ -1,0 +1,27 @@
+
+<app-mag-dashboard></app-mag-dashboard>
+<div class="col-md-12 col-offset-1">
+	<p class="h4 mb-4"></p>
+	<div class="col-sm-12">		
+		<table class="responsive-table highlight" >
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Username</th>
+				<th>Role</th>
+				<th>Details</th>
+			</tr>
+			</thead>
+			<tr *ngFor="let emp of employeeService.employees">
+				<td>{{emp.name}}</td>
+				<td>{{emp.username}}</td>
+				<td>{{emp.role}}</td>
+				<td>
+					<a class="action-btn" (click)="onView(emp)" [routerLink]="['/mng-leaverec']">
+						<b class="material-icons"><i class="fa fa-eye" aria-hidden="true"></i>View </b>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

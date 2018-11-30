@@ -1,0 +1,76 @@
+.row    {
+    margin-right: 0px;
+    margin-top: 20px;
+}
+table.responsive-table.highlight th {
+    width: 1%;
+}
+
+.material-icons {
+    padding: 4px 10px 5px 10px;
+    border-radius: 2px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-color: #518c51;
+    font-weight: inherit;
+}
+
+form.ng-untouched.ng-pristine.ng-invalid {
+    margin-bottom: 30px;
+}
+
+td {
+    width: 15%;
+    height: 60px;
+    text-align: center;
+}
+
+th {
+    text-align: center;
+}
+
+i.fa.fa-eye {
+    margin-right: 8px;
+}
+
+
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+thead tr th {
+    height: 45px;
+    color: #292929;
+    text-transform: uppercase;
+}
+
+i.fa.fa-edit {
+    margin-right: 5px;
+}
+
+.col.s7 {
+    padding: 3rem;
+    margin-bottom: 30px;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.col-md-12.col-offset-1 {
+    top: 140px;
+}
+
+table.responsive-table.highlight {
+    margin: 0px auto;
+    float: none;
+    left: 90px;
+    position: relative;
+    width: 100%;
+}

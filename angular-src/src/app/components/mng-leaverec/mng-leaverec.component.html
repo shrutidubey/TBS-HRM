@@ -1,0 +1,43 @@
+<app-mag-dashboard></app-mag-dashboard>
+  <div class="col-md-12 col-md-offset-1">            
+    <div class="col s7">
+      <table class="responsive-table highlight">
+        <thead class="thead">
+          <tr>
+            <th>Employee Name</th>
+            <th>Employee Email</th>
+            <th>From Date</th>
+            <th>To Date</th>
+            <th>Leave Reason</th>
+            <th>Leave Count</th>
+            <th>Status</th>
+            <th>
+
+            </th>
+          </tr>
+        </thead>
+        <tr *ngFor="let adminleave of adminleaveService.adminleaves">
+          <td>{{adminleave.empname}}</td>
+          <td>{{adminleave.leavetype}}</td>
+          <td>{{adminleave.fromdate}}</td>
+          <td>{{adminleave.todate}}</td>
+          <td>{{adminleave.leavereason}}</td>
+          <td>{{adminleave.leavecount}}</td>
+          <td>{{adminleave.status}}</td>
+          <td>
+          </td>
+          <td>
+            <!-- <a class="action-btn" (click)="onAccept(adminleave)">
+              <i class="material-icons">Action</i>
+            </a>-->
+            <a class="action-btn" (click)="onReject(adminleave._id,adminleaveForm)">
+              <i class="material-icons">Remove</i>
+            </a>
+          <!----	<a class="action-btn" (click)="onView(adminleave)">
+              <i class="material-icons">View Details</i>
+            </a>-->
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
