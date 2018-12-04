@@ -18,7 +18,7 @@ router.get('/:username', (req, res) => {
    console.log("doc[0]"+docs);
            }
            else {
-               console.log('Error in retrieving Leave' + JSON.stringify(err, undefined, 2));
+                 console.log('Error in retrieving Leave' + JSON.stringify(err, undefined, 2));
             }
        });
    }); 

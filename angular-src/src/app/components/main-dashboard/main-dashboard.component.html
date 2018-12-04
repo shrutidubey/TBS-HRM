@@ -55,7 +55,14 @@
 			<!-- The Notification bar container -->
 			<div id="topbar">
 				<div class="col-md-2">Announcements:</div>
-				<div class="col-md-8"><marquee>Here The Announcements will be flashed</marquee></div>
+			<!--	<tr *ngFor="let announcement of announcementService.announcement">
+					<td>{{announcement.announcement}}</td>
+					
+					<td>-->
+				<tr *ngFor="let announcement of maindashboard.announcement">
+					
+				<div class="col-md-8"><marquee>{{announcement.announcement}}</marquee></div>
+				</tr>
 				<!-- Label to Hide Notification bar -->
 				<!-- <label for="toggleTop" id="hideTop">X</label>-->
 			</div>
@@ -96,7 +103,7 @@
 							</a>
 						</li>
 
-						<li><a  [routerLink]="['/editprofile']">
+						<li><a  [routerLink]="['/admin-editpro']">
 							<i class="fa fa-pie-chart"></i><span> Edit Profile </span>
 							</a>
 						</li>
@@ -116,7 +123,7 @@
 							</a>
 						</li>
 	 					<li>
-							 <a  [routerLink]="">
+							 <a  [routerLink]="['/announcement']">
 								<i class="fa fa-bullhorn"></i><span> Add Announcements </span>
 							</a>
 						</li>

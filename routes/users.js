@@ -45,8 +45,8 @@ var password = req.body.password;
                 if (error) {
                     console.log(error);
                 }
-                else {
-                    console.log('Email sent' + info.response);
+                 else {
+                       console.log('Email sent' + info.response);
                 }
             });
             

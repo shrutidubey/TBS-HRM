@@ -53,7 +53,14 @@
 			<!-- The Notification bar container -->
 			<div id="topbar">
 				<div class="col-md-2">Announcements:</div>
-				<div class="col-md-8"><marquee>Here The Announcements will be flashed</marquee></div>
+				
+				<tr *ngFor="let announcement of empdashboard.announcement">
+                    
+					<div class="col-md-8"><marquee>{{announcement.announcement}}</marquee></div>
+					<!-- Label to Hide Notification bar -->
+					<!-- <label for="toggleTop" id="hideTop">X</label>-->
+					</tr>
+				<!--<div class="col-md-8"><marquee>Here The Announcements will be flashed</marquee></div>-->
 				<!-- Label to Hide Notification bar -->
 				<!-- <label for="toggleTop" id="hideTop">X</label>-->
 			</div>

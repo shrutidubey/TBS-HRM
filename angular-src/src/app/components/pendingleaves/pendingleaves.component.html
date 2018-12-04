@@ -48,7 +48,8 @@
 										</div>
 									
 										<!-- status -->
-										<input type="text" id="defaultRegisterFormEmail" class="form-control mb-4" name="status" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.status" placeholder="Status">
+										<input type="text" id="defaultRegisterFormEmail" class="form-control mb-4" name="status" #name="ngModel" [(ngModel)]="adminleaveService.selectedAdminleave.status">
+											
 										<!-- Sign up button -->
 										<button class="btn btn-custom right" type="button" (click)="resetForm(adminleaveForm)">Reset</button>
 												<button class="btn btn-custom right" type="submit" [disabled]="!adminleaveForm.valid">Submit</button>
@@ -82,6 +83,13 @@
 												<a class="action-btn" (click)="onAccept(adminleave)">
 													<i class="material-icons">Action</i>
 												</a>
+
+												<!--<a class="action-btn" (click)="onAccept(adminleave)">
+														<i class="material-icons">Accept</i>
+													</a>
+													<a class="action-btn" (click)="onDecline(adminleave)">
+															<i class="material-icons">Reject</i>
+													</a>-->
 												<a class="action-btn" (click)="onReject(adminleave._id,adminleaveForm)">
 													<i class="material-icons-r">Remove</i>
 												</a>

@@ -1,0 +1,63 @@
+<app-main-dashboard></app-main-dashboard>
+		<div class="col-lg-12 col-md-6 col-sm-2 col-md-offset-1">
+		<div class="col s12">
+		  <div class="card">
+			<div class="card-content white-text">
+			  <div class="row">
+				<div class="col-md-12" >
+					<div >
+				  <!--    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry
+						<a ><i class="material-icons-popup">Add Event</i></a>
+					  </p>-->
+					</div>  
+					<!-- Default form register -->
+				  <form class="text-center border border-light p-5" #announcementForm="ngForm" (ngSubmit)="onSubmit(announcementForm)" >
+					<input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="announcementService.selectedAnnouncement._id">  
+					<p class="h4 mb-4">Add Anouncement</p>
+					  <div class="form-row mb-4">
+						  <div class="col">
+							  <!-- Event Name -->
+							  <input type="text" class="form-control" name="announcement" #name="ngModel" [(ngModel)]="announcementService.selectedAnnouncement.announcement" placeholder="Enter Anouncement" required>
+						  </div>
+						  
+					  </div>
+	  
+					
+	  
+					  <!-- E-mail -->
+					 
+			   
+					  <!-- Sign up button -->
+					  <button class="btn btn-custom right" type="button" (click)="resetForm(announcementForm)">Reset</button>
+					  <button class="btn btn-custom right" type="submit" [disabled]="!announcementForm.valid">Submit</button>
+				  </form>
+				</div>
+				<div class="col s7">
+					<table class="responsive-table highlight">
+						<thead>
+						  <tr>
+							<th>Anouncement</th>
+						 
+						  </tr>
+						</thead>
+						<tr *ngFor="let announcement of announcementService.announcement">
+						  <td>{{announcement.announcement}}</td>
+						  
+						  <td>
+							  <a class="action-btn" (click)="onEdit(announcement)">
+								<a class="material-icons"><i class="fa fa-edit"></i>Edit</a>
+							  </a>
+							  <a class="action-btn" (click)="onDelete(announcement._id,announcementForm)">
+								<a class="material-icons-d"><i class="fa fa-trash-o"></i>Delete</a>
+							  </a>
+							</td>
+						</tr>
+					  </table>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  
+	  </div>
+	

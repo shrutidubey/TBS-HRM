@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
    this.authService.checkUserLogged();
-   this.authService.checkEmployeeDashboard();
+  this.authService.checkEmployeeDashboard();
 
    
   }

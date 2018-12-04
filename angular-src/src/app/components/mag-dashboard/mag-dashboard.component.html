@@ -55,7 +55,9 @@
 			<!-- The Notification bar container -->
 			<div id="topbar">
 				<div class="col-md-2">Announcements:</div>
-				<div class="col-md-8"><marquee>Here The Announcements will be flashed</marquee></div>
+				<tr *ngFor="let announcement of magdashboard.announcement">
+				
+				<div class="col-md-8"><marquee>{{announcement.announcement}}</marquee></div>
 				<!-- Label to Hide Notification bar -->
 				<!-- <label for="toggleTop" id="hideTop">X</label>-->
 			</div>
@@ -101,6 +103,12 @@
 								<i class="fa fa-calendar-check-o"></i><span>View Events</span>
 							</a>
 						</li>
+
+						<li>
+								<a  [routerLink]="['/mng-editpro']">
+									<i class="fa fa-calendar-check-o"></i><span>Edit Profile</span>
+								</a>
+							</li>
 						<li>
 							<a  [routerLink]="['/mng-holiday']">
 								<i class="fa fa-suitcase" aria-hidden="true"></i><span>View Holidays</span>

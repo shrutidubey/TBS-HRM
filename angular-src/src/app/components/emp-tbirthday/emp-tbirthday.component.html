@@ -1,5 +1,6 @@
-<app-main-dashboard></app-main-dashboard>
+<app-emp-dashboard></app-emp-dashboard>
 <!-- MAIN -->
+
 <div class="main">
 		<!-- MAIN CONTENT -->
 		<div class="main-content">
@@ -12,42 +13,38 @@
 									<div class="row">
 										<div class="col-md-12">
 											<!-- Default form register -->
-											<form class="text-center border border-light p-5" #employeeForm="ngForm" (submit)="onSubmit(employeeForm)">
-												<input type="hidden" name="_id" #_id="ngModel"  [(ngModel)]="employeeService.selectedEmployee._id">
-												<p class="h4 mb-4" id="man-emp">MANAGE EMPLOYEE</p>											
+									<!--		<form class="text-center border border-light p-5" #employeeForm="ngForm" (submit)="onSubmit(employeeForm)">
+												<input type="hidden" name="_id" #_id="ngModel"  [(ngModel)]="employeeService.selectedEmployee._id">										
 												<div class="form-row mb-4">
 													<div class="col">
-														<!-- full name -->
+												
 														<input type="text" id="defaultRegisterFormFirstName" class="form-control" name="name"  [(ngModel)]="name"  placeholder="Enter full name" required>
 													</div>
 													<div class="col">
-														<!-- Email -->
-														<input type="email" id="defaultRegisterFormLastName" class="form-control" name="email" [(ngModel)]="email" placeholder="Eg : johndoe@gmail.com">
+											
+														<input type="text" id="defaultRegisterFormLastName" class="form-control" name="email" [(ngModel)]="email" placeholder="Eg : johndoe@gmail.com">
 													</div>
 												</div>
 												<div class="form-row mb-4">
 													<div class="col">
-														<!-- User name -->
+													
 														<input type="text" id="defaultRegisterFormUName" class="form-control" placeholder="User Name" name="username"  [(ngModel)]="username" placeholder="username">
 													</div>
 													<div class="col">
-														<!-- password -->
+												
 														<input type="password" id="defaultRegisterFormPName" class="form-control" placeholder="Password" name="password"   [(ngModel)]="password"  placeholder="password">
 	
 													</div>
 												</div>
 												
-												<!-- role assign -->
-												<select id="defaultRegisterFormRName" class="form-control mb-4" name="role"   [(ngModel)]="role" data-placeholder="Eg:Admin">
-													<option value="Admin">Admin</option>
-													<option value="Manager">Manager</option>
-													<option value="Employee">Employee</option>
-												</select>
-												<!-- Sign up button -->
+											
+												<input type="text" id="defaultRegisterFormRName" class="form-control mb-4" name="role"   [(ngModel)]="role" placeholder="Eg:Admin">
+												
+											
 												<button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Reset</button>
 												<button class="btn btn-custom right" type="submit" >Submit</button>
 												
-											</form>
+											</form>-->
 										</div>
 										<div class="col s7">
 											<table class="responsive-table highlight">
@@ -55,23 +52,31 @@
 													<tr>
 														<th>Name</th>
 														<th>Email</th>
-														<th>Username</th>
-														<th>Role</th>
-														<th>Action</th>
+                            <th>Username</th>
+                           <!-- <th>Address</th>
+                            <th>Contact No.</th>-->
+                            <th>D.O.B.</th>
+                          <!--  <th>Blood Group</th>
+                            <th>Role</th>-->
+													<!--	<th>Action</th>-->
 													</tr>
 												</thead>
 												<tr *ngFor="let emp of employeeService.employees">
-													<td>{{emp.name}}</td>
+												<td>{{emp.name}}</td>
 													<td>{{emp.email}}</td>
 													<td>{{emp.username}}</td>
-													<td>{{emp.role}}</td>
+                         <!-- <td>{{emp.address}}</td>
+                          <td>{{emp.contactno}}</td>-->
+                          <td>{{emp.dob}}</td>
+                         <!-- <td>{{emp.bloodgrp}}</td>
+                          <td>{{emp.role}}</td>-->
 													<td>
-													<a class="action-btn" (click)="onEdit(emp)">
+												<!--	<a class="action-btn" (click)="onEdit(emp)">
 													<b class="material-icons" style="    font-weight: normal;"><i class="fa fa-edit"></i>Edit</b>
 													</a>
 													<a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
 													<b class="material-icons-d" style="    font-weight: normal;"><i class="fa fa-trash-o"></i>Delete</b>
-													</a>
+													</a>-->
 													</td>
 												</tr>
 											</table>

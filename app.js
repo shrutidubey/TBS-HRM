@@ -19,10 +19,12 @@ const config1 = require('./config/database1');
 const config2 = require('./config/leavedatabase');
 const config3 = require('./config/holidaydatabase');
 const config4 = require('./config/mongouploads')
+const config5 = require('./config/announcement');
 const routes = require('./models/user.js');
 const routes1 = require('./models/event.js');
 const routes2 = require('./models/leave.js');
 const routes3 = require('./models/holiday');
+const routes4 = require('./models/announcement');
 //const crypto = require('crypto');
 //var Schema = mongoose.Schema;
 
@@ -86,6 +88,14 @@ mongoose.connection.on('error', (err) => {
     console.log(' database error' + config4.mongouploads)
 });
 
+mongoose.connection.on('connected', () => {
+    console.log('connected to database' + config5.announcement)
+});
+
+mongoose.connection.on('error', (err) => {
+    console.log(' database error' + config5.announcement)
+});
+
 
 const app = express();
 
@@ -106,6 +116,7 @@ const getbirthday = require('./routes/getbirthday');
 const uploadlogo = require('./routes/uploadlogo');
 const gettbirthday = require('./routes/gettbirthday');
 const getuserandleave = require('./routes/getuserandleave');
+const announcement = require('./routes/announcement')
 const port = 9008;
 
 //app.use(cors({ origin: 'http://localhost:4200' }));
@@ -146,6 +157,7 @@ app.use('/getbirthday',getbirthday)
 app.use('/uploadlogo',uploadlogo)
 app.use('/gettbirthday',gettbirthday)
 app.use('/getuserandleave',getuserandleave)
+app.use('/announcement',announcement);
 app.use(favicon());
 app.use(logger('dev'));
 app.use(cookieParser());

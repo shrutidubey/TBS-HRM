@@ -16,6 +16,7 @@ export class AdminleaveService {
   readonly baseURF = 'http://localhost:9008/leaves2/pendingleaves'
   readonly baseURT = 'http://localhost:9008/getusernames'
   readonly baseURB = 'http://localhost:9008/getuserandleave'
+  readonly baseURY = 'http://localhost:9008/reject'
   constructor(private http: HttpClient) { }
 
   postAdminleave(adminleave: Adminleave) {
@@ -26,10 +27,14 @@ export class AdminleaveService {
   getAdminleaveList() {
     return this.http.get(this.baseURL);
   }
-getAllUsernames(){
-return this.http.get(this.baseURT);
-}
-
+  getAllUsernames(){
+  return this.http.get(this.baseURT);
+  }
+    
+  reject(adminleave: Adminleave){
+    console.log("inside reject decline")
+    return this.http.put(this.baseURY,adminleave);
+  }
 
   deleteAdminleaveList(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);

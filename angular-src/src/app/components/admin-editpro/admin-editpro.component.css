@@ -1,0 +1,71 @@
+.col-lg-12.col-lg-offset-1 {
+    top: 100px;
+}
+
+.material-icons {
+    padding: 4px 10px 5px 10px;
+    border-radius: 2px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-color: #518c51;
+    font-weight: inherit;
+}
+
+.material-icons-d {
+    padding: 4px 10px 5px 10px;
+    border-radius: 2px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-color: #518c51;
+    font-weight: inherit;
+}
+.material-icons-d {
+    padding: 4px 10px 5px 10px;
+    border-radius: 2px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-color: #b93524;
+}
+
+button.btn.btn-custom.right {
+    margin: 5px;
+    width: 120px;
+    margin: 5px;
+    color: #fff;
+    font-size: initial;
+    background-image: linear-gradient(to right, #eb8024, #eb8024, #eb8024, #eb8024);
+}
+
+td {
+    width: 15%;
+    height: 60px;
+    text-align: center;
+}
+
+td {
+    width: 15%;
+    height: 60px;
+    text-align: center;
+}
+
+th {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+thead tr th {
+    height: 45px;
+    color: #292929;
+    text-transform: uppercase;
+}

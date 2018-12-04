@@ -15,7 +15,11 @@ import { Leave } from '../../shared/leave.model';
 })
 export class PendingleavesComponent implements OnInit {
 
-  
+  name:String;
+  email:String;
+  fromdate:String;
+  todate:String;
+  leavereason:String;
   constructor(private adminleaveService: AdminleaveService,
     private authService:AuthService,
   private flashMessage:FlashMessagesService,
@@ -115,12 +119,14 @@ console.log("abc"+abc)
 
   onAccept(adminleave: Adminleave) {
     this.adminleaveService.selectedAdminleave = adminleave;
-
     console.log("leave accepted");
-    this.refreshAdminleaveList();
-
+    
   }
 
+  onDecline(adminleave: Adminleave){
+    this.adminleaveService.reject(adminleave);
+    console.log("inside decline");
+  }
 
   onReject(_id: string, form: NgForm) {
     if (confirm('Are you sure to delete this record?') == true) {

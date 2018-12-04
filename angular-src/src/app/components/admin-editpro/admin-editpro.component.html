@@ -1,0 +1,96 @@
+<app-main-dashboard></app-main-dashboard>
+  <div class="col-lg-12 col-lg-offset-1">
+    <form class="text-center border border-light p-5" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">	
+      <p class="h4 mb-4">Edit Your Profile</p>
+      <div class="col-md-12">
+        <div class="col-md-2">
+          <img style=" width: 65%; border-radius: 25%;" src="https://techbrise.com/wp-content/uploads/2018/11/DSC_0010-e1542180911186.jpg" >
+        </div>
+        <div class="col-md-10">
+          <div class="form-row mb-4">
+            <div class="col">
+              <!-- full name -->
+              <input type="text" id="defaultRegisterFormFirstName" class="form-control" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Edit Name">
+            </div>
+            <div class="col">
+              <!-- Email -->
+              <input type="email" id="defaultRegisterFormEmail" class="form-control" name="email" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.email" placeholder="Edit Email">
+            </div>
+          </div>
+          <div class="form-row mb-4">
+            <div class="col">
+              <!-- Address -->
+              <input type="text" id="defaultRegisterFormaddress" class="form-control" name="address" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.address" placeholder="Adress">
+            </div>
+            <div class="col">
+              <!-- Contact Number -->
+              <input type="text" name="contactno" id="defaultRegisterFormnumber" class="form-control" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.contactno" placeholder="Phone">
+            </div>
+          </div>
+          <div class="form-row mb-4">
+            <div class="col">
+              <!-- DOB -->
+              <input type="date" data-placeholder="Date of birth" name="dob" id="defaultRegisterFormdob" class="form-control" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.dob" placeholder="DOB">
+            </div>
+            <div class="col">
+              <!-- Blood Group -->
+              <input type="text" id="defaultRegisterFormbg" class="form-control" name="bloodgrp" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.bloodgrp" placeholder="Blood Group">
+            </div>
+          </div>
+          <div class="form-row mb-4">
+            <div class="col">
+              <!-- Username -->
+              <input type="hidden" id="defaultRegisterFormdob" class="form-control" name="username" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.username" placeholder="Username">
+            </div>
+            <div class="col">
+              <!-- Password -->
+              <input type="hidden" id="defaultRegisterFormpd" class="form-control" name="password" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.password" placeholder="Password">
+            </div>
+            <div class="col">
+              <!-- role -->
+              <input type="hidden" id="defaultRegisterFormro" class="form-control" name="role" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.role" placeholder="Role">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sign up button -->
+        <button class="btn btn-custom right" type="button" (click)="resetForm(leaveForm)">Reset</button>
+        <button class="btn btn-custom right" type="submit"  >Apply </button>
+      </div>          
+    </form>  
+    <div class="col-md-12">
+      <table class="responsive-table highlight">
+        <thead>
+          <tr>
+            <th> Name</th>
+            <th>Email</th>
+            <!--<th>Username</th>-->
+            <th>Address</th>
+            <th>Contact No.</th>
+            <th>D.O.B</th>
+            <th>Blood Group</th>
+            <!--  <th>Accepted Leaves</th>-->
+            <th></th>
+          </tr>
+        </thead>
+        <tr *ngFor="let emp of employeeService.employees">
+          <td>{{emp.name}}</td>
+          <td>{{emp.email}}</td>
+          <!--<td>{{emp.username}}</td>-->
+          <td>  {{emp.address}} </td>
+          <td>{{emp.contactno}}</td>
+          <td>{{emp.dob}}</td>
+          <td>{{emp.bloodgrp}}</td>
+          <td>
+            <a class="action-btn" (click)="onEdit(emp)">
+              <i class="material-icons">edit</i>
+            </a>
+            <a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
+        </tr>
+      </table>
+    </div>  
+  </div>       

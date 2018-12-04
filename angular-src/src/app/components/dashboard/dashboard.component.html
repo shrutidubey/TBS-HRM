@@ -13,6 +13,15 @@
                     <h3 class="name">Edit Profile</h3>
                     
                     </div>
+                  <!--  <div id="topbar">
+                        <div class="col-md-2">Announcements:</div>
+                        <tr *ngFor="let announcement of announcementService.announcement">
+                            <td>{{announcement.announcement}}</td>
+                            </tr>-->
+                        <!--<div class="col-md-8"><marquee>Here The Announcements will be flashed</marquee></div>-->
+                        <!-- Label to Hide Notification bar -->
+                        <!-- <label for="toggleTop" id="hideTop">X</label>-->
+                  <!--  </div>-->
                     <ul class="social">
                     <a  [routerLink]="['/editprofile']">
                         <li><button type="button" class="btn btn-succes">View All</button></li>
@@ -136,7 +145,7 @@
                             <h3 class="name">Birthday Today</h3>
                         </div>
                         <ul class="social">
-                            <a  [routerLink]="['/tbirthday']">
+                            <a  [routerLink]="['/emp-tbirthday']">
                                 <li><button type="button" class="btn btn-succes">View All</button></li>
                             </a>
                         </ul>
