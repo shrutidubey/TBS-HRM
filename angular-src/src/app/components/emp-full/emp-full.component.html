@@ -9,24 +9,21 @@
                 <tr>
                   <th>Employee Name</th>
                   <th>Employee Email</th>
-                  <th>From Date</th>
-                  <th>To Date</th>
-                  <th>Leave Reason</th>
-                  <th>Leave Count</th>
-                  <th>Status</th>
+                  <th>Usernam</th>
+                  <th>Role</th>
+                  
                   <th>
 
                   </th>
                 </tr>
               </thead>
-              <tr *ngFor="let adminleave of adminleaveService.adminleaves">
-                <td>{{adminleave.empname}}</td>
-                <td>{{adminleave.leavetype}}</td>
-                <td>{{adminleave.fromdate}}</td>
-                <td>{{adminleave.todate}}</td>
-                <td>{{adminleave.leavereason}}</td>
-                <td>{{adminleave.leavecount}}</td>
-                <td>{{adminleave.status}}</td>
+              <tr *ngFor="let emp of employeeService.employees">
+                <td>{{emp.name}}</td>
+                <td>{{emp.email}}</td>
+                <td>{{emp.username}}</td>
+                <td>{{emp.role}}</td>
+                <td>
+                
 
                 <td>
                 </td>

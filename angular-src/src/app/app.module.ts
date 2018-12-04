@@ -62,6 +62,9 @@ import { AdminEditproComponent } from './components/admin-editpro/admin-editpro.
 import { EmpTbirthdayComponent } from './components/emp-tbirthday/emp-tbirthday.component';
 import { AnnouncementComponent } from './components/announcement/announcement.component';
 import { Announcement } from './shared/announcement.model';
+//import { EmpDetailsComponent } from './components/emp-details/emp-details.component';
+import { EmpFullComponent } from './components/emp-full/emp-full.component';
+import { NempdetailsComponent } from './components/nempdetails/nempdetails.component';
 
 //import {  ReactiveFormsModule } from '@angular/forms';
 const appRoutes:Routes = [
@@ -166,9 +169,7 @@ const appRoutes:Routes = [
   {
     path:'emp-leavereport',component:EmpLeavereportComponent
   },
-  {
-    path:'emp-details',component:EmpdetailsComponent
-  },
+  
 {
   path:'birthday',component:BirthdayComponent
 },
@@ -181,6 +182,9 @@ const appRoutes:Routes = [
 
   {
     path:'adm-leave',component:AdmLeaveComponent
+  },
+  {
+    path:'emp-details',component:EmpdetailsComponent
   },
   {
     path:'mng-editpro',component:MngEditproComponent
@@ -205,6 +209,12 @@ const appRoutes:Routes = [
   },
   {
     path:'announcement',component:AnnouncementComponent
+  },
+  {
+    path:'nempdetails',component:NempdetailsComponent
+  },
+  {
+    path:'emp-full',component:EmpFullComponent
   }
  
 ]
@@ -263,6 +273,9 @@ const appRoutes:Routes = [
     AdminEditproComponent,
     EmpTbirthdayComponent,
     AnnouncementComponent,
+    //EmpDetailsComponent,
+    EmpFullComponent,
+    NempdetailsComponent
    // ReactiveFormsModule
     //FileUploadModule
   
